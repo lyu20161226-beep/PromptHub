@@ -1,6 +1,7 @@
 import promptData from "@/data/prompts.json";
 import { contentPrompts } from "@/data/content-prompts";
 import { expandedPrompts } from "@/data/expanded-prompts";
+import { topWorkflowDefinitions } from "@/data/top-workflows";
 
 export type PromptPlatform = "midjourney" | "jimeng" | "chatgpt";
 export type PromptCategory = "写作" | "编程" | "营销" | "绘图" | "学习" | "办公";
@@ -20,7 +21,26 @@ export type MockPrompt = {
   exampleInput: string;
   exampleOutput: string;
   tips: string[];
+  workflow?: WorkflowDetails;
 };
+
+export type WorkflowDetails = {
+  tier: "S" | "A";
+  problem: string;
+  solution: string;
+  steps: readonly string[];
+  caseTitle: string;
+  caseInput: string;
+  caseOutput: string;
+  commonErrors: readonly string[];
+  optimizationTips: readonly string[];
+  models: readonly string[];
+  params: readonly string[];
+};
+
+const workflowByPromptId = new Map<string, WorkflowDetails>(
+  topWorkflowDefinitions.map(({ promptId, ...workflow }) => [promptId, workflow as WorkflowDetails])
+);
 
 function inferCategory(prompt: (typeof promptData)[number]): PromptCategory {
   const text = [prompt.title, prompt.description, prompt.useCase, ...prompt.tags].join(" ");
@@ -48,7 +68,8 @@ function enrichPrompt(prompt: BasePrompt): MockPrompt {
       "先替换提示词中的方括号变量，再发送给模型。",
       "第一轮结果用于确定方向，第二轮补充真实信息并要求精修。",
       "公开使用前核对事实、数字、版权和平台规则。"
-    ]
+    ],
+    workflow: workflowByPromptId.get(prompt.id)
   };
 }
 
@@ -73,6 +94,8 @@ export const mockPrompts = combinedPrompts.map((prompt) => {
   usedSlugs.add(slug);
   return { ...prompt, slug };
 });
+
+export const topWorkflowPrompts = mockPrompts.filter((prompt) => Boolean(prompt.workflow));
 
 export function getPromptsByPlatform(platform: PromptPlatform) {
   return mockPrompts.filter((prompt) => prompt.platform === platform);

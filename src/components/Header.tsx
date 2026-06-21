@@ -11,9 +11,9 @@ export function Header() {
           </span>
           <span className="text-xl">PromptHub</span>
         </Link>
-        <nav className="flex items-center gap-1 overflow-x-auto text-sm font-medium text-zinc-600" aria-label="主导航">
-          <Link className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/#prompt-library">
-            提示词库
+        <nav className="scrollbar-hidden flex items-center gap-1 overflow-x-auto text-sm font-medium text-zinc-600" aria-label="主导航">
+          <Link className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/workflows">
+            精选工作流
           </Link>
           <Link className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/midjourney">
             Midjourney

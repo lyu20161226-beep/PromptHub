@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { mockPrompts } from "@/lib/mock-prompts";
+import { topWorkflowPrompts } from "@/lib/mock-prompts";
 import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1
     },
-    ...["midjourney", "jimeng", "chatgpt"].map((platform) => ({
+    ...["workflows", "midjourney", "jimeng", "chatgpt"].map((platform) => ({
       url: `${siteUrl}/${platform}`,
       lastModified,
       changeFrequency: "weekly" as const,
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   ];
 
-  const promptPages: MetadataRoute.Sitemap = mockPrompts.map((prompt) => ({
+  const promptPages: MetadataRoute.Sitemap = topWorkflowPrompts.map((prompt) => ({
     url: `${siteUrl}/prompts/${prompt.slug}`,
     lastModified,
     changeFrequency: "monthly",

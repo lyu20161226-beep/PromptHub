@@ -29,3 +29,11 @@ body {
 a {
   text-decoration: none;
 }
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
