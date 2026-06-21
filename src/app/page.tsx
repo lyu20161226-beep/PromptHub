@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, BriefcaseBusiness, Code2, Search, Sparkles, Zap } from "lucide-react";
+import { PackCard } from "@/components/PackCard";
 import { WorkflowCard } from "@/components/WorkflowCard";
+import { workflowPacks } from "@/data/workflow-packs";
 import { topWorkflowPrompts } from "@/lib/mock-prompts";
 
 const byId = (id: string) => topWorkflowPrompts.find((prompt) => prompt.id === id)!;
@@ -61,6 +63,16 @@ export default function HomePage() {
           <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {sTier.map((prompt) => <WorkflowCard key={prompt.id} prompt={prompt} />)}
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-200 bg-white py-12 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl"><p className="text-sm font-semibold text-emerald-700">按场景成套使用</p><h2 className="mt-2 text-3xl font-bold text-zinc-950">Prompt 只是起点，完整交付才有价值</h2><p className="mt-3 text-sm leading-7 text-zinc-600">每个包包含工作流、实测案例、使用说明、错误清单和输出模板。当前免费预览，后续计划采用一次性购买。</p></div>
+            <Link className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700" href="/packs">查看全部工作流包 <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">{workflowPacks.map((pack) => <PackCard compact key={pack.slug} pack={pack} />)}</div>
         </div>
       </section>
 

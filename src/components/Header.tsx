@@ -15,6 +15,9 @@ export function Header() {
           <Link className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/workflows">
             精选工作流
           </Link>
+          <Link className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/packs">
+            工作流包
+          </Link>
           <Link className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/midjourney">
             Midjourney
           </Link>

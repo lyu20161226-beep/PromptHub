@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1
     },
-    ...["workflows", "midjourney", "jimeng", "chatgpt"].map((platform) => ({
+    ...["workflows", "packs", "midjourney", "jimeng", "chatgpt"].map((platform) => ({
       url: `${siteUrl}/${platform}`,
       lastModified,
       changeFrequency: "weekly" as const,

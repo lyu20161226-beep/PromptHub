@@ -7,6 +7,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { WorkflowCard } from "@/components/WorkflowCard";
 import { WorkflowFeedback } from "@/components/WorkflowFeedback";
 import { WorkflowViewTracker } from "@/components/WorkflowViewTracker";
+import { getPackForWorkflow } from "@/data/workflow-packs";
 import { getPromptBySlug, mockPrompts, topWorkflowPrompts } from "@/lib/mock-prompts";
 
 type PromptPageProps = { params: Promise<{ id: string }> };
@@ -42,6 +43,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
   if (!prompt) notFound();
 
   const workflow = prompt.workflow;
+  const pack = workflow ? getPackForWorkflow(prompt.id) : undefined;
   const relatedPrompts = workflow
     ? topWorkflowPrompts.filter((item) => item.id !== prompt.id).slice(0, 3)
     : mockPrompts.filter((item) => item.id !== prompt.id && item.category === prompt.category).slice(0, 3);
@@ -67,6 +69,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
               </div>
               <h1 className="mt-5 text-3xl font-bold leading-tight text-zinc-950 sm:text-4xl">{prompt.title}</h1>
               <p className="mt-4 max-w-3xl text-base leading-8 text-zinc-600">{prompt.description}</p>
+              {pack && <p className="mt-4 text-sm text-zinc-500">收录于 <Link className="font-semibold text-emerald-700 hover:text-emerald-900" href={`/packs#${pack.slug}`}>{pack.shortTitle}</Link> · 包含案例、错误清单与输出模板</p>}
             </header>
 
             <div className="p-6 sm:p-8">
