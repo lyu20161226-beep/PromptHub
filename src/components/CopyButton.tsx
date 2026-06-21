@@ -2,13 +2,15 @@
 
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
+import { recordValidationEvent } from "@/lib/validation-events";
 
-export function CopyButton({ text }: { text: string }) {
+export function CopyButton({ text, workflowId, location = "detail" }: { text: string; workflowId?: string; location?: string }) {
   const [copied, setCopied] = useState(false);
 
   async function handleCopy() {
     try {
       await navigator.clipboard.writeText(text);
+      if (workflowId) void recordValidationEvent("workflow_copy", { workflowId, location });
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1800);
     } catch {

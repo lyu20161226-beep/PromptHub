@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
+import { ValidationSurvey } from "@/components/ValidationSurvey";
 import { siteDescription, siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Header />
         {children}
+        <ValidationSurvey />
       </body>
     </html>
   );

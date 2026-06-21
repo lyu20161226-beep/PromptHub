@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, Layers3 } from "lucide-react";
 import type { MockPrompt } from "@/lib/mock-prompts";
+import { recordValidationEvent } from "@/lib/validation-events";
 
 export function WorkflowCard({ prompt, compact = false }: { prompt: MockPrompt; compact?: boolean }) {
   const workflow = prompt.workflow;
@@ -24,7 +27,7 @@ export function WorkflowCard({ prompt, compact = false }: { prompt: MockPrompt; 
           ))}
         </div>
       )}
-      <Link className="mt-5 inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-zinc-950 px-4 text-sm font-semibold text-white transition hover:bg-emerald-700" href={`/prompts/${prompt.slug}`}>
+      <Link className="mt-5 inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-zinc-950 px-4 text-sm font-semibold text-white transition hover:bg-emerald-700" href={`/prompts/${prompt.slug}`} onClick={() => void recordValidationEvent("workflow_click", { workflowId: prompt.id, source: window.location.pathname })}>
         查看完整工作流
         <ArrowRight className="h-4 w-4" aria-hidden="true" />
       </Link>

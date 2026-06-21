@@ -5,6 +5,8 @@ import { AlertTriangle, ArrowLeft, ArrowRight, BadgeCheck, ChevronRight, CircleC
 import { CopyButton } from "@/components/CopyButton";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { WorkflowCard } from "@/components/WorkflowCard";
+import { WorkflowFeedback } from "@/components/WorkflowFeedback";
+import { WorkflowViewTracker } from "@/components/WorkflowViewTracker";
 import { getPromptBySlug, mockPrompts, topWorkflowPrompts } from "@/lib/mock-prompts";
 
 type PromptPageProps = { params: Promise<{ id: string }> };
@@ -46,6 +48,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
 
   return (
     <main className="min-h-screen bg-zinc-50">
+      {workflow && <WorkflowViewTracker workflowId={prompt.id} />}
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <nav className="flex flex-wrap items-center gap-2 text-sm text-zinc-500" aria-label="面包屑导航">
           <Link className="hover:text-emerald-700" href="/">首页</Link>
@@ -89,10 +92,10 @@ export default async function PromptPage({ params }: PromptPageProps) {
               <section className="mt-9 border-t border-zinc-200 pt-8">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div><div className="flex items-center gap-2"><Copy className="h-5 w-5 text-emerald-700" aria-hidden="true" /><h2 className="text-xl font-bold text-zinc-950">可复制 Prompt</h2></div><p className="mt-2 text-sm text-zinc-500">替换方括号中的变量，再粘贴到推荐模型。</p></div>
-                  <div className="w-full sm:w-44"><CopyButton text={prompt.content} /></div>
+                  <div className="w-full sm:w-44"><CopyButton location="prompt-header" text={prompt.content} workflowId={workflow ? prompt.id : undefined} /></div>
                 </div>
                 <div className="mt-5 overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950"><div className="flex items-center justify-between border-b border-white/10 px-5 py-3"><span className="text-xs font-semibold uppercase text-emerald-300">Prompt</span><span className="text-xs text-zinc-500">{prompt.id}</span></div><pre className="max-h-[34rem] overflow-auto whitespace-pre-wrap break-words p-5 font-mono text-sm leading-7 text-zinc-100 sm:p-6">{prompt.content}</pre></div>
-                <div className="mt-4 max-w-48"><CopyButton text={prompt.content} /></div>
+                <div className="mt-4 max-w-48"><CopyButton location="prompt-footer" text={prompt.content} workflowId={workflow ? prompt.id : undefined} /></div>
               </section>
 
               {workflow ? (
@@ -106,6 +109,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
                     <section><div className="flex items-center gap-2 text-rose-700"><XCircle className="h-5 w-5" aria-hidden="true" /><h2 className="text-xl font-bold">常见错误</h2></div><ul className="mt-4 space-y-3">{workflow.commonErrors.map((error) => <li className="flex gap-3 text-sm leading-7 text-zinc-700" key={error}><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500" />{error}</li>)}</ul></section>
                     <section><div className="flex items-center gap-2 text-amber-700"><Lightbulb className="h-5 w-5" aria-hidden="true" /><h2 className="text-xl font-bold">优化技巧</h2></div><ul className="mt-4 space-y-3">{workflow.optimizationTips.map((tip) => <li className="flex gap-3 text-sm leading-7 text-zinc-700" key={tip}><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />{tip}</li>)}</ul></section>
                   </div>
+                  <WorkflowFeedback workflowId={prompt.id} />
                 </>
               ) : (
                 <div className="mt-8 grid gap-5 sm:grid-cols-2"><section className="rounded-lg border border-zinc-200 bg-zinc-50 p-5"><h2 className="font-bold">示例输入</h2><p className="mt-3 text-sm leading-7">{prompt.exampleInput}</p></section><section className="rounded-lg border border-zinc-200 bg-zinc-50 p-5"><h2 className="font-bold">示例输出</h2><p className="mt-3 text-sm leading-7">{prompt.exampleOutput}</p></section></div>
@@ -115,7 +119,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
 
           <aside className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm lg:sticky lg:top-24">
             <div className="flex items-center gap-2 text-emerald-700"><Sparkles className="h-4 w-4" aria-hidden="true" /><p className="text-sm font-semibold">推荐配置</p></div>
-            <div className="mt-5 grid gap-2"><CopyButton text={prompt.content} /><FavoriteButton slug={prompt.slug} /></div>
+            <div className="mt-5 grid gap-2"><CopyButton location="sidebar" text={prompt.content} workflowId={workflow ? prompt.id : undefined} /><FavoriteButton slug={prompt.slug} /></div>
             <dl className="mt-6 space-y-4 border-t border-zinc-100 pt-5 text-sm"><div><dt className="text-zinc-400">推荐模型</dt><dd className="mt-2 flex flex-wrap gap-2">{(workflow?.models ?? prompt.models).map((model) => <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-semibold text-zinc-700" key={model}>{model}</span>)}</dd></div>{workflow && <div><dt className="text-zinc-400">推荐参数</dt><dd className="mt-2 space-y-2">{workflow.params.map((param) => <p className="leading-6 text-zinc-700" key={param}>{param}</p>)}</dd></div>}</dl>
             <Link className="mt-6 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-md border border-zinc-300 px-4 text-sm font-semibold text-zinc-700 hover:border-emerald-500 hover:text-emerald-700" href={workflow ? "/workflows" : "/search"}><ArrowLeft className="h-4 w-4" aria-hidden="true" />返回{workflow ? "工作流合集" : "搜索"}</Link>
           </aside>

@@ -37,3 +37,7 @@ a {
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
+}

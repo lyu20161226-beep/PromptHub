@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { ArrowRight, Search, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import type { MockPrompt } from "@/lib/mock-prompts";
+import { recordValidationEvent } from "@/lib/validation-events";
 
 type SearchPageClientProps = {
   initialQuery: string;
@@ -13,6 +14,19 @@ type SearchPageClientProps = {
 
 export function SearchPageClient({ initialQuery, prompts }: SearchPageClientProps) {
   const [query, setQuery] = useState(initialQuery);
+  const lastTrackedQuery = useRef("");
+
+  useEffect(() => {
+    const normalized = query.trim();
+    if (normalized.length < 2 || normalized === lastTrackedQuery.current) return;
+
+    const timeout = window.setTimeout(() => {
+      lastTrackedQuery.current = normalized;
+      void recordValidationEvent("search", { query: normalized });
+    }, 700);
+
+    return () => window.clearTimeout(timeout);
+  }, [query]);
 
   const results = useMemo(() => {
     const keyword = query.trim().toLowerCase();
@@ -86,7 +100,7 @@ export function SearchPageClient({ initialQuery, prompts }: SearchPageClientProp
                 className="group relative flex min-h-72 flex-col rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-emerald-400 hover:shadow-md"
                 key={prompt.id}
               >
-                <Link aria-label={`查看${prompt.title}详情`} className="absolute inset-0 rounded-lg" href={`/prompts/${prompt.slug}`} />
+                <Link aria-label={`查看${prompt.title}详情`} className="absolute inset-0 rounded-lg" href={`/prompts/${prompt.slug}`} onClick={() => prompt.workflow && void recordValidationEvent("workflow_click", { workflowId: prompt.id, source: "/search" })} />
                 <div className="pointer-events-none relative">
                   <span className="inline-flex rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-800">
                     {prompt.platformName}
