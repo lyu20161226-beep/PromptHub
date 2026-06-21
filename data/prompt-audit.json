@@ -1,0 +1,7515 @@
+{
+  "generatedAt": "2026-06-21T07:48:27.176Z",
+  "methodology": {
+    "practicality": 40,
+    "professionalism": 20,
+    "reusability": 20,
+    "resultQuality": 20,
+    "note": "相似度惩罚从总分扣除；缺少真实完整案例不会获得案例分。"
+  },
+  "summary": {
+    "total": 300,
+    "grades": {
+      "A": 0,
+      "B": 0,
+      "C": 5,
+      "D": 295
+    },
+    "concreteExamples": 0,
+    "similarityOver80": 255,
+    "featured": 0,
+    "premium": 0,
+    "recommended": 5,
+    "hidden": 295,
+    "reviewQueueTop20": 20
+  },
+  "prompts": [
+    {
+      "id": "chatgpt-003",
+      "slug": "seo-content-brief",
+      "title": "SEO 内容策划大纲",
+      "category": "营销",
+      "source": "原创基础库",
+      "score": 75,
+      "grade": "C",
+      "dimensions": {
+        "practicality": 32,
+        "professionalism": 16,
+        "reusability": 16,
+        "resultQuality": 11,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.08,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 1,
+      "collection": "recommended",
+      "status": "review-candidate"
+    },
+    {
+      "id": "chatgpt-010",
+      "slug": "meeting-decision-summary",
+      "title": "会议纪要与行动项",
+      "category": "办公",
+      "source": "原创基础库",
+      "score": 75,
+      "grade": "C",
+      "dimensions": {
+        "practicality": 32,
+        "professionalism": 16,
+        "reusability": 16,
+        "resultQuality": 11,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.289,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 2,
+      "collection": "recommended",
+      "status": "review-candidate"
+    },
+    {
+      "id": "chatgpt-007",
+      "slug": "weekly-report-refiner",
+      "title": "结果导向周报整理",
+      "category": "办公",
+      "source": "原创基础库",
+      "score": 75,
+      "grade": "C",
+      "dimensions": {
+        "practicality": 32,
+        "professionalism": 16,
+        "reusability": 16,
+        "resultQuality": 11,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.138,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 3,
+      "collection": "recommended",
+      "status": "review-candidate"
+    },
+    {
+      "id": "writing-001",
+      "slug": "xiaohongshu-product-note",
+      "title": "小红书产品种草笔记",
+      "category": "写作",
+      "source": "人工结构库",
+      "score": 74,
+      "grade": "C",
+      "dimensions": {
+        "practicality": 32,
+        "professionalism": 16,
+        "reusability": 20,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.203,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 4,
+      "collection": "recommended",
+      "status": "review-candidate"
+    },
+    {
+      "id": "chatgpt-001",
+      "slug": "xiaohongshu-product-note",
+      "title": "小红书产品种草文案",
+      "category": "营销",
+      "source": "原创基础库",
+      "score": 70,
+      "grade": "C",
+      "dimensions": {
+        "practicality": 32,
+        "professionalism": 16,
+        "reusability": 16,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.203,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 5,
+      "collection": "recommended",
+      "status": "review-candidate"
+    },
+    {
+      "id": "marketing-001",
+      "slug": "campaign-plan",
+      "title": "整合营销活动方案",
+      "category": "营销",
+      "source": "人工结构库",
+      "score": 67,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 32,
+        "professionalism": 4,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.086,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 6,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "marketing-005",
+      "slug": "ad-creative-variants",
+      "title": "广告创意多角度测试",
+      "category": "营销",
+      "source": "人工结构库",
+      "score": 66,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 5,
+        "reusability": 20,
+        "resultQuality": 15,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.09,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 7,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "coding-002",
+      "slug": "debug-root-cause",
+      "title": "程序报错根因分析",
+      "category": "编程",
+      "source": "人工结构库",
+      "score": 65,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 24,
+        "professionalism": 16,
+        "reusability": 20,
+        "resultQuality": 5,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.064,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 8,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "chatgpt-009",
+      "slug": "resume-achievement-rewrite",
+      "title": "简历成果量化改写",
+      "category": "写作",
+      "source": "原创基础库",
+      "score": 65,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 32,
+        "professionalism": 11,
+        "reusability": 16,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.097,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 9,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "writing-005",
+      "slug": "editing-and-polish",
+      "title": "中文文章专业润色",
+      "category": "写作",
+      "source": "人工结构库",
+      "score": 64,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 16,
+        "reusability": 16,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.056,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 10,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "marketing-002",
+      "slug": "landing-page-copy",
+      "title": "高转化落地页文案",
+      "category": "营销",
+      "source": "人工结构库",
+      "score": 63,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 32,
+        "professionalism": 5,
+        "reusability": 20,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.094,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 11,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "writing-004",
+      "slug": "brand-story",
+      "title": "品牌故事叙事稿",
+      "category": "写作",
+      "source": "人工结构库",
+      "score": 63,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 11,
+        "reusability": 20,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.094,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 12,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "chatgpt-005",
+      "slug": "competitor-analysis",
+      "title": "竞品分析框架",
+      "category": "营销",
+      "source": "原创基础库",
+      "score": 60,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 11,
+        "reusability": 16,
+        "resultQuality": 15,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.146,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 13,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "office-004",
+      "slug": "presentation-outline",
+      "title": "汇报型 PPT 大纲",
+      "category": "办公",
+      "source": "人工结构库",
+      "score": 59,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 7,
+        "reusability": 20,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.07,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 14,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "coding-004",
+      "slug": "unit-test-generator",
+      "title": "单元测试用例生成",
+      "category": "编程",
+      "source": "人工结构库",
+      "score": 58,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 5,
+        "reusability": 16,
+        "resultQuality": 11,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.055,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 15,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "chatgpt-004",
+      "slug": "customer-service-reply",
+      "title": "高情商客服回复",
+      "category": "营销",
+      "source": "原创基础库",
+      "score": 58,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 32,
+        "professionalism": 4,
+        "reusability": 16,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.061,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 16,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "chatgpt-002",
+      "slug": "short-video-script",
+      "title": "短视频口播脚本",
+      "category": "学习",
+      "source": "原创基础库",
+      "score": 58,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 32,
+        "professionalism": 4,
+        "reusability": 16,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.148,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 17,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "coding-005",
+      "slug": "refactor-plan",
+      "title": "遗留代码重构计划",
+      "category": "编程",
+      "source": "人工结构库",
+      "score": 57,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 12,
+        "reusability": 16,
+        "resultQuality": 11,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.069,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 18,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "learning-005",
+      "slug": "exam-review",
+      "title": "考试错题复盘",
+      "category": "学习",
+      "source": "人工结构库",
+      "score": 56,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 5,
+        "reusability": 20,
+        "resultQuality": 5,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.058,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 19,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "office-002",
+      "slug": "weekly-report",
+      "title": "高信息密度周报",
+      "category": "办公",
+      "source": "人工结构库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 7,
+        "reusability": 16,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.138,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 20,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "coding-001",
+      "slug": "code-review-checklist",
+      "title": "代码审查与风险清单",
+      "category": "编程",
+      "source": "人工结构库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 9,
+        "reusability": 16,
+        "resultQuality": 11,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.066,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 21,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "office-005",
+      "slug": "decision-memo",
+      "title": "决策备忘录",
+      "category": "办公",
+      "source": "人工结构库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 5,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.061,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 22,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "chatgpt-008",
+      "slug": "course-lesson-plan",
+      "title": "互动式课程教案",
+      "category": "学习",
+      "source": "原创基础库",
+      "score": 53,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 24,
+        "professionalism": 4,
+        "reusability": 20,
+        "resultQuality": 5,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.063,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 23,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "marketing-004",
+      "slug": "email-sequence",
+      "title": "用户培育邮件序列",
+      "category": "营销",
+      "source": "人工结构库",
+      "score": 52,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 0,
+        "reusability": 20,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.086,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 24,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "office-003",
+      "slug": "professional-email",
+      "title": "专业商务邮件",
+      "category": "办公",
+      "source": "人工结构库",
+      "score": 52,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 0,
+        "reusability": 20,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.075,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 25,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "learning-001",
+      "slug": "concept-tutor",
+      "title": "复杂概念分层讲解",
+      "category": "学习",
+      "source": "人工结构库",
+      "score": 52,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 9,
+        "reusability": 16,
+        "resultQuality": 9,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.067,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 26,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "writing-003",
+      "slug": "short-video-script",
+      "title": "60秒短视频口播脚本",
+      "category": "写作",
+      "source": "人工结构库",
+      "score": 52,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 12,
+        "reusability": 16,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.148,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 27,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "learning-004",
+      "slug": "language-practice",
+      "title": "场景化外语陪练",
+      "category": "学习",
+      "source": "人工结构库",
+      "score": 51,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 9,
+        "reusability": 20,
+        "resultQuality": 4,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.065,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 28,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "chatgpt-006",
+      "slug": "user-interview-guide",
+      "title": "用户访谈提纲",
+      "category": "营销",
+      "source": "原创基础库",
+      "score": 50,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 24,
+        "professionalism": 4,
+        "reusability": 16,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.067,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 29,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "marketing-003",
+      "slug": "competitor-positioning",
+      "title": "竞品定位分析",
+      "category": "营销",
+      "source": "人工结构库",
+      "score": 49,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 15,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.146,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 30,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "learning-002",
+      "slug": "study-plan",
+      "title": "个性化学习计划",
+      "category": "学习",
+      "source": "人工结构库",
+      "score": 48,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.061,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 31,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "writing-002",
+      "slug": "wechat-deep-article",
+      "title": "微信公众号深度文章",
+      "category": "写作",
+      "source": "人工结构库",
+      "score": 48,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.118,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 32,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "coding-003",
+      "slug": "api-design",
+      "title": "REST API 设计助手",
+      "category": "编程",
+      "source": "人工结构库",
+      "score": 45,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 24,
+        "professionalism": 5,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.056,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 33,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "learning-003",
+      "slug": "paper-reading",
+      "title": "论文深度阅读助手",
+      "category": "学习",
+      "source": "人工结构库",
+      "score": 42,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.065,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 34,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "jimeng-006",
+      "slug": "workplace-story-opening",
+      "title": "职场剧情开场",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 40,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 6,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.098,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 35,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "jimeng-003",
+      "slug": "beauty-serum-commercial",
+      "title": "护肤精华广告",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 38,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 20,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.101,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 36,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "jimeng-010",
+      "slug": "festival-gift-box-reveal",
+      "title": "节日礼盒展示",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 38,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 20,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.096,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 37,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "jimeng-001",
+      "slug": "product-unboxing-video",
+      "title": "产品开箱短视频",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 34,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.12,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 38,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "jimeng-004",
+      "slug": "city-walk-vlog",
+      "title": "城市漫步 Vlog",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 34,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.109,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 39,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "jimeng-008",
+      "slug": "heritage-craft-documentary",
+      "title": "非遗手作纪录片",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 34,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.12,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 40,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "jimeng-009",
+      "slug": "coffee-brand-morning",
+      "title": "咖啡品牌晨间故事",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 34,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.111,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 41,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "jimeng-005",
+      "slug": "food-making-closeup",
+      "title": "美食制作微距",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 34,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.084,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 42,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "jimeng-002",
+      "slug": "new-chinese-tea-scene",
+      "title": "新中式茶生活",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 34,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.098,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 43,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "jimeng-007",
+      "slug": "sportswear-energy-ad",
+      "title": "运动品牌能量广告",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 34,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 18,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 0
+      },
+      "maxSimilarity": 0.089,
+      "hasConcreteExample": false,
+      "issues": [
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 44,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "office-001",
+      "slug": "meeting-minutes",
+      "title": "会议纪要与行动项",
+      "category": "办公",
+      "source": "人工结构库",
+      "score": 33,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 5,
+        "reusability": 16,
+        "resultQuality": 11,
+        "penalty": 25
+      },
+      "maxSimilarity": 0.289,
+      "hasConcreteExample": false,
+      "issues": [
+        "与另一条内容同名，建议合并后隐藏",
+        "缺少经验证的完整案例输出",
+        "工作流深度不足"
+      ],
+      "rank": 45,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-203",
+      "slug": "office-meeting-decision",
+      "title": "会议管理决策分析工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 59,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 15,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.89,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 46,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-201",
+      "slug": "office-meeting-organize",
+      "title": "会议管理信息整理工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 59,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 15,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.89,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 47,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-204",
+      "slug": "office-meeting-follow-up",
+      "title": "会议管理执行跟进工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 59,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 15,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.888,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 48,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-202",
+      "slug": "office-meeting-document",
+      "title": "会议管理专业文稿工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 59,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 15,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.889,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 49,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-098",
+      "slug": "market-local-store-strategy",
+      "title": "本地门店策略规划工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.85,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度85%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 50,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-099",
+      "slug": "market-local-store-creative",
+      "title": "本地门店内容创意工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.85,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度85%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 51,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-100",
+      "slug": "market-local-store-analysis",
+      "title": "本地门店数据复盘工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.851,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度85%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 52,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-097",
+      "slug": "market-local-store-insight",
+      "title": "本地门店用户洞察工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.852,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度85%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 53,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-086",
+      "slug": "market-ecommerce-campaign-strategy",
+      "title": "电商大促策略规划工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.868,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 54,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-087",
+      "slug": "market-ecommerce-campaign-creative",
+      "title": "电商大促内容创意工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 55,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-088",
+      "slug": "market-ecommerce-campaign-analysis",
+      "title": "电商大促数据复盘工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 56,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-085",
+      "slug": "market-ecommerce-campaign-insight",
+      "title": "电商大促用户洞察工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 57,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-118",
+      "slug": "market-competitive-growth-strategy",
+      "title": "竞品突围策略规划工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.863,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 58,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-119",
+      "slug": "market-competitive-growth-creative",
+      "title": "竞品突围内容创意工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.86,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 59,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-120",
+      "slug": "market-competitive-growth-analysis",
+      "title": "竞品突围数据复盘工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.861,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 60,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-117",
+      "slug": "market-competitive-growth-insight",
+      "title": "竞品突围用户洞察工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.862,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 61,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-094",
+      "slug": "market-brand-refresh-strategy",
+      "title": "品牌升级策略规划工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.863,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 62,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-095",
+      "slug": "market-brand-refresh-creative",
+      "title": "品牌升级内容创意工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.862,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 63,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-096",
+      "slug": "market-brand-refresh-analysis",
+      "title": "品牌升级数据复盘工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.863,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 64,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-093",
+      "slug": "market-brand-refresh-insight",
+      "title": "品牌升级用户洞察工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.864,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 65,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-106",
+      "slug": "market-community-growth-strategy",
+      "title": "社区增长策略规划工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.868,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 66,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-107",
+      "slug": "market-community-growth-creative",
+      "title": "社区增长内容创意工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 67,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-108",
+      "slug": "market-community-growth-analysis",
+      "title": "社区增长数据复盘工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 68,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-105",
+      "slug": "market-community-growth-insight",
+      "title": "社区增长用户洞察工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 69,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-090",
+      "slug": "market-private-domain-strategy",
+      "title": "私域运营策略规划工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.862,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 70,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-091",
+      "slug": "market-private-domain-creative",
+      "title": "私域运营内容创意工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.862,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 71,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-092",
+      "slug": "market-private-domain-analysis",
+      "title": "私域运营数据复盘工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.863,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 72,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-089",
+      "slug": "market-private-domain-insight",
+      "title": "私域运营用户洞察工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.864,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 73,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-110",
+      "slug": "market-offline-event-strategy",
+      "title": "线下活动策略规划工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.865,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 74,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-111",
+      "slug": "market-offline-event-creative",
+      "title": "线下活动内容创意工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.862,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 75,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-112",
+      "slug": "market-offline-event-analysis",
+      "title": "线下活动数据复盘工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.863,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 76,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-109",
+      "slug": "market-offline-event-insight",
+      "title": "线下活动用户洞察工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.863,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 77,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-114",
+      "slug": "market-user-retention-strategy",
+      "title": "用户留存策略规划工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 78,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-115",
+      "slug": "market-user-retention-creative",
+      "title": "用户留存内容创意工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 79,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-116",
+      "slug": "market-user-retention-analysis",
+      "title": "用户留存数据复盘工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 80,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-113",
+      "slug": "market-user-retention-insight",
+      "title": "用户留存用户洞察工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.879,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 81,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-102",
+      "slug": "market-b2b-leads-strategy",
+      "title": "B2B 获客策略规划工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.862,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 82,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-103",
+      "slug": "market-b2b-leads-creative",
+      "title": "B2B 获客内容创意工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.862,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 83,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-104",
+      "slug": "market-b2b-leads-analysis",
+      "title": "B2B 获客数据复盘工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.863,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 84,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-101",
+      "slug": "market-b2b-leads-insight",
+      "title": "B2B 获客用户洞察工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.864,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 85,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-082",
+      "slug": "market-saas-launch-strategy",
+      "title": "SaaS 新品策略规划工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 86,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-083",
+      "slug": "market-saas-launch-creative",
+      "title": "SaaS 新品内容创意工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 87,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-084",
+      "slug": "market-saas-launch-analysis",
+      "title": "SaaS 新品数据复盘工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 88,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-081",
+      "slug": "market-saas-launch-insight",
+      "title": "SaaS 新品用户洞察工作流",
+      "category": "营销",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.879,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 89,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-071",
+      "slug": "code-cli-tool-implementation",
+      "title": "命令行工具代码实现工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.862,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 90,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-070",
+      "slug": "code-cli-tool-design",
+      "title": "命令行工具方案设计工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.862,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 91,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-072",
+      "slug": "code-cli-tool-review-debug",
+      "title": "命令行工具审查调试工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.861,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 92,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-069",
+      "slug": "code-cli-tool-requirements",
+      "title": "命令行工具需求拆解工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.863,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 93,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-067",
+      "slug": "code-data-pipeline-implementation",
+      "title": "数据处理管道代码实现工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 94,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-066",
+      "slug": "code-data-pipeline-design",
+      "title": "数据处理管道方案设计工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 95,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-068",
+      "slug": "code-data-pipeline-review-debug",
+      "title": "数据处理管道审查调试工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.867,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 96,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-065",
+      "slug": "code-data-pipeline-requirements",
+      "title": "数据处理管道需求拆解工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 97,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-079",
+      "slug": "code-system-design-implementation",
+      "title": "系统架构代码实现工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.837,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度84%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 98,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-078",
+      "slug": "code-system-design-design",
+      "title": "系统架构方案设计工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.85,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度85%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 99,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-080",
+      "slug": "code-system-design-review-debug",
+      "title": "系统架构审查调试工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.839,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度84%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 100,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-077",
+      "slug": "code-system-design-requirements",
+      "title": "系统架构需求拆解工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.845,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度84%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 101,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-075",
+      "slug": "code-test-suite-implementation",
+      "title": "自动化测试代码实现工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 102,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-074",
+      "slug": "code-test-suite-design",
+      "title": "自动化测试方案设计工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 103,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-076",
+      "slug": "code-test-suite-review-debug",
+      "title": "自动化测试审查调试工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 104,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-073",
+      "slug": "code-test-suite-requirements",
+      "title": "自动化测试需求拆解工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 105,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-043",
+      "slug": "code-nextjs-app-implementation",
+      "title": "Next.js 应用代码实现工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.882,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 106,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-042",
+      "slug": "code-nextjs-app-design",
+      "title": "Next.js 应用方案设计工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.888,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 107,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-044",
+      "slug": "code-nextjs-app-review-debug",
+      "title": "Next.js 应用审查调试工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.883,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 108,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-041",
+      "slug": "code-nextjs-app-requirements",
+      "title": "Next.js 应用需求拆解工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.888,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 109,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-063",
+      "slug": "code-node-service-implementation",
+      "title": "Node.js 服务代码实现工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.904,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度90%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 110,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-062",
+      "slug": "code-node-service-design",
+      "title": "Node.js 服务方案设计工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.91,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 111,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-064",
+      "slug": "code-node-service-review-debug",
+      "title": "Node.js 服务审查调试工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.905,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 112,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-061",
+      "slug": "code-node-service-requirements",
+      "title": "Node.js 服务需求拆解工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.911,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 113,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-047",
+      "slug": "code-python-automation-implementation",
+      "title": "Python 自动化代码实现工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.889,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 114,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-046",
+      "slug": "code-python-automation-design",
+      "title": "Python 自动化方案设计工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.894,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 115,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-048",
+      "slug": "code-python-automation-review-debug",
+      "title": "Python 自动化审查调试工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.89,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 116,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-045",
+      "slug": "code-python-automation-requirements",
+      "title": "Python 自动化需求拆解工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.895,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度90%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 117,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-059",
+      "slug": "code-react-component-implementation",
+      "title": "React 组件代码实现工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.893,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 118,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-058",
+      "slug": "code-react-component-design",
+      "title": "React 组件方案设计工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.898,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度90%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 119,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-060",
+      "slug": "code-react-component-review-debug",
+      "title": "React 组件审查调试工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.894,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 120,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-057",
+      "slug": "code-react-component-requirements",
+      "title": "React 组件需求拆解工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.899,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度90%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 121,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-051",
+      "slug": "code-rest-api-implementation",
+      "title": "REST API代码实现工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.904,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度90%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 122,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-050",
+      "slug": "code-rest-api-design",
+      "title": "REST API方案设计工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.91,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 123,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-052",
+      "slug": "code-rest-api-review-debug",
+      "title": "REST API审查调试工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.905,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 124,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-049",
+      "slug": "code-rest-api-requirements",
+      "title": "REST API需求拆解工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.911,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 125,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-055",
+      "slug": "code-sql-analytics-implementation",
+      "title": "SQL 数据分析代码实现工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.872,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 126,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-054",
+      "slug": "code-sql-analytics-design",
+      "title": "SQL 数据分析方案设计工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.879,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 127,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-056",
+      "slug": "code-sql-analytics-review-debug",
+      "title": "SQL 数据分析审查调试工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.874,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 128,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-053",
+      "slug": "code-sql-analytics-requirements",
+      "title": "SQL 数据分析需求拆解工作流",
+      "category": "编程",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.88,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 129,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-231",
+      "slug": "office-risk-report-decision",
+      "title": "风险汇报决策分析工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 130,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-229",
+      "slug": "office-risk-report-organize",
+      "title": "风险汇报信息整理工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 131,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-232",
+      "slug": "office-risk-report-follow-up",
+      "title": "风险汇报执行跟进工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 132,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-230",
+      "slug": "office-risk-report-document",
+      "title": "风险汇报专业文稿工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 133,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-239",
+      "slug": "office-handover-decision",
+      "title": "工作交接决策分析工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.867,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 134,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-237",
+      "slug": "office-handover-organize",
+      "title": "工作交接信息整理工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.867,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 135,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-240",
+      "slug": "office-handover-follow-up",
+      "title": "工作交接执行跟进工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.865,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 136,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-238",
+      "slug": "office-handover-document",
+      "title": "工作交接专业文稿工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.866,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 137,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-219",
+      "slug": "office-client-followup-decision",
+      "title": "客户跟进决策分析工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.859,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 138,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-217",
+      "slug": "office-client-followup-organize",
+      "title": "客户跟进信息整理工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.859,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 139,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-220",
+      "slug": "office-client-followup-follow-up",
+      "title": "客户跟进执行跟进工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.861,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 140,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-218",
+      "slug": "office-client-followup-document",
+      "title": "客户跟进专业文稿工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.858,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 141,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-235",
+      "slug": "office-cross-team-decision",
+      "title": "跨部门协作决策分析工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.872,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 142,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-233",
+      "slug": "office-cross-team-organize",
+      "title": "跨部门协作信息整理工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 143,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-236",
+      "slug": "office-cross-team-follow-up",
+      "title": "跨部门协作执行跟进工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 144,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-234",
+      "slug": "office-cross-team-document",
+      "title": "跨部门协作专业文稿工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 145,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-211",
+      "slug": "office-project-kickoff-decision",
+      "title": "项目启动决策分析工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.882,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 146,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-209",
+      "slug": "office-project-kickoff-organize",
+      "title": "项目启动信息整理工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.881,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 147,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-212",
+      "slug": "office-project-kickoff-follow-up",
+      "title": "项目启动执行跟进工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.88,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 148,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-210",
+      "slug": "office-project-kickoff-document",
+      "title": "项目启动专业文稿工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.881,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 149,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-227",
+      "slug": "office-budget-request-decision",
+      "title": "预算申请决策分析工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.879,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 150,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-225",
+      "slug": "office-budget-request-organize",
+      "title": "预算申请信息整理工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.878,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 151,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-228",
+      "slug": "office-budget-request-follow-up",
+      "title": "预算申请执行跟进工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.877,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 152,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-226",
+      "slug": "office-budget-request-document",
+      "title": "预算申请专业文稿工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.878,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 153,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-223",
+      "slug": "office-recruiting-decision",
+      "title": "招聘面试决策分析工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.882,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 154,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-221",
+      "slug": "office-recruiting-organize",
+      "title": "招聘面试信息整理工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.881,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 155,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-224",
+      "slug": "office-recruiting-follow-up",
+      "title": "招聘面试执行跟进工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.88,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 156,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-222",
+      "slug": "office-recruiting-document",
+      "title": "招聘面试专业文稿工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.881,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 157,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-207",
+      "slug": "office-weekly-report-decision",
+      "title": "周报汇报决策分析工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 158,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-205",
+      "slug": "office-weekly-report-organize",
+      "title": "周报汇报信息整理工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 159,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-208",
+      "slug": "office-weekly-report-follow-up",
+      "title": "周报汇报执行跟进工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.867,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 160,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-206",
+      "slug": "office-weekly-report-document",
+      "title": "周报汇报专业文稿工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 161,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-215",
+      "slug": "office-okr-decision",
+      "title": "OKR 管理决策分析工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.89,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 162,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-213",
+      "slug": "office-okr-organize",
+      "title": "OKR 管理信息整理工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.89,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 163,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-216",
+      "slug": "office-okr-follow-up",
+      "title": "OKR 管理执行跟进工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.888,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 164,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-214",
+      "slug": "office-okr-document",
+      "title": "OKR 管理专业文稿工作流",
+      "category": "办公",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.889,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 165,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-188",
+      "slug": "learn-finance-basics-review",
+      "title": "财务基础复盘测验工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.874,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 166,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-186",
+      "slug": "learn-finance-basics-explain",
+      "title": "财务基础概念讲解工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.879,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 167,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-187",
+      "slug": "learn-finance-basics-practice",
+      "title": "财务基础刻意练习工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 168,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-185",
+      "slug": "learn-finance-basics-roadmap",
+      "title": "财务基础学习路线工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.874,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 169,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-176",
+      "slug": "learn-product-management-review",
+      "title": "产品经理复盘测验工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.873,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 170,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-174",
+      "slug": "learn-product-management-explain",
+      "title": "产品经理概念讲解工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.874,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 171,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-175",
+      "slug": "learn-product-management-practice",
+      "title": "产品经理刻意练习工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 172,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-173",
+      "slug": "learn-product-management-roadmap",
+      "title": "产品经理学习路线工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.873,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 173,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-184",
+      "slug": "learn-public-speaking-review",
+      "title": "公开演讲复盘测验工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.877,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 174,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-182",
+      "slug": "learn-public-speaking-explain",
+      "title": "公开演讲概念讲解工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.878,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 175,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-183",
+      "slug": "learn-public-speaking-practice",
+      "title": "公开演讲刻意练习工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.877,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 176,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-181",
+      "slug": "learn-public-speaking-roadmap",
+      "title": "公开演讲学习路线工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.877,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 177,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-172",
+      "slug": "learn-data-analysis-review",
+      "title": "数据分析复盘测验工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.881,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 178,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-170",
+      "slug": "learn-data-analysis-explain",
+      "title": "数据分析概念讲解工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.882,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 179,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-171",
+      "slug": "learn-data-analysis-practice",
+      "title": "数据分析刻意练习工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.877,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 180,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-169",
+      "slug": "learn-data-analysis-roadmap",
+      "title": "数据分析学习路线工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.881,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 181,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-200",
+      "slug": "learn-research-methods-review",
+      "title": "研究方法复盘测验工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.863,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 182,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-198",
+      "slug": "learn-research-methods-explain",
+      "title": "研究方法概念讲解工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.864,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 183,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-199",
+      "slug": "learn-research-methods-practice",
+      "title": "研究方法刻意练习工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.858,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 184,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-197",
+      "slug": "learn-research-methods-roadmap",
+      "title": "研究方法学习路线工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.863,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度86%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 185,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-164",
+      "slug": "learn-spoken-english-review",
+      "title": "英语口语复盘测验工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.877,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 186,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-162",
+      "slug": "learn-spoken-english-explain",
+      "title": "英语口语概念讲解工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.878,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 187,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-163",
+      "slug": "learn-spoken-english-practice",
+      "title": "英语口语刻意练习工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.873,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 188,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-161",
+      "slug": "learn-spoken-english-roadmap",
+      "title": "英语口语学习路线工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.881,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 189,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-192",
+      "slug": "learn-chinese-writing-review",
+      "title": "中文写作复盘测验工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 190,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-190",
+      "slug": "learn-chinese-writing-explain",
+      "title": "中文写作概念讲解工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 191,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-191",
+      "slug": "learn-chinese-writing-practice",
+      "title": "中文写作刻意练习工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.865,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 192,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-189",
+      "slug": "learn-chinese-writing-roadmap",
+      "title": "中文写作学习路线工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 193,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-196",
+      "slug": "learn-exam-prep-review",
+      "title": "资格考试复盘测验工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 194,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-194",
+      "slug": "learn-exam-prep-explain",
+      "title": "资格考试概念讲解工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.867,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 195,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-195",
+      "slug": "learn-exam-prep-practice",
+      "title": "资格考试刻意练习工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.865,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 196,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-193",
+      "slug": "learn-exam-prep-roadmap",
+      "title": "资格考试学习路线工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.87,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 197,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-180",
+      "slug": "learn-ai-tools-review",
+      "title": "AI 工具复盘测验工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.881,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 198,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-178",
+      "slug": "learn-ai-tools-explain",
+      "title": "AI 工具概念讲解工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.882,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 199,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-179",
+      "slug": "learn-ai-tools-practice",
+      "title": "AI 工具刻意练习工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.876,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 200,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-177",
+      "slug": "learn-ai-tools-roadmap",
+      "title": "AI 工具学习路线工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.881,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 201,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-168",
+      "slug": "learn-python-learning-review",
+      "title": "Python 入门复盘测验工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.874,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 202,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-166",
+      "slug": "learn-python-learning-explain",
+      "title": "Python 入门概念讲解工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.875,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 203,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-167",
+      "slug": "learn-python-learning-practice",
+      "title": "Python 入门刻意练习工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 204,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-165",
+      "slug": "learn-python-learning-roadmap",
+      "title": "Python 入门学习路线工作流",
+      "category": "学习",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.874,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 205,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-032",
+      "slug": "write-podcast-edit",
+      "title": "播客节目编辑优化工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.82,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 206,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-030",
+      "slug": "write-podcast-headline",
+      "title": "播客节目标题创作工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.826,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 207,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-031",
+      "slug": "write-podcast-first-draft",
+      "title": "播客节目完整初稿工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.822,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 208,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-029",
+      "slug": "write-podcast-topic-plan",
+      "title": "播客节目选题规划工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.824,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 209,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-024",
+      "slug": "write-product-copy-edit",
+      "title": "产品说明编辑优化工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.824,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 210,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-022",
+      "slug": "write-product-copy-headline",
+      "title": "产品说明标题创作工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.828,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 211,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-023",
+      "slug": "write-product-copy-first-draft",
+      "title": "产品说明完整初稿工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.827,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 212,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-021",
+      "slug": "write-product-copy-topic-plan",
+      "title": "产品说明选题规划工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.829,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 213,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-012",
+      "slug": "write-short-video-edit",
+      "title": "短视频口播编辑优化工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.828,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 214,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-010",
+      "slug": "write-short-video-headline",
+      "title": "短视频口播标题创作工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.83,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 215,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-011",
+      "slug": "write-short-video-first-draft",
+      "title": "短视频口播完整初稿工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.831,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 216,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-009",
+      "slug": "write-short-video-topic-plan",
+      "title": "短视频口播选题规划工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.832,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 217,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-020",
+      "slug": "write-brand-story-edit",
+      "title": "品牌故事编辑优化工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.829,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 218,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-018",
+      "slug": "write-brand-story-headline",
+      "title": "品牌故事标题创作工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.835,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度84%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 219,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-019",
+      "slug": "write-brand-story-first-draft",
+      "title": "品牌故事完整初稿工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.831,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 220,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-017",
+      "slug": "write-brand-story-topic-plan",
+      "title": "品牌故事选题规划工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.833,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 221,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-008",
+      "slug": "write-wechat-edit",
+      "title": "微信公众号编辑优化工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.817,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 222,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-006",
+      "slug": "write-wechat-headline",
+      "title": "微信公众号标题创作工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.824,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 223,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-007",
+      "slug": "write-wechat-first-draft",
+      "title": "微信公众号完整初稿工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.817,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 224,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-005",
+      "slug": "write-wechat-topic-plan",
+      "title": "微信公众号选题规划工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.819,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 225,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-004",
+      "slug": "write-xiaohongshu-edit",
+      "title": "小红书编辑优化工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.829,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 226,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-002",
+      "slug": "write-xiaohongshu-headline",
+      "title": "小红书标题创作工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.835,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度84%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 227,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-003",
+      "slug": "write-xiaohongshu-first-draft",
+      "title": "小红书完整初稿工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.831,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 228,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-001",
+      "slug": "write-xiaohongshu-topic-plan",
+      "title": "小红书选题规划工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.833,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 229,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-028",
+      "slug": "write-press-release-edit",
+      "title": "新品新闻稿编辑优化工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.824,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 230,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-026",
+      "slug": "write-press-release-headline",
+      "title": "新品新闻稿标题创作工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.828,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 231,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-027",
+      "slug": "write-press-release-first-draft",
+      "title": "新品新闻稿完整初稿工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.827,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 232,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-025",
+      "slug": "write-press-release-topic-plan",
+      "title": "新品新闻稿选题规划工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.831,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 233,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-036",
+      "slug": "write-newsletter-edit",
+      "title": "邮件通讯编辑优化工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.818,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 234,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-034",
+      "slug": "write-newsletter-headline",
+      "title": "邮件通讯标题创作工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.824,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 235,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-035",
+      "slug": "write-newsletter-first-draft",
+      "title": "邮件通讯完整初稿工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.821,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 236,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-033",
+      "slug": "write-newsletter-topic-plan",
+      "title": "邮件通讯选题规划工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.822,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 237,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-040",
+      "slug": "write-course-copy-edit",
+      "title": "在线课程编辑优化工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.824,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度82%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 238,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-038",
+      "slug": "write-course-copy-headline",
+      "title": "在线课程标题创作工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.828,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 239,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-039",
+      "slug": "write-course-copy-first-draft",
+      "title": "在线课程完整初稿工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.827,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 240,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-037",
+      "slug": "write-course-copy-topic-plan",
+      "title": "在线课程选题规划工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.831,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 241,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-016",
+      "slug": "write-zhihu-edit",
+      "title": "知乎回答编辑优化工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.828,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 242,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-014",
+      "slug": "write-zhihu-headline",
+      "title": "知乎回答标题创作工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.83,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 243,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-015",
+      "slug": "write-zhihu-first-draft",
+      "title": "知乎回答完整初稿工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.831,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 244,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-013",
+      "slug": "write-zhihu-topic-plan",
+      "title": "知乎回答选题规划工作流",
+      "category": "写作",
+      "source": "批量工作流库",
+      "score": 55,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 11,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.832,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度83%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 245,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-148",
+      "slug": "visual-packaging-refine",
+      "title": "产品包装画面优化工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.891,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 246,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-146",
+      "slug": "visual-packaging-hero-visual",
+      "title": "产品包装商业主视觉工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.894,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 247,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-145",
+      "slug": "visual-packaging-art-direction",
+      "title": "产品包装视觉策划工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.889,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 248,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-147",
+      "slug": "visual-packaging-series",
+      "title": "产品包装系列变体工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.891,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 249,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-124",
+      "slug": "visual-ecommerce-product-refine",
+      "title": "电商产品画面优化工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.891,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 250,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-122",
+      "slug": "visual-ecommerce-product-hero-visual",
+      "title": "电商产品商业主视觉工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.894,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 251,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-121",
+      "slug": "visual-ecommerce-product-art-direction",
+      "title": "电商产品视觉策划工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.889,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 252,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-123",
+      "slug": "visual-ecommerce-product-series",
+      "title": "电商产品系列变体工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.891,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 253,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-160",
+      "slug": "visual-picture-book-refine",
+      "title": "儿童绘本画面优化工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.873,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 254,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-158",
+      "slug": "visual-picture-book-hero-visual",
+      "title": "儿童绘本商业主视觉工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.877,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 255,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-157",
+      "slug": "visual-picture-book-art-direction",
+      "title": "儿童绘本视觉策划工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 256,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-159",
+      "slug": "visual-picture-book-series",
+      "title": "儿童绘本系列变体工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.873,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 257,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-156",
+      "slug": "visual-tech-launch-refine",
+      "title": "科技发布画面优化工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.891,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 258,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-154",
+      "slug": "visual-tech-launch-hero-visual",
+      "title": "科技发布商业主视觉工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.894,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 259,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-153",
+      "slug": "visual-tech-launch-art-direction",
+      "title": "科技发布视觉策划工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.889,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 260,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-155",
+      "slug": "visual-tech-launch-series",
+      "title": "科技发布系列变体工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.891,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 261,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-152",
+      "slug": "visual-travel-poster-refine",
+      "title": "旅行海报画面优化工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.905,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 262,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-150",
+      "slug": "visual-travel-poster-hero-visual",
+      "title": "旅行海报商业主视觉工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.908,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 263,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-149",
+      "slug": "visual-travel-poster-art-direction",
+      "title": "旅行海报视觉策划工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.904,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度90%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 264,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-151",
+      "slug": "visual-travel-poster-series",
+      "title": "旅行海报系列变体工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.905,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 265,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-136",
+      "slug": "visual-food-photo-refine",
+      "title": "美食摄影画面优化工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.887,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 266,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-134",
+      "slug": "visual-food-photo-hero-visual",
+      "title": "美食摄影商业主视觉工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.89,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 267,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-133",
+      "slug": "visual-food-photo-art-direction",
+      "title": "美食摄影视觉策划工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.885,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 268,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-135",
+      "slug": "visual-food-photo-series",
+      "title": "美食摄影系列变体工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.887,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 269,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-128",
+      "slug": "visual-brand-poster-refine",
+      "title": "品牌海报画面优化工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.905,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 270,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-126",
+      "slug": "visual-brand-poster-hero-visual",
+      "title": "品牌海报商业主视觉工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.908,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 271,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-125",
+      "slug": "visual-brand-poster-art-direction",
+      "title": "品牌海报视觉策划工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.904,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度90%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 272,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-127",
+      "slug": "visual-brand-poster-series",
+      "title": "品牌海报系列变体工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.905,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度91%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 273,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-140",
+      "slug": "visual-interior-space-refine",
+      "title": "室内空间画面优化工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.873,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 274,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-138",
+      "slug": "visual-interior-space-hero-visual",
+      "title": "室内空间商业主视觉工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.877,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 275,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-137",
+      "slug": "visual-interior-space-art-direction",
+      "title": "室内空间视觉策划工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.871,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 276,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-139",
+      "slug": "visual-interior-space-series",
+      "title": "室内空间系列变体工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.873,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 277,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-132",
+      "slug": "visual-chinese-portrait-refine",
+      "title": "新中式人像画面优化工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 278,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-130",
+      "slug": "visual-chinese-portrait-hero-visual",
+      "title": "新中式人像商业主视觉工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.873,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 279,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-129",
+      "slug": "visual-chinese-portrait-art-direction",
+      "title": "新中式人像视觉策划工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.867,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 280,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-131",
+      "slug": "visual-chinese-portrait-series",
+      "title": "新中式人像系列变体工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.869,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度87%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 281,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-144",
+      "slug": "visual-app-illustration-refine",
+      "title": "应用插画画面优化工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.886,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 282,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-142",
+      "slug": "visual-app-illustration-hero-visual",
+      "title": "应用插画商业主视觉工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.889,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 283,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-141",
+      "slug": "visual-app-illustration-art-direction",
+      "title": "应用插画视觉策划工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.884,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度88%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 284,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "workflow-143",
+      "slug": "visual-app-illustration-series",
+      "title": "应用插画系列变体工作流",
+      "category": "绘图",
+      "source": "批量工作流库",
+      "score": 54,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 20,
+        "reusability": 20,
+        "resultQuality": 10,
+        "penalty": 30
+      },
+      "maxSimilarity": 0.886,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度89%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 285,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "visual-004",
+      "slug": "app-illustration",
+      "title": "应用功能插画",
+      "category": "绘图",
+      "source": "人工结构库",
+      "score": 28,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 34,
+        "professionalism": 4,
+        "reusability": 20,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 286,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "visual-001",
+      "slug": "ecommerce-main-image",
+      "title": "电商产品主图提示词",
+      "category": "绘图",
+      "source": "人工结构库",
+      "score": 20,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 4,
+        "reusability": 20,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 287,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "visual-002",
+      "slug": "chinese-poster",
+      "title": "新中式品牌海报",
+      "category": "绘图",
+      "source": "人工结构库",
+      "score": 20,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 4,
+        "reusability": 20,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 288,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "midjourney-010",
+      "slug": "isometric-saas-illustration",
+      "title": "SaaS 功能场景插画",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 20,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 4,
+        "reusability": 20,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 289,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "visual-005",
+      "slug": "food-advertising",
+      "title": "餐饮广告摄影",
+      "category": "绘图",
+      "source": "人工结构库",
+      "score": 16,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 4,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 290,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "visual-003",
+      "slug": "professional-avatar",
+      "title": "职业个人头像",
+      "category": "绘图",
+      "source": "人工结构库",
+      "score": 16,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 4,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 291,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "midjourney-004",
+      "slug": "cinematic-travel-poster",
+      "title": "电影感旅行海报",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 16,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 4,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 292,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "midjourney-008",
+      "slug": "childrens-book-illustration",
+      "title": "儿童绘本插画",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 16,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 0,
+        "reusability": 20,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 293,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "midjourney-007",
+      "slug": "tech-launch-key-visual",
+      "title": "科技新品发布视觉",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 16,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 4,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 294,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "midjourney-009",
+      "slug": "fashion-editorial-cover",
+      "title": "时尚杂志封面",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 16,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 0,
+        "reusability": 20,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 295,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "midjourney-003",
+      "slug": "new-chinese-portrait",
+      "title": "新中式人物写真",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 16,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 4,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 296,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "midjourney-005",
+      "slug": "cozy-interior-design",
+      "title": "治愈系室内空间",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 16,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 0,
+        "reusability": 20,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 297,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "midjourney-002",
+      "slug": "minimalist-logo-concept",
+      "title": "极简品牌 Logo 概念",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 12,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 298,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "midjourney-001",
+      "slug": "commercial-product-hero-shot",
+      "title": "商业产品主视觉",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 12,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 299,
+      "collection": "hidden",
+      "status": "hidden"
+    },
+    {
+      "id": "midjourney-006",
+      "slug": "food-editorial-photography",
+      "title": "杂志级美食摄影",
+      "category": "绘图",
+      "source": "原创基础库",
+      "score": 12,
+      "grade": "D",
+      "dimensions": {
+        "practicality": 26,
+        "professionalism": 0,
+        "reusability": 16,
+        "resultQuality": 0,
+        "penalty": 30
+      },
+      "maxSimilarity": 1,
+      "hasConcreteExample": false,
+      "issues": [
+        "与同库内容相似度100%",
+        "缺少经验证的完整案例输出"
+      ],
+      "rank": 300,
+      "collection": "hidden",
+      "status": "hidden"
+    }
+  ]
+}
