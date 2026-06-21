@@ -1,5 +1,6 @@
 import promptData from "@/data/prompts.json";
 import { contentPrompts } from "@/data/content-prompts";
+import { expandedPrompts } from "@/data/expanded-prompts";
 
 export type PromptPlatform = "midjourney" | "jimeng" | "chatgpt";
 export type PromptCategory = "写作" | "编程" | "营销" | "绘图" | "学习" | "办公";
@@ -15,6 +16,10 @@ export type MockPrompt = {
   useCase: string;
   tags: string[];
   content: string;
+  models: string[];
+  exampleInput: string;
+  exampleOutput: string;
+  tips: string[];
 };
 
 function inferCategory(prompt: (typeof promptData)[number]): PromptCategory {
@@ -28,16 +33,46 @@ function inferCategory(prompt: (typeof promptData)[number]): PromptCategory {
   return "写作";
 }
 
-const legacyPrompts: MockPrompt[] = promptData.map((prompt) => ({
-  ...prompt,
-  platform: prompt.platform as PromptPlatform,
-  category: inferCategory(prompt)
-}));
+type BasePrompt = Omit<MockPrompt, "models" | "exampleInput" | "exampleOutput" | "tips"> &
+  Partial<Pick<MockPrompt, "models" | "exampleInput" | "exampleOutput" | "tips">>;
 
-export const mockPrompts: MockPrompt[] = [
+function enrichPrompt(prompt: BasePrompt): MockPrompt {
+  const models = prompt.models ?? (prompt.platform === "midjourney" ? ["Midjourney", "Flux"] : prompt.platform === "jimeng" ? ["即梦"] : ["ChatGPT", "Claude", "DeepSeek"]);
+
+  return {
+    ...prompt,
+    models,
+    exampleInput: prompt.exampleInput ?? `主题：${prompt.title}；目标：用于${prompt.useCase}；请根据实际信息替换方括号变量。`,
+    exampleOutput: prompt.exampleOutput ?? `生成一份围绕“${prompt.title}”的结构化结果，包含明确重点、可直接使用的内容和下一步建议。`,
+    tips: prompt.tips ?? [
+      "先替换提示词中的方括号变量，再发送给模型。",
+      "第一轮结果用于确定方向，第二轮补充真实信息并要求精修。",
+      "公开使用前核对事实、数字、版权和平台规则。"
+    ]
+  };
+}
+
+const legacyPrompts: MockPrompt[] = promptData.map((prompt) =>
+  enrichPrompt({
+    ...prompt,
+    platform: prompt.platform as PromptPlatform,
+    category: inferCategory(prompt)
+  })
+);
+
+const combinedPrompts: MockPrompt[] = [
   ...legacyPrompts,
-  ...(contentPrompts as unknown as MockPrompt[])
+  ...(contentPrompts as unknown as BasePrompt[]).map(enrichPrompt),
+  ...(expandedPrompts as unknown as BasePrompt[]).map(enrichPrompt)
 ];
+
+const usedSlugs = new Set<string>();
+
+export const mockPrompts = combinedPrompts.map((prompt) => {
+  const slug = usedSlugs.has(prompt.slug) ? `${prompt.slug}-${prompt.id}` : prompt.slug;
+  usedSlugs.add(slug);
+  return { ...prompt, slug };
+});
 
 export function getPromptsByPlatform(platform: PromptPlatform) {
   return mockPrompts.filter((prompt) => prompt.platform === platform);

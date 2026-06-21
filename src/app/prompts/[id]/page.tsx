@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ChevronRight, Layers3, Sparkles, Target } from "lucide-react";
 import { CopyButton } from "@/components/CopyButton";
 import { FavoriteButton } from "@/components/FavoriteButton";
-import { getPromptById, mockPrompts } from "@/lib/mock-prompts";
+import { getPromptBySlug, mockPrompts } from "@/lib/mock-prompts";
 
 type PromptPageProps = {
   params: Promise<{ id: string }>;
@@ -13,12 +13,12 @@ type PromptPageProps = {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return mockPrompts.map((prompt) => ({ id: prompt.id }));
+  return mockPrompts.map((prompt) => ({ id: prompt.slug }));
 }
 
 export async function generateMetadata({ params }: PromptPageProps): Promise<Metadata> {
   const { id } = await params;
-  const prompt = getPromptById(id);
+  const prompt = getPromptBySlug(id);
 
   if (!prompt) {
     return { title: "提示词不存在", robots: { index: false, follow: false } };
@@ -28,11 +28,11 @@ export async function generateMetadata({ params }: PromptPageProps): Promise<Met
     title: prompt.title,
     description: prompt.description,
     keywords: [prompt.title, prompt.category, `${prompt.platformName}提示词`, prompt.useCase, ...prompt.tags],
-    alternates: { canonical: `/prompts/${prompt.id}` },
+    alternates: { canonical: `/prompts/${prompt.slug}` },
     openGraph: {
       title: prompt.title,
       description: prompt.description,
-      url: `/prompts/${prompt.id}`,
+      url: `/prompts/${prompt.slug}`,
       type: "article",
       tags: [prompt.category, ...prompt.tags]
     }
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PromptPageProps): Promise<Met
 
 export default async function PromptPage({ params }: PromptPageProps) {
   const { id } = await params;
-  const prompt = getPromptById(id);
+  const prompt = getPromptBySlug(id);
 
   if (!prompt) notFound();
 
@@ -101,6 +101,29 @@ export default async function PromptPage({ params }: PromptPageProps) {
                 </div>
                 <pre className="max-h-[34rem] overflow-auto whitespace-pre-wrap break-words p-5 font-mono text-sm leading-7 text-zinc-100 sm:p-6">{prompt.content}</pre>
               </div>
+
+              <div className="mt-8 grid gap-5 sm:grid-cols-2">
+                <section className="rounded-lg border border-zinc-200 bg-zinc-50 p-5">
+                  <h2 className="font-bold text-zinc-950">示例输入</h2>
+                  <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-zinc-700">{prompt.exampleInput}</p>
+                </section>
+                <section className="rounded-lg border border-zinc-200 bg-zinc-50 p-5">
+                  <h2 className="font-bold text-zinc-950">示例输出</h2>
+                  <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-zinc-700">{prompt.exampleOutput}</p>
+                </section>
+              </div>
+
+              <section className="mt-8 border-t border-zinc-200 pt-8">
+                <h2 className="text-xl font-bold text-zinc-950">使用技巧</h2>
+                <ol className="mt-4 space-y-3">
+                  {prompt.tips.map((tip, index) => (
+                    <li className="flex gap-3 text-sm leading-7 text-zinc-700" key={tip}>
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-800">{index + 1}</span>
+                      <span>{tip}</span>
+                    </li>
+                  ))}
+                </ol>
+              </section>
             </div>
           </article>
 
@@ -117,6 +140,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
             <dl className="mt-6 space-y-4 border-t border-zinc-100 pt-5 text-sm">
               <div><dt className="text-zinc-400">分类</dt><dd className="mt-1 font-semibold text-zinc-800">{prompt.category}</dd></div>
               <div><dt className="text-zinc-400">适用平台</dt><dd className="mt-1 font-semibold text-zinc-800">{prompt.platformName}</dd></div>
+              <div><dt className="text-zinc-400">适用模型</dt><dd className="mt-1 font-semibold leading-6 text-zinc-800">{prompt.models.join(" · ")}</dd></div>
             </dl>
             <Link className="mt-6 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-md border border-zinc-300 px-4 text-sm font-semibold text-zinc-700 transition hover:border-emerald-500 hover:text-emerald-700" href="/#prompt-library">
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
@@ -130,7 +154,7 @@ export default async function PromptPage({ params }: PromptPageProps) {
             <h2 className="text-2xl font-bold text-zinc-950">同类提示词</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               {relatedPrompts.map((item) => (
-                <Link className="group rounded-lg border border-zinc-200 bg-white p-5 transition hover:border-emerald-400" href={`/prompts/${item.id}`} key={item.id}>
+                <Link className="group rounded-lg border border-zinc-200 bg-white p-5 transition hover:border-emerald-400" href={`/prompts/${item.slug}`} key={item.id}>
                   <span className="text-xs font-bold text-emerald-700">{item.category}</span>
                   <h3 className="mt-3 font-bold text-zinc-950 group-hover:text-emerald-800">{item.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-zinc-600">{item.description}</p>

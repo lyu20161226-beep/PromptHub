@@ -127,7 +127,7 @@ export function PlatformPromptPage({ title, description, eyebrow, prompts }: Pla
                 className="group relative flex min-h-96 flex-col rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-emerald-400 hover:shadow-md"
                 key={prompt.id}
               >
-                <Link aria-label={`查看${prompt.title}详情`} className="absolute inset-0 rounded-lg" href={`/prompts/${prompt.id}`} />
+                <Link aria-label={`查看${prompt.title}详情`} className="absolute inset-0 rounded-lg" href={`/prompts/${prompt.slug}`} />
                 <div className="relative pointer-events-none">
                   <span className="text-xs font-bold uppercase text-emerald-700">{prompt.platformName}</span>
                   <h2 className="mt-3 text-xl font-bold text-zinc-950 transition group-hover:text-emerald-800">{prompt.title}</h2>

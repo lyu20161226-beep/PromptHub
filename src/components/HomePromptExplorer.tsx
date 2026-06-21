@@ -41,7 +41,7 @@ function PromptCard({ prompt, hot = false }: { prompt: MockPrompt; hot?: boolean
         <Link
           aria-label={`查看${prompt.title}详情`}
           className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-zinc-300 text-zinc-600 transition hover:border-emerald-500 hover:text-emerald-700"
-          href={`/prompts/${prompt.id}`}
+          href={`/prompts/${prompt.slug}`}
           title="查看详情"
         >
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
