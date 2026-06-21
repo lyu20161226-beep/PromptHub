@@ -40,8 +40,8 @@ export default function HomePage() {
               <BadgeCheck className="h-4 w-4" aria-hidden="true" />
               10个经过真实输出测试的工作流
             </div>
-            <h1 className="mt-5 text-4xl font-bold leading-tight text-zinc-950 sm:text-5xl">从问题到结果的 AI 工作流库</h1>
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-600">每个工作流包含适用问题、解决步骤、Prompt、实测案例、常见错误和优化技巧。</p>
+            <h1 className="mt-5 text-4xl font-bold leading-tight text-zinc-950 sm:text-5xl">解决真实工作的 AI 工作流库</h1>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-600">从编程、营销、求职到商业分析，提供可复制 Prompt、实测案例和完整方法，帮助你更快获得可用结果。</p>
             <form action="/search" className="mt-8 flex max-w-2xl items-center gap-3 rounded-lg border border-zinc-300 bg-white p-2 pl-4 shadow-sm focus-within:border-emerald-500 focus-within:ring-4 focus-within:ring-emerald-100">
               <Search className="h-5 w-5 shrink-0 text-zinc-400" aria-hidden="true" />
               <input className="min-h-11 min-w-0 flex-1 bg-transparent text-sm text-zinc-950 outline-none" name="q" placeholder="搜索问题，例如：程序报错、SEO、简历" type="search" />

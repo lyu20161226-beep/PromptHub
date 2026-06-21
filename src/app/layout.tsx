@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { ValidationSurvey } from "@/components/ValidationSurvey";
 import { siteDescription, siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "PromptHub - AI提示词库",
+    default: "PromptHub - AI工作流库",
     template: "%s | PromptHub"
   },
   description: siteDescription,
   keywords: [
     "PromptHub",
+    "AI工作流库",
+    "AI工作流",
+    "Prompt Pack",
+    "提示词包",
     "AI提示词库",
     "AI提示词",
     "Prompt提示词",
@@ -31,7 +36,7 @@ export const metadata: Metadata = {
   publisher: siteName,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "PromptHub - AI提示词库",
+    title: "PromptHub - AI工作流库",
     description: siteDescription,
     url: siteUrl,
     siteName,
@@ -40,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PromptHub - AI提示词库",
+    title: "PromptHub - AI工作流库",
     description: siteDescription
   },
   robots: {
@@ -62,6 +67,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Header />
         {children}
+        <Footer />
         <ValidationSurvey />
       </body>
     </html>
