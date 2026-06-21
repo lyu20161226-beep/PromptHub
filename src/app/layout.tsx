@@ -18,6 +18,10 @@ export const metadata: Metadata = {
     "Midjourney提示词",
     "即梦提示词",
     "ChatGPT提示词",
+    "中文提示词",
+    "写作提示词",
+    "编程提示词",
+    "营销提示词",
     "AI绘画提示词",
     "AI视频提示词"
   ],

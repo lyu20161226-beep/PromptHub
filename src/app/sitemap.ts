@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const promptPages: MetadataRoute.Sitemap = mockPrompts.map((prompt) => ({
-    url: `${siteUrl}/prompt/${prompt.slug}`,
+    url: `${siteUrl}/prompts/${prompt.id}`,
     lastModified,
     changeFrequency: "monthly",
     priority: 0.8

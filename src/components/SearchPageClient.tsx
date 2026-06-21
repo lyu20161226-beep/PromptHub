@@ -86,7 +86,7 @@ export function SearchPageClient({ initialQuery, prompts }: SearchPageClientProp
                 className="group relative flex min-h-72 flex-col rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-emerald-400 hover:shadow-md"
                 key={prompt.id}
               >
-                <Link aria-label={`查看${prompt.title}详情`} className="absolute inset-0 rounded-lg" href={`/prompt/${prompt.slug}`} />
+                <Link aria-label={`查看${prompt.title}详情`} className="absolute inset-0 rounded-lg" href={`/prompts/${prompt.id}`} />
                 <div className="pointer-events-none relative">
                   <span className="inline-flex rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-800">
                     {prompt.platformName}
