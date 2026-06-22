@@ -1,35 +1,19 @@
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, BriefcaseBusiness, Code2, Search, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, BadgeCheck, CalendarDays, FlaskConical, Search, Sparkles } from "lucide-react";
 import { PackCard } from "@/components/PackCard";
 import { WorkflowCard } from "@/components/WorkflowCard";
+import { caseStudies } from "@/data/case-studies";
 import { workflowPacks } from "@/data/workflow-packs";
+import { latestWeeklyIssue } from "@/data/workflow-weekly";
 import { topWorkflowPrompts } from "@/lib/mock-prompts";
 
 const byId = (id: string) => topWorkflowPrompts.find((prompt) => prompt.id === id)!;
 
-const sections = [
-  {
-    title: "赚钱与增长",
-    description: "围绕流量、转化、竞争和职业机会解决真实商业问题。",
-    icon: BriefcaseBusiness,
-    prompts: [byId("chatgpt-003"), byId("marketing-002"), byId("chatgpt-005"), byId("chatgpt-009"), byId("marketing-001")]
-  },
-  {
-    title: "开发与质量",
-    description: "从问题定位到测试与重构，让AI进入可靠的工程流程。",
-    icon: Code2,
-    prompts: [byId("coding-002"), byId("coding-004"), byId("coding-005")]
-  },
-  {
-    title: "办公与服务",
-    description: "减少信息整理和沟通成本，把讨论转化为清晰行动。",
-    icon: Zap,
-    prompts: [byId("chatgpt-010"), byId("chatgpt-004")]
-  }
-];
+const coreTop5 = [byId("coding-002"), byId("chatgpt-003"), byId("marketing-002"), byId("chatgpt-009"), byId("chatgpt-005")];
+const secondaryTop5 = [byId("coding-004"), byId("chatgpt-010"), byId("coding-005"), byId("marketing-001"), byId("chatgpt-004")];
 
 export default function HomePage() {
-  const sTier = topWorkflowPrompts.filter((prompt) => prompt.workflow?.tier === "S");
+  const weeklyPrompts = latestWeeklyIssue.workflowIds.map(byId);
 
   return (
     <main>
@@ -51,22 +35,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="border-b border-zinc-200 bg-zinc-950 py-10 text-white sm:py-12">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"><div><div className="flex items-center gap-2 text-emerald-300"><CalendarDays className="h-4 w-4" aria-hidden="true" /><p className="text-sm font-semibold">Workflow Weekly · 第 {latestWeeklyIssue.issue} 期</p></div><h2 className="mt-2 text-2xl font-bold">{latestWeeklyIssue.title}</h2></div><Link className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-300" href="/weekly">阅读本期 <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link></div>
+          <div className="mt-6 grid gap-3 md:grid-cols-3">{weeklyPrompts.map((prompt, index) => <Link className="flex items-center justify-between gap-3 rounded-md border border-zinc-700 px-4 py-4 text-sm font-semibold text-white hover:border-emerald-400 hover:text-emerald-300" href={`/prompts/${prompt.slug}`} key={prompt.id}><span><span className="mr-2 text-emerald-300">0{index + 1}</span>{prompt.title}</span><ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" /></Link>)}</div>
+        </div>
+      </section>
+
       <section className="border-b border-zinc-200 bg-zinc-50 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-semibold text-emerald-700">本站精选 · S级</p>
-              <h2 className="mt-2 text-3xl font-bold text-zinc-950">先解决最值钱的问题</h2>
+              <p className="text-sm font-semibold text-emerald-700">核心 Top5</p>
+              <h2 className="mt-2 text-3xl font-bold text-zinc-950">用户会为真正解决问题的工作流回来</h2>
             </div>
             <Link className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700" href="/workflows">查看Top10合集 <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
           </div>
           <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {sTier.map((prompt) => <WorkflowCard key={prompt.id} prompt={prompt} />)}
+            {coreTop5.map((prompt) => <WorkflowCard key={prompt.id} prompt={prompt} />)}
           </div>
         </div>
       </section>
 
+      <section className="border-b border-zinc-200 bg-zinc-50 py-12 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"><div className="max-w-2xl"><p className="text-sm font-semibold text-emerald-700">高频辅助工具</p><h2 className="mt-2 text-3xl font-bold text-zinc-950">第二梯队工作流</h2><p className="mt-3 text-sm leading-7 text-zinc-600">用于测试、会议、重构、活动规划和客户沟通。它们高频实用，但不抢占核心问题的位置。</p></div><div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{secondaryTop5.map((prompt) => <WorkflowCard compact key={prompt.id} prompt={prompt} />)}</div></div>
+      </section>
+
       <section className="border-b border-zinc-200 bg-white py-12 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"><div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div className="max-w-2xl"><div className="flex items-center gap-2 text-emerald-700"><FlaskConical className="h-5 w-5" aria-hidden="true" /><p className="text-sm font-semibold">验证案例库</p></div><h2 className="mt-2 text-3xl font-bold text-zinc-950">公开结果，也公开限制</h2><p className="mt-3 text-sm leading-7 text-zinc-600">案例展示输入、过程、输出和未验证项，不把内部测试包装成客户成功故事。</p></div><Link className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700" href="/cases">查看全部案例 <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link></div><div className="mt-7 grid gap-4 md:grid-cols-3">{caseStudies.map((study) => <Link className="rounded-lg border border-zinc-200 bg-zinc-50 p-5 transition hover:border-emerald-400 hover:bg-white" href={`/cases/${study.slug}`} key={study.slug}><span className="text-xs font-bold text-amber-700">内部验证案例</span><h3 className="mt-3 text-lg font-bold text-zinc-950">{study.title}</h3><p className="mt-2 text-sm leading-6 text-zinc-600">{study.summary}</p></Link>)}</div></div>
+      </section>
+
+      <section className="border-b border-zinc-200 bg-zinc-50 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl"><p className="text-sm font-semibold text-emerald-700">按场景成套使用</p><h2 className="mt-2 text-3xl font-bold text-zinc-950">Prompt 只是起点，完整交付才有价值</h2><p className="mt-3 text-sm leading-7 text-zinc-600">每个包包含工作流、实测案例、使用说明、错误清单和输出模板。当前免费预览，后续计划采用一次性购买。</p></div>
@@ -75,23 +74,6 @@ export default function HomePage() {
           <div className="mt-8 grid gap-4 md:grid-cols-3">{workflowPacks.map((pack) => <PackCard compact key={pack.slug} pack={pack} />)}</div>
         </div>
       </section>
-
-      {sections.map((section, index) => {
-        const Icon = section.icon;
-        return (
-          <section className={`py-12 sm:py-16 ${index % 2 ? "bg-zinc-50" : "bg-white"}`} key={section.title}>
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <div className="flex items-start gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-zinc-950 text-emerald-300"><Icon className="h-5 w-5" aria-hidden="true" /></span>
-                <div><h2 className="text-2xl font-bold text-zinc-950">{section.title}</h2><p className="mt-2 text-sm leading-6 text-zinc-600">{section.description}</p></div>
-              </div>
-              <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                {section.prompts.map((prompt) => <WorkflowCard compact key={prompt.id} prompt={prompt} />)}
-              </div>
-            </div>
-          </section>
-        );
-      })}
 
       <section className="border-t border-zinc-200 bg-zinc-950 py-12 text-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">

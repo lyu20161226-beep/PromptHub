@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { caseStudies } from "@/data/case-studies";
 import { topWorkflowPrompts } from "@/lib/mock-prompts";
 import { siteUrl } from "@/lib/site";
 
@@ -12,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1
     },
-    ...["workflows", "packs", "about", "midjourney", "jimeng", "chatgpt"].map((platform) => ({
+    ...["workflows", "weekly", "cases", "packs", "about", "midjourney", "jimeng", "chatgpt"].map((platform) => ({
       url: `${siteUrl}/${platform}`,
       lastModified,
       changeFrequency: "weekly" as const,
@@ -27,5 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8
   }));
 
-  return [...corePages, ...promptPages];
+  const casePages: MetadataRoute.Sitemap = caseStudies.map((study) => ({
+    url: `${siteUrl}/cases/${study.slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.8
+  }));
+
+  return [...corePages, ...promptPages, ...casePages];
 }
