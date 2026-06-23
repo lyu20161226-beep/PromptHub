@@ -1,14 +1,28 @@
 # PromptHub
 
-一个使用 Next.js App Router、TypeScript、Tailwind CSS 和本地 JSON 数据构建的中文 AI 提示词库。
+PromptHub 是一个中文 Prompt OS MVP。第一版只做一个闭环：
 
-## 功能
+用户打开网站，搜索一个任务，填写变量，点击运行，拿到 AI 结果，然后复制或收藏。
 
-- Midjourney、即梦、ChatGPT 三个提示词分类
-- 全站实时搜索与标签筛选
-- 提示词详情页与一键复制
-- 基于 LocalStorage 的本地收藏
-- 动态 Metadata、sitemap 和 robots.txt
+## 当前 MVP
+
+- Header
+- Hero 搜索框
+- 热门场景 Tabs
+- Prompt 卡片瀑布流
+- 自动解析 `{{变量}}` 并生成输入框
+- `/api/run` 运行接口
+- 20 条本地高质量 Prompt 数据
+- 本地收藏
+- 无登录、无支付、无数据库
+
+## 技术栈
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Local TypeScript data
+- DeepSeek API 可选接入
 
 ## 本地运行
 
@@ -17,7 +31,11 @@ npm install
 npm run dev
 ```
 
-访问 `http://localhost:3000`。
+访问：
+
+```text
+http://localhost:3000
+```
 
 ## 生产构建
 
@@ -28,8 +46,27 @@ npm start
 
 ## 环境变量
 
-部署时将正式站点地址写入：
+复制 `.env.example` 为 `.env.local`：
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+DEEPSEEK_API_KEY=你的 DeepSeek Key
+DEEPSEEK_MODEL=deepseek-chat
 ```
+
+如果不配置 `DEEPSEEK_API_KEY`，`/api/run` 会返回模拟结果，方便先测试 MVP 闭环。
+
+部署到 Vercel 后，在项目的 Environment Variables 里添加：
+
+```bash
+DEEPSEEK_API_KEY=你的 DeepSeek Key
+DEEPSEEK_MODEL=deepseek-chat
+NEXT_PUBLIC_SITE_URL=https://你的域名
+```
+
+## 核心文件
+
+- `data/prompts.ts`：MVP Prompt 数据
+- `src/components/PromptOSHome.tsx`：首页搜索、Tabs、瀑布流
+- `src/components/RunnablePromptCard.tsx`：可运行 Prompt 卡片
+- `src/app/api/run/route.ts`：运行接口，支持 DeepSeek
