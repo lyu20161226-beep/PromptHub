@@ -56,7 +56,14 @@ export function RunnablePromptCard({ prompt }: RunnablePromptCardProps) {
         })
       });
 
-      const data = (await response.json()) as { result?: string; error?: string };
+      const text = await response.text();
+      let data: { result?: string; error?: string } = {};
+
+      try {
+        data = text ? (JSON.parse(text) as { result?: string; error?: string }) : {};
+      } catch {
+        throw new Error("服务返回格式异常，请刷新页面后重试");
+      }
       if (!response.ok || !data.result) throw new Error(data.error || "运行失败，请稍后重试");
       setOutput(data.result);
     } catch (runError) {
