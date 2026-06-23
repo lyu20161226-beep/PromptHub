@@ -12,22 +12,16 @@ export function Header() {
           <span className="text-xl">PromptHub</span>
         </Link>
 
-        <nav className="scrollbar-hidden flex items-center gap-1 overflow-x-auto text-sm font-medium text-zinc-600" aria-label="主导航">
-          <Link className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/workflows">
-            探索
+        <nav className="flex items-center gap-1 text-sm font-medium text-zinc-600" aria-label="主导航">
+          <Link className="hidden rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950 sm:inline-flex" href="/workflows">
+            工作流库
           </Link>
-          <Link className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/packs">
-            工作流包
+          <Link className="hidden rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950 sm:inline-flex" href="/packs">
+            提示词包
           </Link>
-          <Link className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/weekly">
-            Weekly
-          </Link>
-          <Link className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/cases">
-            案例
-          </Link>
-          <Link className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/favorites">
+          <Link className="inline-flex items-center gap-1.5 rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/favorites">
             <Heart className="h-4 w-4" aria-hidden="true" />
-            我的收藏
+            收藏
           </Link>
           <Link
             aria-label="搜索提示词"
