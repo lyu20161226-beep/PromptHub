@@ -12,6 +12,7 @@ PromptHub 是一个中文 Prompt OS MVP。第一版只做一个闭环：
 - Prompt 卡片瀑布流
 - 自动解析 `{{变量}}` 并生成输入框
 - `/api/run` 运行接口
+- `/api/chat` DeepSeek 测试接口
 - 20 条本地高质量 Prompt 数据
 - 本地收藏
 - 无登录、无支付、无数据库
@@ -56,6 +57,8 @@ DEEPSEEK_MODEL=deepseek-chat
 
 如果不配置 `DEEPSEEK_API_KEY`，`/api/run` 会返回模拟结果，方便先测试 MVP 闭环。
 
+`/api/chat` 用于测试真实 DeepSeek 对话调用，需要配置 `DEEPSEEK_API_KEY`。不要把 `deepseek-chat` 填到 `DEEPSEEK_API_KEY`，它是模型名，应放在 `DEEPSEEK_MODEL`。
+
 部署到 Vercel 后，在项目的 Environment Variables 里添加：
 
 ```bash
@@ -69,4 +72,6 @@ NEXT_PUBLIC_SITE_URL=https://你的域名
 - `data/prompts.ts`：MVP Prompt 数据
 - `src/components/PromptOSHome.tsx`：首页搜索、Tabs、瀑布流
 - `src/components/RunnablePromptCard.tsx`：可运行 Prompt 卡片
+- `src/components/DeepSeekChatDemo.tsx`：前端调用 `/api/chat` 的测试组件
 - `src/app/api/run/route.ts`：运行接口，支持 DeepSeek
+- `src/app/api/chat/route.ts`：DeepSeek Chat 测试接口

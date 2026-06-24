@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Search, SlidersHorizontal, Sparkles, X } from
 import { useMemo, useState } from "react";
 import type { PromptCategory, RunnablePrompt } from "../../data/prompts";
 import { promptCategories } from "../../data/prompts";
+import { DeepSeekChatDemo } from "@/components/DeepSeekChatDemo";
 import { RunnablePromptCard } from "@/components/RunnablePromptCard";
 import { recordValidationEvent } from "@/lib/validation-events";
 
@@ -318,6 +319,8 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
           )}
         </div>
       </section>
+
+      <DeepSeekChatDemo />
 
       <section className="border-y border-zinc-200 bg-white py-12" id="packs">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
