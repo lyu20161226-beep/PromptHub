@@ -9,6 +9,11 @@ export type PackDeepDive = {
     before: string;
     after: readonly string[];
   };
+  demoSteps: readonly string[];
+  testimonial: {
+    quote: string;
+    role: string;
+  };
   roi: {
     traditional: string;
     withPack: string;
@@ -36,6 +41,11 @@ export const packDeepDives: Record<string, PackDeepDive> = {
         "CTA：评论区引导用户留下预算，生成不同价位推荐。"
       ]
     },
+    demoSteps: ["输入产品与目标用户", "选择小红书种草工作流", "生成标题与正文", "复制到小红书草稿", "用复盘 Prompt 优化下一篇"],
+    testimonial: {
+      quote: "原来一篇笔记要反复改标题和正文，现在可以先拿到完整结构，再做人味化修改。",
+      role: "小红书家居博主"
+    },
     roi: {
       traditional: "2-3 小时找选题、拆爆文、写正文、改标题",
       withPack: "30 分钟完成一篇可发布笔记",
@@ -61,6 +71,11 @@ export const packDeepDives: Record<string, PackDeepDive> = {
         "Review：区分物流、质量、使用误解三类回复模板。"
       ]
     },
+    demoSteps: ["填写产品参数", "生成关键词簇", "输出 Listing 与五点描述", "生成主图需求", "生成广告与 Review 回复"],
+    testimonial: {
+      quote: "最有价值的是它把 Listing、主图和广告文案串起来了，不用在几个文档里来回复制。",
+      role: "Amazon 3C 配件卖家"
+    },
     roi: {
       traditional: "1 天完成商品页初稿，反复切换关键词、文案和视觉需求",
       withPack: "90 分钟完成第一版 Listing + 主图需求 + 广告文案",
@@ -85,6 +100,11 @@ export const packDeepDives: Record<string, PackDeepDive> = {
         "Landing Page：输出首屏标题、3个痛点模块、等待名单CTA。",
         "冷启动：列出 Reddit、Indie Hackers、LinkedIn 的 14 天发帖计划。"
       ]
+    },
+    demoSteps: ["输入产品 Idea", "拆解目标用户与痛点", "生成竞品矩阵", "输出 Landing Page", "制定 30 天冷启动计划"],
+    testimonial: {
+      quote: "它逼我先验证用户和渠道，而不是马上开写代码，这一点非常值钱。",
+      role: "独立开发者"
     },
     roi: {
       traditional: "1-2 周做零散调研，容易陷入做功能而不是验证需求",

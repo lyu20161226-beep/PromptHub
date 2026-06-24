@@ -68,6 +68,25 @@ const pricing = [
   { name: "Asset Pack", price: "$79", description: "Workflow + Prompt + Notion + SOP" }
 ];
 
+const marketSignals = [
+  {
+    title: "免费预览",
+    description: "每个 Pack 先开放目录、案例和首个工作流，让用户先验证价值。"
+  },
+  {
+    title: "一次性购买",
+    description: "早期不做复杂订阅，优先验证单 Pack 与 Bundle 的付费意愿。"
+  },
+  {
+    title: "模型兼容",
+    description: "内容按 ChatGPT、Claude、Gemini、DeepSeek 等通用工作流设计。"
+  },
+  {
+    title: "退款说明",
+    description: "上线支付后提供清晰退款规则，降低第一次购买的心理门槛。"
+  }
+];
+
 export default function PacksPage() {
   return (
     <main className="min-h-screen bg-zinc-50">
@@ -116,6 +135,20 @@ export default function PacksPage() {
               <div className="rounded-lg border border-zinc-800 bg-zinc-900 p-5" key={title}>
                 <h2 className="font-bold">{title}</h2>
                 <p className="mt-2 text-sm leading-6 text-zinc-400">{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-200 bg-white py-10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold text-emerald-700">对标后采用的商业结构</p>
+          <div className="mt-5 grid gap-4 md:grid-cols-4">
+            {marketSignals.map((item) => (
+              <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-5" key={item.title}>
+                <h2 className="font-bold text-zinc-950">{item.title}</h2>
+                <p className="mt-2 text-sm leading-6 text-zinc-600">{item.description}</p>
               </div>
             ))}
           </div>
@@ -181,6 +214,7 @@ export default function PacksPage() {
                       <div className="mt-5 grid gap-3 md:grid-cols-2">
                         <div className="rounded-lg border border-red-100 bg-red-50 p-4">
                           <p className="text-xs font-bold text-red-600">Before</p>
+                          {deepDive && <p className="mt-2 text-xs font-semibold text-zinc-500">示例输入：{deepDive.beforeAfter.input}</p>}
                           <p className="mt-2 text-sm leading-6 text-zinc-700">{deepDive?.beforeAfter.before ?? proof.before}</p>
                         </div>
                         <div className="rounded-lg border border-emerald-100 bg-emerald-50 p-4">
@@ -243,6 +277,27 @@ export default function PacksPage() {
                                 <li key={item}>{item}</li>
                               ))}
                             </ul>
+                          </div>
+                        </div>
+                      )}
+
+                      {deepDive && (
+                        <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_0.9fr]">
+                          <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4">
+                            <p className="text-sm font-bold text-zinc-950">30 秒 Demo 脚本</p>
+                            <div className="mt-3 grid gap-2 sm:grid-cols-5">
+                              {deepDive.demoSteps.map((step, index) => (
+                                <div className="rounded-md bg-white p-3" key={step}>
+                                  <p className="text-xs font-bold text-emerald-700">0{index + 1}</p>
+                                  <p className="mt-1 text-sm font-semibold text-zinc-800">{step}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                          <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+                            <p className="text-sm font-bold text-zinc-950">用户评价示例</p>
+                            <p className="mt-3 text-sm leading-6 text-zinc-700">“{deepDive.testimonial.quote}”</p>
+                            <p className="mt-3 text-xs font-bold text-emerald-800">-- {deepDive.testimonial.role}</p>
                           </div>
                         </div>
                       )}
