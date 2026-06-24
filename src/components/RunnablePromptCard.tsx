@@ -9,6 +9,8 @@ type RunnablePromptCardProps = {
   prompt: RunnablePrompt;
 };
 
+const modelOptions = ["DeepSeek", "GPT-4o", "Claude 3.5", "Gemini"];
+
 function extractVariables(template: string) {
   return Array.from(new Set(template.match(/{{(.*?)}}/g)?.map((item) => item.replace(/{{|}}/g, "").trim()) ?? []));
 }
@@ -25,6 +27,7 @@ function getFavoriteIds() {
 export function RunnablePromptCard({ prompt }: RunnablePromptCardProps) {
   const variables = useMemo(() => extractVariables(prompt.template), [prompt.template]);
   const [formData, setFormData] = useState<Record<string, string>>({});
+  const [selectedModel, setSelectedModel] = useState("DeepSeek");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -43,7 +46,7 @@ export function RunnablePromptCard({ prompt }: RunnablePromptCardProps) {
     setLoading(true);
     setOutput("");
     setError("");
-    void recordValidationEvent("workflow_click", { workflowId: prompt.id, source: "prompt-os-mvp-card" });
+    void recordValidationEvent("workflow_click", { workflowId: prompt.id, source: "prompt-os-card", model: selectedModel });
 
     try {
       const response = await fetch("/api/run", {
@@ -52,7 +55,8 @@ export function RunnablePromptCard({ prompt }: RunnablePromptCardProps) {
         body: JSON.stringify({
           promptId: prompt.id,
           template: prompt.template,
-          variables: formData
+          variables: formData,
+          model: selectedModel
         })
       });
 
@@ -62,12 +66,16 @@ export function RunnablePromptCard({ prompt }: RunnablePromptCardProps) {
       try {
         data = text ? (JSON.parse(text) as { result?: string; error?: string }) : {};
       } catch {
-        throw new Error("服务返回格式异常，请刷新页面后重试");
+        throw new Error("服务返回格式异常，请刷新页面后重试。");
       }
-      if (!response.ok || !data.result) throw new Error(data.error || "运行失败，请稍后重试");
+
+      if (!response.ok || !data.result) {
+        throw new Error(data.error || "运行失败，请稍后重试。");
+      }
+
       setOutput(data.result);
     } catch (runError) {
-      setError(runError instanceof Error ? runError.message : "运行失败，请稍后重试");
+      setError(runError instanceof Error ? runError.message : "运行失败，请稍后重试。");
     } finally {
       setLoading(false);
     }
@@ -76,7 +84,7 @@ export function RunnablePromptCard({ prompt }: RunnablePromptCardProps) {
   async function copyOutput() {
     const text = output || prompt.template;
     await navigator.clipboard.writeText(text);
-    void recordValidationEvent("workflow_copy", { workflowId: prompt.id, source: "prompt-os-mvp-card" });
+    void recordValidationEvent("workflow_copy", { workflowId: prompt.id, source: "prompt-os-card" });
     setCopied(true);
     window.setTimeout(() => setCopied(false), 1400);
   }
@@ -108,6 +116,22 @@ export function RunnablePromptCard({ prompt }: RunnablePromptCardProps) {
           </span>
         ))}
       </div>
+
+      <label className="mt-5 block">
+        <span className="text-xs font-semibold text-zinc-600">选择模型</span>
+        <select
+          className="mt-1 min-h-11 w-full rounded-md border border-zinc-300 bg-white px-3 text-sm text-zinc-950 outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
+          onChange={(event) => setSelectedModel(event.target.value)}
+          value={selectedModel}
+        >
+          {modelOptions.map((model) => (
+            <option key={model} value={model}>
+              {model}
+            </option>
+          ))}
+        </select>
+        <span className="mt-1 block text-xs text-zinc-400">当前后端优先使用 DeepSeek，其它模型作为未来扩展入口。</span>
+      </label>
 
       <div className="mt-5 space-y-3">
         {variables.map((variable) => (

@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { ArrowRight, CheckCircle2, Search, SlidersHorizontal, Sparkles, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { PromptCategory, RunnablePrompt } from "../../data/prompts";
 import { promptCategories } from "../../data/prompts";
@@ -11,7 +11,46 @@ type PromptOSHomeProps = {
   prompts: RunnablePrompt[];
 };
 
-const hotScenes = ["小红书文案", "代码审查", "简历优化", "SEO策划", "周报生成", "商业计划书"];
+const hotScenes = ["小红书文案", "代码审查", "副业点子", "简历优化", "SEO策划", "论文润色"];
+
+const systemSteps = [
+  {
+    title: "Find",
+    subtitle: "发现任务",
+    description: "用搜索和场景标签快速找到适合当前工作的 AI 工作流。"
+  },
+  {
+    title: "Run",
+    subtitle: "直接运行",
+    description: "每张卡片自动解析变量，填写信息后即可调用模型生成结果。"
+  },
+  {
+    title: "Improve",
+    subtitle: "沉淀资产",
+    description: "收藏、复用、迭代，把一次性 Prompt 变成可持续使用的工作资产。"
+  }
+];
+
+const pricingTiers = [
+  {
+    name: "Free",
+    price: "0元",
+    description: "适合首次体验",
+    features: ["每日 3 次直接运行", "无限复制 Prompt 文本", "查看免费案例"]
+  },
+  {
+    name: "Standard",
+    price: "即将开放",
+    description: "适合高频个人用户",
+    features: ["收藏与运行历史", "高级模型额度", "每周精选工作流"]
+  },
+  {
+    name: "Pro",
+    price: "即将开放",
+    description: "适合团队和商业场景",
+    features: ["不限量运行", "Fork 私有版本", "高级商业工作流 Packs"]
+  }
+];
 
 export function PromptOSHome({ prompts }: PromptOSHomeProps) {
   const [query, setQuery] = useState("");
@@ -30,7 +69,7 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
   function handleQueryChange(value: string) {
     setQuery(value);
     if (value.trim()) {
-      void recordValidationEvent("search", { query: value.trim(), source: "prompt-os-mvp-home" });
+      void recordValidationEvent("search", { query: value.trim(), source: "prompt-os-home" });
     }
   }
 
@@ -42,16 +81,34 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
   return (
     <>
       <section className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-2 font-bold text-zinc-950">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-zinc-950 text-white">PH</span>
+            <span>PromptHub</span>
+          </div>
+          <nav className="hidden items-center gap-6 text-sm font-semibold text-zinc-600 md:flex">
+            <a className="hover:text-zinc-950" href="#explore">探索</a>
+            <a className="hover:text-zinc-950" href="#packs">工作流 Packs</a>
+            <a className="hover:text-zinc-950" href="#pricing">定价</a>
+          </nav>
+          <a className="rounded-md bg-zinc-950 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700" href="#explore">
+            立即体验
+          </a>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-800">
-              Prompt OS MVP
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-800">
+              <Sparkles className="h-4 w-4" aria-hidden="true" />
+              Prompt OS: Find / Run / Improve
             </div>
             <h1 className="mt-5 text-4xl font-bold leading-tight text-zinc-950 sm:text-5xl">
-              输入任务，运行 AI 工作流
+              告别废话，一键直达顶级 AI 输出
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-600">
-              PromptHub 第一版只做一件事：让用户搜索任务，填写变量，点击运行，拿到可复制的 AI 结果。
+              PromptHub 不只展示提示词。你可以搜索任务、填写变量、运行工作流、复制结果，把想法直接变成可交付成果。
             </p>
 
             <label className="mx-auto mt-8 flex max-w-2xl items-center gap-3 rounded-lg border border-zinc-300 bg-white px-4 shadow-sm focus-within:border-emerald-500 focus-within:ring-4 focus-within:ring-emerald-100">
@@ -60,7 +117,7 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
               <input
                 className="min-h-14 min-w-0 flex-1 bg-transparent text-sm text-zinc-950 outline-none placeholder:text-zinc-400"
                 onChange={(event) => handleQueryChange(event.target.value)}
-                placeholder="搜索任务，例如：小红书、代码审查、简历、周报、SEO"
+                placeholder="输入你想让 AI 帮你完成什么任务，例如：小红书、代码审查、简历、SEO"
                 type="search"
                 value={query}
               />
@@ -84,10 +141,20 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
               ))}
             </div>
           </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            {systemSteps.map((step) => (
+              <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-5" key={step.title}>
+                <p className="text-sm font-bold text-emerald-700">{step.title}</p>
+                <h2 className="mt-2 text-xl font-bold text-zinc-950">{step.subtitle}</h2>
+                <p className="mt-2 text-sm leading-6 text-zinc-600">{step.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="border-b border-zinc-200 bg-zinc-950 py-5">
+      <section className="border-b border-zinc-200 bg-zinc-950 py-5" id="explore">
         <div className="mx-auto flex max-w-6xl items-start gap-3 px-4 sm:px-6 lg:px-8">
           <SlidersHorizontal className="mt-2 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />
           <div className="scrollbar-hidden flex gap-2 overflow-x-auto" role="group" aria-label="热门场景分类">
@@ -112,10 +179,10 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-semibold text-emerald-700">Prompt 卡片瀑布流</p>
-              <h2 className="mt-2 text-3xl font-bold text-zinc-950">直接填写变量并运行</h2>
+              <p className="text-sm font-semibold text-emerald-700">可运行 Prompt 卡片</p>
+              <h2 className="mt-2 text-3xl font-bold text-zinc-950">填写变量，立即运行</h2>
               <p className="mt-3 text-sm text-zinc-500">
-                找到 <strong className="text-zinc-950">{filteredPrompts.length}</strong> 个可运行 Prompt
+                找到 <strong className="text-zinc-950">{filteredPrompts.length}</strong> 个可运行 AI 工作流
               </p>
             </div>
             {(query || category !== "全部") && (
@@ -137,13 +204,60 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
           ) : (
             <div className="mt-7 flex min-h-64 flex-col items-center justify-center rounded-lg border border-dashed border-zinc-300 bg-white px-6 text-center">
               <Search className="h-8 w-8 text-zinc-300" aria-hidden="true" />
-              <h3 className="mt-4 text-xl font-bold text-zinc-950">没有找到匹配的 Prompt</h3>
+              <h3 className="mt-4 text-xl font-bold text-zinc-950">没有找到匹配的工作流</h3>
               <p className="mt-2 text-sm text-zinc-500">换一个关键词，或者查看全部分类。</p>
               <button className="mt-5 text-sm font-semibold text-emerald-700" onClick={clearFilters} type="button">
-                查看全部 Prompt
+                查看全部工作流
               </button>
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="border-y border-zinc-200 bg-white py-12" id="packs">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <div>
+            <p className="text-sm font-semibold text-emerald-700">精选垂直工作流 Packs</p>
+            <h2 className="mt-2 text-3xl font-bold text-zinc-950">不是卖提示词，而是卖可复制的 AI 工作流</h2>
+            <p className="mt-4 text-sm leading-6 text-zinc-600">
+              普通 Prompt 会越来越不值钱。真正值钱的是垂直场景、稳定结果、模板化输出和持续更新。PromptHub 的 Pack 会固定包含案例、教程、避坑和输出模板。
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {["小红书爆款笔记 Pack", "跨境电商 Listing Pack", "独立开发者产品调研 Pack", "教师教案出题 Pack", "自媒体选题脚本 Pack", "AI 绘图风格 Pack"].map((pack) => (
+              <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4" key={pack}>
+                <CheckCircle2 className="h-5 w-5 text-emerald-600" aria-hidden="true" />
+                <h3 className="mt-3 font-bold text-zinc-950">{pack}</h3>
+                <p className="mt-2 text-sm text-zinc-600">Prompt + 案例 + 教程 + 输出模板 + 避坑指南。</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-zinc-950 py-12 text-white" id="pricing">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold text-emerald-300">Freemium 商业闭环</p>
+            <h2 className="mt-2 text-3xl font-bold">先免费运行，再解锁高级 Packs</h2>
+          </div>
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            {pricingTiers.map((tier) => (
+              <div className="rounded-lg border border-zinc-800 bg-zinc-900 p-5" key={tier.name}>
+                <h3 className="text-xl font-bold">{tier.name}</h3>
+                <p className="mt-2 text-2xl font-bold text-emerald-300">{tier.price}</p>
+                <p className="mt-2 text-sm text-zinc-400">{tier.description}</p>
+                <ul className="mt-5 space-y-2 text-sm text-zinc-200">
+                  {tier.features.map((feature) => (
+                    <li className="flex gap-2" key={feature}>
+                      <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

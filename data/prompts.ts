@@ -1,4 +1,4 @@
-export type PromptCategory = "写作" | "编程" | "营销" | "绘图" | "学习" | "办公" | "职场" | "商业";
+export type PromptCategory = "写作" | "搞钱" | "编程" | "职场" | "学习" | "办公" | "绘图" | "商业";
 
 export type RunnablePrompt = {
   id: string;
@@ -12,20 +12,30 @@ export type RunnablePrompt = {
   template: string;
 };
 
-export const promptCategories: Array<"全部" | PromptCategory> = ["全部", "写作", "编程", "营销", "绘图", "学习", "办公", "职场", "商业"];
+export const promptCategories: Array<"全部" | PromptCategory> = [
+  "全部",
+  "写作",
+  "搞钱",
+  "编程",
+  "职场",
+  "学习",
+  "办公",
+  "绘图",
+  "商业"
+];
 
 export const prompts: RunnablePrompt[] = [
   {
     id: "xhs-product-note",
-    title: "小红书产品种草文案",
+    title: "小红书爆款笔记生成器",
     description: "输入产品、卖点和人群，生成标题、正文、标签和评论区引导。",
     category: "写作",
-    scene: "小红书带货、品牌种草、产品发布",
+    scene: "小红书种草、带货笔记、产品发布",
     tags: ["小红书", "种草", "文案"],
     runs: "12.5k",
     score: "4.9",
     template:
-      "你是一名小红书内容增长顾问。请围绕产品{{产品名称}}，面向{{目标用户}}，突出{{核心卖点}}，价格区间为{{价格区间}}，生成一篇小红书产品种草文案。输出包含：5个爆款标题、正文、推荐标签、评论区引导和发布建议。"
+      "你是一名小红书内容增长顾问。请围绕产品{{产品名称}}，面向{{目标用户}}，突出{{核心卖点}}，价格区间为{{价格区间}}，生成一篇小红书产品种草笔记。输出包含：5个爆款标题、正文、推荐标签、评论区引导、发布节奏和常见避坑提醒。"
   },
   {
     id: "douyin-script",
@@ -37,7 +47,7 @@ export const prompts: RunnablePrompt[] = [
     runs: "9.8k",
     score: "4.8",
     template:
-      "你是一名短视频编导。请为主题{{视频主题}}，面向{{目标人群}}，生成一条{{时长}}秒口播脚本。要求包含：3秒开头钩子、分镜节奏、口播正文、字幕重点和结尾行动引导。"
+      "你是一名短视频编导。请为主题{{视频主题}}，面向{{目标人群}}，生成一条{{时长}}秒口播脚本。要求包含：3秒开头钩子、分镜节奏、口播正文、字幕重点、转场建议和结尾行动引导。"
   },
   {
     id: "code-review",
@@ -85,13 +95,13 @@ export const prompts: RunnablePrompt[] = [
     runs: "7.2k",
     score: "4.9",
     template:
-      "你是一名招聘经理。请根据目标岗位JD{{目标岗位JD}}和我的经历{{我的经历}}，把经历改写为3到5条简历要点。要求使用行动-方法-结果结构，不得虚构数字；缺少量化信息时提出需要补充的问题。"
+      "你是一名招聘经理。请根据目标岗位JD{{目标岗位JD}}和我的经历{{我的经历}}，把经历改写成5到8条简历要点。要求使用行动-方法-结果结构，不得虚构数字；缺少量化信息时提出需要补充的问题。"
   },
   {
     id: "side-business-ideas",
     title: "副业点子筛选器",
     description: "从技能、时间、预算和渠道出发，筛选更现实的副业方向。",
-    category: "商业",
+    category: "搞钱",
     scene: "副业探索、个人商业化、轻创业",
     tags: ["副业", "赚钱", "商业"],
     runs: "6.8k",
@@ -127,7 +137,7 @@ export const prompts: RunnablePrompt[] = [
     id: "seo-outline",
     title: "SEO 内容策划大纲",
     description: "从搜索意图出发，生成更容易被收录的文章结构。",
-    category: "营销",
+    category: "搞钱",
     scene: "SEO文章、内容营销、网站增长",
     tags: ["SEO", "内容策划", "增长"],
     runs: "5.9k",
@@ -139,13 +149,13 @@ export const prompts: RunnablePrompt[] = [
     id: "landing-page-copy",
     title: "高转化落地页文案",
     description: "把用户痛点、价值主张和证据转成落地页结构。",
-    category: "营销",
+    category: "搞钱",
     scene: "SaaS官网、产品发布、广告投放",
     tags: ["落地页", "转化", "SaaS"],
     runs: "5.7k",
     score: "4.8",
     template:
-      "你是一名转化文案专家。请为产品{{产品名称}}，面向用户{{目标用户}}，围绕痛点{{核心痛点}}和证据{{可信证据}}，生成落地页文案。包括：首屏标题、副标题、价值模块、使用场景、FAQ和CTA。"
+      "你是一名转化文案专家。请为产品{{产品名称}}，面向用户{{目标用户}}，围绕痛点{{核心痛点}}和证据{{可信证据}}，生成落地页文案。包括：首页标题、副标题、价值模块、使用场景、Before/After、FAQ和CTA。"
   },
   {
     id: "competitor-analysis",
@@ -217,7 +227,7 @@ export const prompts: RunnablePrompt[] = [
     runs: "4.2k",
     score: "4.7",
     template:
-      "你是一名学习教练。请根据学习目标{{学习目标}}、当前基础{{当前基础}}、每天可用时间{{每天时间}}、期限{{完成期限}}，制定学习计划。输出：阶段目标、每日安排、练习任务、复盘方式和风险提醒。"
+      "你是一名学习教练。请根据学习目标{{学习目标}}、当前基础{{当前基础}}、每天可用时间{{每天时间}}、完成期限{{完成期限}}，制定学习计划。输出：阶段目标、每日安排、练习任务、复盘方式和风险提醒。"
   },
   {
     id: "interview-simulator",
@@ -246,13 +256,13 @@ export const prompts: RunnablePrompt[] = [
   {
     id: "email-cold-outreach",
     title: "冷启动销售邮件",
-    description: "生成不油腻、明确价值和下一步动作的外联邮件。",
-    category: "营销",
+    description: "生成不油腻、价值明确、有下一步动作的外联邮件。",
+    category: "搞钱",
     scene: "B2B销售、合作邀约、冷启动",
     tags: ["销售", "邮件", "获客"],
     runs: "3.5k",
     score: "4.6",
     template:
-      "你是一名B2B销售顾问。请为目标客户{{目标客户}}，围绕产品{{产品名称}}和客户痛点{{客户痛点}}，写3封冷启动邮件。要求：简短、具体、有价值，不夸张，包含明确下一步动作。"
+      "你是一名B2B销售顾问。请为目标客户{{目标客户}}，围绕产品{{产品名称}}和客户痛点{{客户痛点}}，写3封冷启动邮件。要求：简短、具体、有价值、不夸张，包含明确下一步动作。"
   }
 ];
