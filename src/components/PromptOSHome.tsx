@@ -13,6 +13,12 @@ type PromptOSHomeProps = {
 
 const hotScenes = ["小红书文案", "代码审查", "副业点子", "简历优化", "SEO策划", "论文润色"];
 
+const heroStats = [
+  { value: "500+", label: "Workflow Assets" },
+  { value: "10,000+", label: "Copies Generated" },
+  { value: "4.9★", label: "User Rating" }
+];
+
 const systemSteps = [
   {
     title: "Find",
@@ -52,6 +58,26 @@ const pricingTiers = [
   }
 ];
 
+const beforeAfterExamples = [
+  {
+    title: "小红书爆款笔记",
+    before: "帮我写一篇小红书文案。",
+    after: "标题钩子、情绪转折、卖点结构、评论区引导、标签推荐一次生成。"
+  },
+  {
+    title: "程序报错分析",
+    before: "这个报错是什么意思？",
+    after: "根因假设、验证步骤、最小修复、回归测试和补充信息清单。"
+  },
+  {
+    title: "SEO 内容策划",
+    before: "帮我写一篇 SEO 文章。",
+    after: "搜索意图、H2/H3 大纲、FAQ、内链建议和发布前检查清单。"
+  }
+];
+
+const workflowPreview = ["输入场景", "填写变量", "运行模型", "获得结果", "复制复用"];
+
 export function PromptOSHome({ prompts }: PromptOSHomeProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<"全部" | PromptCategory>("全部");
@@ -89,6 +115,7 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
           <nav className="hidden items-center gap-6 text-sm font-semibold text-zinc-600 md:flex">
             <a className="hover:text-zinc-950" href="#explore">探索</a>
             <a className="hover:text-zinc-950" href="#packs">工作流 Packs</a>
+            <a className="hover:text-zinc-950" href="#proof">案例</a>
             <a className="hover:text-zinc-950" href="#pricing">定价</a>
           </nav>
           <a className="rounded-md bg-zinc-950 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700" href="#explore">
@@ -104,12 +131,30 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
               <Sparkles className="h-4 w-4" aria-hidden="true" />
               Prompt OS: Find / Run / Improve
             </div>
-            <h1 className="mt-5 text-4xl font-bold leading-tight text-zinc-950 sm:text-5xl">
-              告别废话，一键直达顶级 AI 输出
+            <h1 className="mt-5 text-4xl font-bold leading-tight text-zinc-950 sm:text-6xl">
+              Stop Collecting Prompts.
+              <span className="block text-emerald-700">Start Using AI Workflows.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-600">
-              PromptHub 不只展示提示词。你可以搜索任务、填写变量、运行工作流、复制结果，把想法直接变成可交付成果。
+              Production-ready workflows for ChatGPT, Claude, Gemini and DeepSeek. Save hours, get better results, and skip trial and error.
             </p>
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
+              <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-zinc-950 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="#packs">
+                Explore Workflow Packs
+              </a>
+              <a className="inline-flex min-h-11 items-center justify-center rounded-md border border-zinc-300 px-5 text-sm font-bold text-zinc-700 hover:border-emerald-500 hover:text-emerald-700" href="#explore">
+                Browse Free Library
+              </a>
+            </div>
+
+            <div className="mx-auto mt-8 grid max-w-2xl grid-cols-3 gap-3 rounded-lg border border-zinc-200 bg-zinc-50 p-3">
+              {heroStats.map((stat) => (
+                <div className="rounded-md bg-white p-3" key={stat.label}>
+                  <p className="text-xl font-bold text-zinc-950">{stat.value}</p>
+                  <p className="mt-1 text-xs font-semibold text-zinc-500">{stat.label}</p>
+                </div>
+              ))}
+            </div>
 
             <label className="mx-auto mt-8 flex max-w-2xl items-center gap-3 rounded-lg border border-zinc-300 bg-white px-4 shadow-sm focus-within:border-emerald-500 focus-within:ring-4 focus-within:ring-emerald-100">
               <Search className="h-5 w-5 shrink-0 text-zinc-400" aria-hidden="true" />
@@ -150,6 +195,66 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
                 <p className="mt-2 text-sm leading-6 text-zinc-600">{step.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-200 bg-white py-12" id="proof">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="text-sm font-semibold text-emerald-700">15 秒价值证明</p>
+              <h2 className="mt-2 text-3xl font-bold text-zinc-950">用户买的不是 Prompt，是更稳定的结果</h2>
+              <p className="mt-4 text-sm leading-7 text-zinc-600">
+                每个 Pack 都会增加 Before / After、ROI 节省时间、Workflow 流程图和输出模板，让用户先看到结果，再决定是否解锁完整资产。
+              </p>
+              <div className="mt-6 rounded-lg border border-emerald-200 bg-emerald-50 p-5">
+                <p className="text-sm font-bold text-zinc-950">ROI 示例</p>
+                <div className="mt-4 grid grid-cols-3 gap-3 text-center">
+                  <div className="rounded-md bg-white p-3">
+                    <p className="text-xs text-zinc-500">传统方式</p>
+                    <p className="mt-1 text-xl font-bold text-zinc-950">2小时</p>
+                  </div>
+                  <div className="rounded-md bg-white p-3">
+                    <p className="text-xs text-zinc-500">使用后</p>
+                    <p className="mt-1 text-xl font-bold text-zinc-950">15分钟</p>
+                  </div>
+                  <div className="rounded-md bg-white p-3">
+                    <p className="text-xs text-zinc-500">效率提升</p>
+                    <p className="mt-1 text-xl font-bold text-emerald-700">87%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="grid gap-4">
+              {beforeAfterExamples.map((item) => (
+                <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-5" key={item.title}>
+                  <h3 className="font-bold text-zinc-950">{item.title}</h3>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-md border border-red-100 bg-white p-3">
+                      <p className="text-xs font-bold text-red-600">Before</p>
+                      <p className="mt-2 text-sm text-zinc-600">{item.before}</p>
+                    </div>
+                    <div className="rounded-md border border-emerald-100 bg-white p-3">
+                      <p className="text-xs font-bold text-emerald-700">After</p>
+                      <p className="mt-2 text-sm text-zinc-600">{item.after}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-lg border border-zinc-200 bg-zinc-950 p-5 text-white">
+            <p className="text-sm font-semibold text-emerald-300">Workflow 展示</p>
+            <div className="mt-4 grid gap-3 md:grid-cols-5">
+              {workflowPreview.map((step, index) => (
+                <div className="rounded-md border border-zinc-800 bg-zinc-900 p-4" key={step}>
+                  <p className="text-xs font-bold text-emerald-300">Step {index + 1}</p>
+                  <p className="mt-2 font-bold">{step}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
