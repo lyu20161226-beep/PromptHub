@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { formatDeepSeekError, normalizeDeepSeekApiKey, validateDeepSeekApiKey } from "@/lib/deepseek";
 
 type ChatRequest = {
   message?: unknown;
@@ -41,14 +42,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "缺少 message，请输入要发送给 DeepSeek 的内容。" }, { status: 400 });
   }
 
-  const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
+  const apiKey = normalizeDeepSeekApiKey(process.env.DEEPSEEK_API_KEY);
+  const apiKeyError = validateDeepSeekApiKey(apiKey);
 
-  if (!apiKey) {
-    return NextResponse.json({ error: "未配置 DEEPSEEK_API_KEY，请在 .env.local 或 Vercel 环境变量中添加。" }, { status: 500 });
-  }
-
-  if (apiKey === "deepseek-chat") {
-    return NextResponse.json({ error: "DEEPSEEK_API_KEY 不能填写模型名 deepseek-chat，请填写 sk- 开头的真实 API Key。" }, { status: 500 });
+  if (apiKeyError) {
+    return NextResponse.json({ error: apiKeyError }, { status: 500 });
   }
 
   let response: Response;
@@ -80,8 +78,7 @@ export async function POST(request: Request) {
   }
 
   if (!response.ok) {
-    const detail = await response.text();
-    return NextResponse.json({ error: `DeepSeek 调用失败：${detail.slice(0, 300)}` }, { status: 502 });
+    return NextResponse.json({ error: await formatDeepSeekError(response) }, { status: response.status === 401 ? 401 : 502 });
   }
 
   try {

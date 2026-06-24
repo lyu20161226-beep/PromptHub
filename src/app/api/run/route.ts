@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { formatDeepSeekError, normalizeDeepSeekApiKey, validateDeepSeekApiKey } from "@/lib/deepseek";
 
 type RunRequest = {
   promptId?: string;
@@ -69,10 +70,16 @@ export async function POST(request: Request) {
 
   const variables = normalizeVariables(body.variables);
   const finalPrompt = fillTemplate(template, variables);
-  const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
+  const apiKey = normalizeDeepSeekApiKey(process.env.DEEPSEEK_API_KEY);
 
   if (!apiKey) {
     return NextResponse.json({ result: fallbackResult(finalPrompt), finalPrompt, provider: "mock" });
+  }
+
+  const apiKeyError = validateDeepSeekApiKey(apiKey);
+
+  if (apiKeyError) {
+    return NextResponse.json({ error: apiKeyError }, { status: 500 });
   }
 
   let response: Response;
@@ -104,8 +111,7 @@ export async function POST(request: Request) {
   }
 
   if (!response.ok) {
-    const detail = await response.text();
-    return NextResponse.json({ error: `DeepSeek 调用失败：${detail.slice(0, 200)}` }, { status: 502 });
+    return NextResponse.json({ error: await formatDeepSeekError(response) }, { status: response.status === 401 ? 401 : 502 });
   }
 
   try {

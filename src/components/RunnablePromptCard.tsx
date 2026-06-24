@@ -170,7 +170,7 @@ export function RunnablePromptCard({ prompt }: RunnablePromptCardProps) {
         </button>
       </div>
 
-      {error && <p className="mt-4 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
+      {error && <pre className="mt-4 whitespace-pre-wrap rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm leading-6 text-red-700">{error}</pre>}
 
       {output && (
         <div className="mt-5 rounded-lg border border-zinc-200 bg-zinc-50 p-4">

@@ -72,7 +72,7 @@ export function DeepSeekChatDemo() {
             {loading ? "发送中" : "Send"}
           </button>
 
-          {error && <p className="mt-4 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
+          {error && <pre className="mt-4 whitespace-pre-wrap rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm leading-6 text-red-700">{error}</pre>}
 
           {reply && (
             <div className="mt-4 rounded-md border border-emerald-200 bg-white p-4">
