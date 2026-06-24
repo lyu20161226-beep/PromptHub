@@ -16,22 +16,22 @@ export const workflowPacks: readonly WorkflowPack[] = [
     title: "小红书爆款内容工作流包",
     shortTitle: "小红书爆文包",
     audience: "品牌运营、自媒体与小商家",
-    description: "从产品卖点提炼、标题测试到正文与短视频脚本，完成一套可复用的小红书内容生产流程。",
-    price: 19,
+    description: "帮助用户 30 分钟完成一篇可发布的小红书爆款笔记，从选题、标题、正文、标签到评论区和复盘形成完整闭环。",
+    price: 9,
     icon: "social",
     promptIds: ["chatgpt-001", "writing-001", "writing-003", "writing-004", "marketing-005"],
-    includes: ["5 个原创内容工作流", "示例输入与结构化输出", "标题与正文使用场景", "常见空泛表达避坑清单", "可直接改写的发布模板"]
+    includes: ["7 个小红书内容 Prompt", "Before/After 示例", "爆款标题与正文模板", "评论区引导模板", "发布复盘清单"]
   },
   {
     slug: "cross-border-commerce",
     title: "跨境卖家商品内容工作流包",
     shortTitle: "跨境商品文案包",
     audience: "跨境卖家、电商运营与品牌团队",
-    description: "围绕商品定位、主图、落地页、竞品分析与邮件培育组织内容，减少不同渠道之间的重复劳动。",
+    description: "围绕关键词、标题、Bullet Points、A+ Content、广告文案和 Review 回复，完成跨境卖家每天都会用的商品内容资产。",
     price: 29,
     icon: "commerce",
     promptIds: ["visual-001", "midjourney-001", "marketing-002", "marketing-003", "marketing-004"],
-    includes: ["5 个商品增长工作流", "视觉与文案协同示例", "不同渠道的使用说明", "事实与合规检查项", "商品页交付模板"]
+    includes: ["6 个跨境商品 Prompt", "Amazon Listing 输出模板", "A+ Content 模块模板", "广告文案模板", "Review 回复与合规避坑"]
   },
   {
     slug: "teacher-lesson",
@@ -60,11 +60,11 @@ export const workflowPacks: readonly WorkflowPack[] = [
     title: "独立开发者产品调研工作流包",
     shortTitle: "产品调研包",
     audience: "独立开发者、产品经理与创业者",
-    description: "从竞品、用户访谈和市场定位出发，再连接落地页与决策记录，降低只凭直觉做产品的风险。",
+    description: "从 Idea、市场验证、竞品分析、Landing Page、定价到冷启动营销，帮助独立开发者把想法变成可验证的 MVP。",
     price: 29,
     icon: "research",
     promptIds: ["chatgpt-005", "chatgpt-006", "marketing-003", "marketing-002", "office-005"],
-    includes: ["5 个产品验证工作流", "访谈与分析示例", "定性研究使用场景", "证据不足与幻觉提醒", "产品机会评估模板"]
+    includes: ["6 个产品验证 Prompt", "竞品矩阵模板", "用户访谈问题库", "Landing Page 文案模板", "30 天冷启动计划"]
   },
   {
     slug: "ai-visual-style",

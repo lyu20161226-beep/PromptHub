@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, FileOutput, GitBranch, Star } from "lucide-react";
 import { workflowPacks } from "@/data/workflow-packs";
+import { packDeepDives } from "@/data/pack-deep-dives";
 import { getPromptById } from "@/lib/mock-prompts";
 
 export const metadata: Metadata = {
@@ -135,6 +136,7 @@ export default function PacksPage() {
             {workflowPacks.map((pack) => {
               const prompts = pack.promptIds.map(getPromptById).filter(Boolean);
               const proof = packProof[pack.slug];
+              const deepDive = packDeepDives[pack.slug];
 
               return (
                 <article className="scroll-mt-24 rounded-lg border border-zinc-200 bg-white p-5 shadow-sm sm:p-8" id={pack.slug} key={pack.slug}>
@@ -152,11 +154,16 @@ export default function PacksPage() {
                       <div className="mt-6 rounded-lg border border-zinc-200 bg-zinc-50 p-5">
                         <p className="text-sm font-bold text-zinc-950">Pack Overview</p>
                         <p className="mt-2 text-sm leading-6 text-zinc-600">{proof.problem}</p>
+                        {deepDive && (
+                          <p className="mt-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-emerald-800">
+                            目标：{deepDive.goal}
+                          </p>
+                        )}
                         <div className="mt-4 grid gap-3 sm:grid-cols-3">
                           <div className="rounded-md bg-white p-3">
                             <Clock className="h-4 w-4 text-emerald-600" aria-hidden="true" />
                             <p className="mt-2 text-xs text-zinc-500">节省时间</p>
-                            <p className="font-bold text-zinc-950">2h / 15min</p>
+                            <p className="font-bold text-zinc-950">{deepDive ? deepDive.roi.saved : "2h / 15min"}</p>
                           </div>
                           <div className="rounded-md bg-white p-3">
                             <Star className="h-4 w-4 text-emerald-600" aria-hidden="true" />
@@ -174,11 +181,22 @@ export default function PacksPage() {
                       <div className="mt-5 grid gap-3 md:grid-cols-2">
                         <div className="rounded-lg border border-red-100 bg-red-50 p-4">
                           <p className="text-xs font-bold text-red-600">Before</p>
-                          <p className="mt-2 text-sm leading-6 text-zinc-700">{proof.before}</p>
+                          <p className="mt-2 text-sm leading-6 text-zinc-700">{deepDive?.beforeAfter.before ?? proof.before}</p>
                         </div>
                         <div className="rounded-lg border border-emerald-100 bg-emerald-50 p-4">
                           <p className="text-xs font-bold text-emerald-700">After</p>
-                          <p className="mt-2 text-sm leading-6 text-zinc-700">{proof.after}</p>
+                          {deepDive ? (
+                            <ul className="mt-2 space-y-2 text-sm leading-6 text-zinc-700">
+                              {deepDive.beforeAfter.after.map((item) => (
+                                <li className="flex gap-2" key={item}>
+                                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-emerald-600" aria-hidden="true" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p className="mt-2 text-sm leading-6 text-zinc-700">{proof.after}</p>
+                          )}
                         </div>
                       </div>
 
@@ -188,7 +206,7 @@ export default function PacksPage() {
                           Workflow 图
                         </div>
                         <div className="mt-4 grid gap-2 md:grid-cols-5">
-                          {proof.workflow.map((step, index) => (
+                          {(deepDive?.fullWorkflow ?? proof.workflow).map((step, index) => (
                             <div className="rounded-md bg-zinc-50 p-3" key={step}>
                               <p className="text-xs font-bold text-emerald-700">Step {index + 1}</p>
                               <p className="mt-1 text-sm font-semibold text-zinc-800">{step}</p>
@@ -196,6 +214,50 @@ export default function PacksPage() {
                           ))}
                         </div>
                       </div>
+
+                      {deepDive && (
+                        <div className="mt-5 grid gap-4 lg:grid-cols-3">
+                          <div className="rounded-lg border border-zinc-200 bg-white p-4">
+                            <p className="text-sm font-bold text-zinc-950">包含 Prompt</p>
+                            <ul className="mt-3 space-y-2 text-sm text-zinc-600">
+                              {deepDive.prompts.map((item) => (
+                                <li className="flex gap-2" key={item}>
+                                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" aria-hidden="true" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="rounded-lg border border-zinc-200 bg-white p-4">
+                            <p className="text-sm font-bold text-zinc-950">输出模板</p>
+                            <ul className="mt-3 space-y-2 text-sm text-zinc-600">
+                              {deepDive.outputTemplate.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="rounded-lg border border-zinc-200 bg-white p-4">
+                            <p className="text-sm font-bold text-zinc-950">常见错误</p>
+                            <ul className="mt-3 space-y-2 text-sm text-zinc-600">
+                              {deepDive.mistakes.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+
+                      {deepDive && (
+                        <div className="mt-5 rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+                          <p className="text-sm font-bold text-zinc-950">ROI 说明</p>
+                          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                            <p className="text-sm leading-6 text-zinc-700"><strong>传统方式：</strong>{deepDive.roi.traditional}</p>
+                            <p className="text-sm leading-6 text-zinc-700"><strong>使用 Pack：</strong>{deepDive.roi.withPack}</p>
+                            <p className="text-sm leading-6 text-zinc-700"><strong>节省：</strong>{deepDive.roi.saved}</p>
+                            <p className="text-sm leading-6 text-zinc-700"><strong>每周价值：</strong>{deepDive.roi.weeklyValue}</p>
+                          </div>
+                        </div>
+                      )}
 
                       <div className="mt-6 grid gap-3 sm:grid-cols-2">
                         {prompts.map(
