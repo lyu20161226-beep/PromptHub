@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { normalizeDeepSeekApiKey, validateDeepSeekApiKey } from "@/lib/deepseek";
+import { resolveDeepSeekConfig, validateDeepSeekApiKey, validateDeepSeekModel } from "@/lib/deepseek";
 
 function maskApiKey(apiKey: string) {
   if (!apiKey) return "";
@@ -8,20 +8,23 @@ function maskApiKey(apiKey: string) {
 }
 
 export async function GET() {
-  const apiKey = normalizeDeepSeekApiKey(process.env.DEEPSEEK_API_KEY);
-  const model = process.env.DEEPSEEK_MODEL?.trim() || "deepseek-chat";
+  const { apiKey, model, warning } = resolveDeepSeekConfig(process.env);
   const apiKeyError = validateDeepSeekApiKey(apiKey);
+  const modelError = validateDeepSeekModel(model);
+  const error = apiKeyError || modelError;
 
   return NextResponse.json({
-    ok: !apiKeyError,
+    ok: !error,
     provider: "deepseek",
     model,
     keyPreview: maskApiKey(apiKey),
+    warning,
     checks: {
       hasApiKey: Boolean(apiKey),
       keyLooksValid: !apiKeyError,
-      modelLooksValid: model === "deepseek-chat" || model.startsWith("deepseek-")
+      modelLooksValid: !modelError,
+      recoveredSwappedEnv: Boolean(warning)
     },
-    message: apiKeyError || "DeepSeek 环境变量格式看起来正常。请继续用 /api/chat 做真实调用测试。"
+    message: error || "DeepSeek 环境变量格式看起来正常。请继续用 /api/chat 做真实调用测试。"
   });
 }

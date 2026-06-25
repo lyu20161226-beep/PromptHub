@@ -2,6 +2,25 @@ export function normalizeDeepSeekApiKey(rawKey: string | undefined) {
   return rawKey?.trim().replace(/^Bearer\s+/i, "").replace(/^["']|["']$/g, "") ?? "";
 }
 
+export function resolveDeepSeekConfig(env: NodeJS.ProcessEnv) {
+  const rawApiKey = normalizeDeepSeekApiKey(env.DEEPSEEK_API_KEY);
+  const rawModel = env.DEEPSEEK_MODEL?.trim() || "deepseek-chat";
+
+  if ((rawApiKey === "deepseek-chat" || rawApiKey.includes("deepseek-chat")) && rawModel.startsWith("sk-")) {
+    return {
+      apiKey: rawModel,
+      model: "deepseek-chat",
+      warning: "检测到 DEEPSEEK_API_KEY 和 DEEPSEEK_MODEL 填反，已自动纠正。建议在 Vercel 环境变量中修正。"
+    };
+  }
+
+  return {
+    apiKey: rawApiKey,
+    model: rawModel,
+    warning: ""
+  };
+}
+
 export function validateDeepSeekApiKey(apiKey: string) {
   const lowerKey = apiKey.toLowerCase();
 
@@ -20,17 +39,16 @@ export function validateDeepSeekApiKey(apiKey: string) {
   return "";
 }
 
-export function validateDeepSeekModel(rawModel: string | undefined) {
-  const model = rawModel?.trim() || "deepseek-chat";
-
+export function validateDeepSeekModel(model: string) {
   if (model.startsWith("sk-")) {
-    return {
-      model: "deepseek-chat",
-      error: "DEEPSEEK_MODEL 填成了 API Key。请把 sk- 开头的 Key 填到 DEEPSEEK_API_KEY，把 deepseek-chat 填到 DEEPSEEK_MODEL。"
-    };
+    return "DEEPSEEK_MODEL 填成了 API Key。请把 sk- 开头的 Key 填到 DEEPSEEK_API_KEY，把 deepseek-chat 填到 DEEPSEEK_MODEL。";
   }
 
-  return { model, error: "" };
+  if (!model.startsWith("deepseek-")) {
+    return "DEEPSEEK_MODEL 格式不正确。建议填写 deepseek-chat。";
+  }
+
+  return "";
 }
 
 export async function formatDeepSeekError(response: Response) {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { formatDeepSeekError, normalizeDeepSeekApiKey, validateDeepSeekApiKey, validateDeepSeekModel } from "@/lib/deepseek";
+import { formatDeepSeekError, resolveDeepSeekConfig, validateDeepSeekApiKey, validateDeepSeekModel } from "@/lib/deepseek";
 
 type RunRequest = {
   promptId?: string;
@@ -21,7 +21,7 @@ function fillTemplate(template: string, variables: Record<string, string>) {
   return template.replace(/{{(.*?)}}/g, (_, key: string) => {
     const variableName = key.trim();
     const value = variables[variableName]?.trim();
-    return value || `未填写${variableName}`;
+    return value || `未填写 ${variableName}`;
   });
 }
 
@@ -43,13 +43,13 @@ async function parseRunRequest(request: Request): Promise<RunRequest> {
   const rawBody = await request.text();
 
   if (!rawBody.trim()) {
-    throw new Error("请求体为空，请刷新页面后重试");
+    throw new Error("请求体为空，请刷新页面后重试。");
   }
 
   try {
     return JSON.parse(rawBody) as RunRequest;
   } catch {
-    throw new Error("请求格式不是有效 JSON，请刷新页面后重试");
+    throw new Error("请求格式不是有效 JSON，请刷新页面后重试。");
   }
 }
 
@@ -65,19 +65,19 @@ export async function POST(request: Request) {
   const template = body.template?.trim();
 
   if (!template) {
-    return NextResponse.json({ error: "缺少 prompt 模板，请刷新页面后重试" }, { status: 400 });
+    return NextResponse.json({ error: "缺少 prompt 模板，请刷新页面后重试。" }, { status: 400 });
   }
 
   const variables = normalizeVariables(body.variables);
   const finalPrompt = fillTemplate(template, variables);
-  const apiKey = normalizeDeepSeekApiKey(process.env.DEEPSEEK_API_KEY);
-  const { model, error: modelError } = validateDeepSeekModel(process.env.DEEPSEEK_MODEL);
+  const { apiKey, model, warning } = resolveDeepSeekConfig(process.env);
 
   if (!apiKey) {
     return NextResponse.json({ result: fallbackResult(finalPrompt), finalPrompt, provider: "mock" });
   }
 
   const apiKeyError = validateDeepSeekApiKey(apiKey);
+  const modelError = validateDeepSeekModel(model);
 
   if (apiKeyError) {
     return NextResponse.json({ error: apiKeyError }, { status: 500 });
@@ -112,7 +112,7 @@ export async function POST(request: Request) {
       })
     });
   } catch {
-    return NextResponse.json({ error: "无法连接 DeepSeek API，请检查 Vercel 网络或稍后重试" }, { status: 502 });
+    return NextResponse.json({ error: "无法连接 DeepSeek API，请检查 Vercel 网络或稍后重试。" }, { status: 502 });
   }
 
   if (!response.ok) {
@@ -124,11 +124,11 @@ export async function POST(request: Request) {
     const result = data.choices?.[0]?.message?.content?.trim();
 
     if (!result) {
-      return NextResponse.json({ error: "DeepSeek 未返回有效内容，请稍后重试" }, { status: 502 });
+      return NextResponse.json({ error: "DeepSeek 未返回有效内容，请稍后重试。" }, { status: 502 });
     }
 
-    return NextResponse.json({ result, finalPrompt, provider: "deepseek" });
+    return NextResponse.json({ result, finalPrompt, provider: "deepseek", model, warning });
   } catch {
-    return NextResponse.json({ error: "DeepSeek 返回内容解析失败，请稍后重试" }, { status: 502 });
+    return NextResponse.json({ error: "DeepSeek 返回内容解析失败，请稍后重试。" }, { status: 502 });
   }
 }
