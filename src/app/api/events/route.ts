@@ -5,6 +5,8 @@ const allowedEvents = new Set([
   "workflow_view",
   "workflow_click",
   "workflow_copy",
+  "pack_click",
+  "pack_email_submit",
   "search",
   "feedback",
   "survey"
@@ -39,6 +41,8 @@ export async function POST(request: Request) {
       path: cleanString(body?.path, 120),
       properties: {
         workflowId,
+        packSlug: cleanString(properties.packSlug, 80),
+        email: cleanString(properties.email, 160),
         source: cleanString(properties.source, 100),
         location: cleanString(properties.location, 40),
         query: cleanString(properties.query, 100),

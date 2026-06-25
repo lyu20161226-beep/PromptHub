@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, FileOutput, GitBranch, Star } from "lucide-react";
+import { PackInterestButton } from "@/components/PackInterestButton";
 import { workflowPacks } from "@/data/workflow-packs";
 import { packDeepDives } from "@/data/pack-deep-dives";
 import { getPromptById } from "@/lib/mock-prompts";
@@ -67,6 +68,8 @@ const pricing = [
   { name: "Professional", price: "$29", description: "15 Prompts + Workflow + Guides" },
   { name: "Asset Pack", price: "$79", description: "Workflow + Prompt + Notion + SOP" }
 ];
+
+const detailPackSlugs = new Set(["xiaohongshu-growth", "indie-product-research", "cross-border-commerce"]);
 
 const marketSignals = [
   {
@@ -170,6 +173,7 @@ export default function PacksPage() {
               const prompts = pack.promptIds.map(getPromptById).filter(Boolean);
               const proof = packProof[pack.slug];
               const deepDive = packDeepDives[pack.slug];
+              const hasDetailPage = detailPackSlugs.has(pack.slug);
 
               return (
                 <article className="scroll-mt-24 rounded-lg border border-zinc-200 bg-white p-5 shadow-sm sm:p-8" id={pack.slug} key={pack.slug}>
@@ -343,9 +347,18 @@ export default function PacksPage() {
                           </li>
                         ))}
                       </ul>
-                      <Link className="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-md bg-zinc-950 px-5 text-sm font-semibold text-white hover:bg-emerald-700" href={`/prompts/${prompts[0]?.slug}`}>
-                        免费预览第一个工作流
-                      </Link>
+                      <div className="mt-6">
+                        <PackInterestButton packSlug={pack.slug} packTitle={pack.title} />
+                      </div>
+                      {hasDetailPage ? (
+                        <Link className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-md border border-zinc-300 px-5 text-sm font-semibold text-zinc-700 hover:border-emerald-500 hover:text-emerald-700" href={`/packs/${pack.slug}`}>
+                          查看 Pack 详情
+                        </Link>
+                      ) : (
+                        <Link className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-md border border-zinc-300 px-5 text-sm font-semibold text-zinc-700 hover:border-emerald-500 hover:text-emerald-700" href={`/prompts/${prompts[0]?.slug}`}>
+                          免费预览第一个工作流
+                        </Link>
+                      )}
                     </aside>
                   </div>
                 </article>

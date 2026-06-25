@@ -4,6 +4,8 @@ export type ValidationEventName =
   | "workflow_view"
   | "workflow_click"
   | "workflow_copy"
+  | "pack_click"
+  | "pack_email_submit"
   | "search"
   | "feedback"
   | "survey";
