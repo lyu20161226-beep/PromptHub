@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { formatDeepSeekError, normalizeDeepSeekApiKey, validateDeepSeekApiKey } from "@/lib/deepseek";
+import { formatDeepSeekError, normalizeDeepSeekApiKey, validateDeepSeekApiKey, validateDeepSeekModel } from "@/lib/deepseek";
 
 type ChatRequest = {
   message?: unknown;
@@ -44,9 +44,14 @@ export async function POST(request: Request) {
 
   const apiKey = normalizeDeepSeekApiKey(process.env.DEEPSEEK_API_KEY);
   const apiKeyError = validateDeepSeekApiKey(apiKey);
+  const { model, error: modelError } = validateDeepSeekModel(process.env.DEEPSEEK_MODEL);
 
   if (apiKeyError) {
     return NextResponse.json({ error: apiKeyError }, { status: 500 });
+  }
+
+  if (modelError) {
+    return NextResponse.json({ error: modelError }, { status: 500 });
   }
 
   let response: Response;
@@ -59,7 +64,7 @@ export async function POST(request: Request) {
         authorization: `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: process.env.DEEPSEEK_MODEL || "deepseek-chat",
+        model,
         messages: [
           {
             role: "system",
@@ -89,7 +94,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "DeepSeek 未返回有效内容，请稍后重试。" }, { status: 502 });
     }
 
-    return NextResponse.json({ reply, provider: "deepseek", model: process.env.DEEPSEEK_MODEL || "deepseek-chat" });
+    return NextResponse.json({ reply, provider: "deepseek", model });
   } catch {
     return NextResponse.json({ error: "DeepSeek 返回内容解析失败，请稍后重试。" }, { status: 502 });
   }

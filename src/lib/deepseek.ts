@@ -20,6 +20,19 @@ export function validateDeepSeekApiKey(apiKey: string) {
   return "";
 }
 
+export function validateDeepSeekModel(rawModel: string | undefined) {
+  const model = rawModel?.trim() || "deepseek-chat";
+
+  if (model.startsWith("sk-")) {
+    return {
+      model: "deepseek-chat",
+      error: "DEEPSEEK_MODEL 填成了 API Key。请把 sk- 开头的 Key 填到 DEEPSEEK_API_KEY，把 deepseek-chat 填到 DEEPSEEK_MODEL。"
+    };
+  }
+
+  return { model, error: "" };
+}
+
 export async function formatDeepSeekError(response: Response) {
   const detail = await response.text();
 

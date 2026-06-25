@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { formatDeepSeekError, normalizeDeepSeekApiKey, validateDeepSeekApiKey } from "@/lib/deepseek";
+import { formatDeepSeekError, normalizeDeepSeekApiKey, validateDeepSeekApiKey, validateDeepSeekModel } from "@/lib/deepseek";
 
 type RunRequest = {
   promptId?: string;
@@ -71,6 +71,7 @@ export async function POST(request: Request) {
   const variables = normalizeVariables(body.variables);
   const finalPrompt = fillTemplate(template, variables);
   const apiKey = normalizeDeepSeekApiKey(process.env.DEEPSEEK_API_KEY);
+  const { model, error: modelError } = validateDeepSeekModel(process.env.DEEPSEEK_MODEL);
 
   if (!apiKey) {
     return NextResponse.json({ result: fallbackResult(finalPrompt), finalPrompt, provider: "mock" });
@@ -80,6 +81,10 @@ export async function POST(request: Request) {
 
   if (apiKeyError) {
     return NextResponse.json({ error: apiKeyError }, { status: 500 });
+  }
+
+  if (modelError) {
+    return NextResponse.json({ error: modelError }, { status: 500 });
   }
 
   let response: Response;
@@ -92,7 +97,7 @@ export async function POST(request: Request) {
         authorization: `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: process.env.DEEPSEEK_MODEL || "deepseek-chat",
+        model,
         messages: [
           {
             role: "system",
