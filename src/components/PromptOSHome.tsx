@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Search, SlidersHorizontal, Sparkles, X } from
 import { useMemo, useState } from "react";
 import type { PromptCategory, RunnablePrompt } from "../../data/prompts";
 import { promptCategories } from "../../data/prompts";
+import { solutions } from "@/data/solutions";
 import { RunnablePromptCard } from "@/components/RunnablePromptCard";
 import { recordValidationEvent } from "@/lib/validation-events";
 
@@ -113,6 +114,7 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
             <span>PromptHub</span>
           </div>
           <nav className="hidden items-center gap-6 text-sm font-semibold text-zinc-600 md:flex">
+            <a className="hover:text-zinc-950" href="/solutions">Solutions</a>
             <a className="hover:text-zinc-950" href="#explore">探索</a>
             <a className="hover:text-zinc-950" href="#packs">工作流 Packs</a>
             <a className="hover:text-zinc-950" href="#proof">案例</a>
@@ -139,6 +141,9 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
               Production-ready workflows for ChatGPT, Claude, Gemini and DeepSeek. Save hours, get better results, and skip trial and error.
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
+              <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-emerald-600 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="/solutions">
+                Explore Solutions
+              </a>
               <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-zinc-950 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="#packs">
                 Explore Workflow Packs
               </a>
@@ -195,6 +200,30 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
                 <p className="mt-2 text-sm leading-6 text-zinc-600">{step.description}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 rounded-lg border border-zinc-200 bg-zinc-50 p-5 sm:p-7">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-emerald-700">Solution Hub</p>
+                <h2 className="mt-2 text-3xl font-bold text-zinc-950">I want to...</h2>
+                <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600">
+                  先选择你要完成的任务，再进入完整 Workflow、推荐 Prompt、推荐 Pack 和输出模板。
+                </p>
+              </div>
+              <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-zinc-950 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="/solutions">
+                查看全部解决方案
+              </a>
+            </div>
+            <div className="mt-6 grid gap-3 md:grid-cols-3">
+              {solutions.slice(0, 6).map((solution) => (
+                <a className="rounded-md border border-zinc-200 bg-white p-4 transition hover:border-emerald-300 hover:bg-emerald-50" href={`/solutions/${solution.slug}`} key={solution.slug}>
+                  <p className="text-xs font-bold uppercase tracking-wide text-emerald-700">{solution.category}</p>
+                  <h3 className="mt-2 font-bold text-zinc-950">{solution.title}</h3>
+                  <p className="mt-1 text-sm text-zinc-500">{solution.subtitle}</p>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
