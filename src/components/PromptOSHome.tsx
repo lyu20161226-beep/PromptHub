@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import type { PromptCategory, RunnablePrompt } from "../../data/prompts";
 import { promptCategories } from "../../data/prompts";
 import { solutions } from "@/data/solutions";
+import { workflowPacks } from "@/data/workflow-packs";
 import { RunnablePromptCard } from "@/components/RunnablePromptCard";
 import { recordValidationEvent } from "@/lib/validation-events";
 
@@ -12,29 +13,47 @@ type PromptOSHomeProps = {
   prompts: RunnablePrompt[];
 };
 
-const hotScenes = ["小红书文案", "代码审查", "副业点子", "简历优化", "SEO策划", "论文润色"];
+const hotScenes = ["小红书文案", "程序报错", "简历优化", "SEO策划", "落地页文案", "竞品分析"];
 
 const heroStats = [
-  { value: "500+", label: "Workflow Assets" },
-  { value: "10,000+", label: "Copies Generated" },
-  { value: "4.9★", label: "User Rating" }
+  { value: "30分钟", label: "完成小红书笔记" },
+  { value: "半天", label: "完成产品验证" },
+  { value: "3步", label: "拿到可复制结果" }
 ];
 
 const systemSteps = [
   {
-    title: "Find",
-    subtitle: "发现任务",
-    description: "用搜索和场景标签快速找到适合当前工作的 AI 工作流。"
+    title: "问题",
+    subtitle: "先选择你要完成的任务",
+    description: "用户不需要先理解 Prompt，只需要选择：写爆款笔记、修 Bug、优化简历、做竞品分析。"
   },
   {
-    title: "Run",
-    subtitle: "直接运行",
-    description: "每张卡片自动解析变量，填写信息后即可调用模型生成结果。"
+    title: "工作流",
+    subtitle: "按步骤填变量并运行",
+    description: "每张卡自动解析变量，填入产品、用户、场景或报错信息后即可调用模型生成结果。"
   },
   {
-    title: "Improve",
-    subtitle: "沉淀资产",
-    description: "收藏、复用、迭代，把一次性 Prompt 变成可持续使用的工作资产。"
+    title: "结果",
+    subtitle: "复制输出并复用",
+    description: "输出不是一段泛泛回答，而是标题、正文、清单、模板、行动项等可以直接拿去用的资产。"
+  }
+];
+
+const beforeAfterExamples = [
+  {
+    title: "小红书爆款内容",
+    before: "帮我写一篇小红书文案。",
+    after: "输出标题钩子、正文结构、卖点转化、标签推荐和评论区引导。"
+  },
+  {
+    title: "程序报错根因分析",
+    before: "这个报错是什么意思？",
+    after: "输出根因假设、验证步骤、最小修复、回归测试和补充信息清单。"
+  },
+  {
+    title: "SEO 内容策划",
+    before: "帮我写一篇 SEO 文章。",
+    after: "输出搜索意图、H2/H3 大纲、FAQ、内链建议和发布检查清单。"
   }
 ];
 
@@ -43,41 +62,21 @@ const pricingTiers = [
     name: "Free",
     price: "0元",
     description: "适合首次体验",
-    features: ["每日 3 次直接运行", "无限复制 Prompt 文本", "查看免费案例"]
+    features: ["免费运行 Prompt 卡片", "复制 Prompt 文本", "查看免费案例"]
   },
   {
-    name: "Standard",
-    price: "即将开放",
-    description: "适合高频个人用户",
-    features: ["收藏与运行历史", "高级模型额度", "每周精选工作流"]
+    name: "Starter Pack",
+    price: "9元起",
+    description: "适合单个高频场景",
+    features: ["解锁单个 Workflow Pack", "获得案例和输出模板", "适合验证第一笔收入"]
   },
   {
-    name: "Pro",
-    price: "即将开放",
-    description: "适合团队和商业场景",
-    features: ["不限量运行", "Fork 私有版本", "高级商业工作流 Packs"]
+    name: "Pro Bundle",
+    price: "29元起",
+    description: "适合创作者和运营",
+    features: ["解锁多个垂直 Pack", "获得完整工作流", "后续可升级为会员"]
   }
 ];
-
-const beforeAfterExamples = [
-  {
-    title: "小红书爆款笔记",
-    before: "帮我写一篇小红书文案。",
-    after: "标题钩子、情绪转折、卖点结构、评论区引导、标签推荐一次生成。"
-  },
-  {
-    title: "程序报错分析",
-    before: "这个报错是什么意思？",
-    after: "根因假设、验证步骤、最小修复、回归测试和补充信息清单。"
-  },
-  {
-    title: "SEO 内容策划",
-    before: "帮我写一篇 SEO 文章。",
-    after: "搜索意图、H2/H3 大纲、FAQ、内链建议和发布前检查清单。"
-  }
-];
-
-const workflowPreview = ["输入场景", "填写变量", "运行模型", "获得结果", "复制复用"];
 
 export function PromptOSHome({ prompts }: PromptOSHomeProps) {
   const [query, setQuery] = useState("");
@@ -114,14 +113,14 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
             <span>PromptHub</span>
           </div>
           <nav className="hidden items-center gap-6 text-sm font-semibold text-zinc-600 md:flex">
-            <a className="hover:text-zinc-950" href="/solutions">Solutions</a>
-            <a className="hover:text-zinc-950" href="#explore">探索</a>
-            <a className="hover:text-zinc-950" href="#packs">工作流 Packs</a>
+            <a className="hover:text-zinc-950" href="/solutions">解决方案</a>
+            <a className="hover:text-zinc-950" href="#explore">免费运行</a>
+            <a className="hover:text-zinc-950" href="#packs">Workflow Packs</a>
             <a className="hover:text-zinc-950" href="#proof">案例</a>
             <a className="hover:text-zinc-950" href="#pricing">定价</a>
           </nav>
           <a className="rounded-md bg-zinc-950 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700" href="#explore">
-            立即体验
+            免费体验
           </a>
         </div>
       </section>
@@ -131,24 +130,24 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-800">
               <Sparkles className="h-4 w-4" aria-hidden="true" />
-              Prompt OS: Find / Run / Improve
+              AI Workflow Library
             </div>
             <h1 className="mt-5 text-4xl font-bold leading-tight text-zinc-950 sm:text-6xl">
-              Stop Collecting Prompts.
-              <span className="block text-emerald-700">Start Using AI Workflows.</span>
+              不要再收藏 Prompt。
+              <span className="block text-emerald-700">直接运行 AI 工作流。</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-600">
-              Production-ready workflows for ChatGPT, Claude, Gemini and DeepSeek. Save hours, get better results, and skip trial and error.
+              用标准化工作流解决真实任务：30 分钟完成小红书笔记、半天完成产品验证、快速定位程序报错、生成可复制的 SEO 内容方案。
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-emerald-600 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="/solutions">
-                Explore Solutions
+              <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-emerald-600 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="#explore">
+                立即运行 Prompt
               </a>
               <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-zinc-950 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="#packs">
-                Explore Workflow Packs
+                查看 Workflow Packs
               </a>
-              <a className="inline-flex min-h-11 items-center justify-center rounded-md border border-zinc-300 px-5 text-sm font-bold text-zinc-700 hover:border-emerald-500 hover:text-emerald-700" href="#explore">
-                Browse Free Library
+              <a className="inline-flex min-h-11 items-center justify-center rounded-md border border-zinc-300 px-5 text-sm font-bold text-zinc-700 hover:border-emerald-500 hover:text-emerald-700" href="/solutions">
+                按问题找方案
               </a>
             </div>
 
@@ -167,7 +166,7 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
               <input
                 className="min-h-14 min-w-0 flex-1 bg-transparent text-sm text-zinc-950 outline-none placeholder:text-zinc-400"
                 onChange={(event) => handleQueryChange(event.target.value)}
-                placeholder="输入你想让 AI 帮你完成什么任务，例如：小红书、代码审查、简历、SEO"
+                placeholder="输入你想让 AI 完成的任务，例如：小红书、程序报错、简历、SEO、竞品分析"
                 type="search"
                 value={query}
               />
@@ -206,9 +205,9 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-sm font-semibold text-emerald-700">Solution Hub</p>
-                <h2 className="mt-2 text-3xl font-bold text-zinc-950">I want to...</h2>
+                <h2 className="mt-2 text-3xl font-bold text-zinc-950">我想要完成...</h2>
                 <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600">
-                  先选择你要完成的任务，再进入完整 Workflow、推荐 Prompt、推荐 Pack 和输出模板。
+                  先选择要解决的问题，再进入完整 Workflow、推荐 Prompt、推荐 Pack 和输出模板。
                 </p>
               </div>
               <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-zinc-950 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="/solutions">
@@ -235,7 +234,7 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
               <p className="text-sm font-semibold text-emerald-700">15 秒价值证明</p>
               <h2 className="mt-2 text-3xl font-bold text-zinc-950">用户买的不是 Prompt，是更稳定的结果</h2>
               <p className="mt-4 text-sm leading-7 text-zinc-600">
-                每个 Pack 都会增加 Before / After、ROI 节省时间、Workflow 流程图和输出模板，让用户先看到结果，再决定是否解锁完整资产。
+                每个 Pack 都围绕 Before / After、ROI、Workflow 流程图和输出模板组织，让用户先看到结果，再决定是否留下购买意向。
               </p>
               <div className="mt-6 rounded-lg border border-emerald-200 bg-emerald-50 p-5">
                 <p className="text-sm font-bold text-zinc-950">ROI 示例</p>
@@ -273,18 +272,6 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
               ))}
             </div>
           </div>
-
-          <div className="mt-8 rounded-lg border border-zinc-200 bg-zinc-950 p-5 text-white">
-            <p className="text-sm font-semibold text-emerald-300">Workflow 展示</p>
-            <div className="mt-4 grid gap-3 md:grid-cols-5">
-              {workflowPreview.map((step, index) => (
-                <div className="rounded-md border border-zinc-800 bg-zinc-900 p-4" key={step}>
-                  <p className="text-xs font-bold text-emerald-300">Step {index + 1}</p>
-                  <p className="mt-2 font-bold">{step}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -314,7 +301,7 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-emerald-700">可运行 Prompt 卡片</p>
-              <h2 className="mt-2 text-3xl font-bold text-zinc-950">填写变量，立即运行</h2>
+              <h2 className="mt-2 text-3xl font-bold text-zinc-950">填写变量，立即拿到结果</h2>
               <p className="mt-3 text-sm text-zinc-500">
                 找到 <strong className="text-zinc-950">{filteredPrompts.length}</strong> 个可运行 AI 工作流
               </p>
@@ -349,21 +336,27 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
       </section>
 
       <section className="border-y border-zinc-200 bg-white py-12" id="packs">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div>
-            <p className="text-sm font-semibold text-emerald-700">精选垂直工作流 Packs</p>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold text-emerald-700">精选垂直 Workflow Packs</p>
             <h2 className="mt-2 text-3xl font-bold text-zinc-950">不是卖提示词，而是卖可复制的 AI 工作流</h2>
             <p className="mt-4 text-sm leading-6 text-zinc-600">
-              普通 Prompt 会越来越不值钱。真正值钱的是垂直场景、稳定结果、模板化输出和持续更新。PromptHub 的 Pack 会固定包含案例、教程、避坑和输出模板。
+              普通 Prompt 会越来越不值钱。真正值钱的是垂直场景、稳定结果、模板化输出和持续更新。先用前三个 Pack 验证付费意向。
             </p>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {["小红书爆款笔记 Pack", "跨境电商 Listing Pack", "独立开发者产品调研 Pack", "教师教案出题 Pack", "自媒体选题脚本 Pack", "AI 绘图风格 Pack"].map((pack) => (
-              <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4" key={pack}>
-                <CheckCircle2 className="h-5 w-5 text-emerald-600" aria-hidden="true" />
-                <h3 className="mt-3 font-bold text-zinc-950">{pack}</h3>
-                <p className="mt-2 text-sm text-zinc-600">Prompt + 案例 + 教程 + 输出模板 + 避坑指南。</p>
-              </div>
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            {workflowPacks.slice(0, 3).map((pack) => (
+              <a className="rounded-lg border border-zinc-200 bg-zinc-50 p-5 transition hover:border-emerald-400 hover:bg-emerald-50" href={`/packs/${pack.slug}`} key={pack.slug}>
+                <p className="text-xs font-bold text-emerald-700">{pack.audience}</p>
+                <h3 className="mt-3 text-xl font-bold text-zinc-950">{pack.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-zinc-600">{pack.description}</p>
+                <div className="mt-5 flex items-center justify-between">
+                  <span className="text-2xl font-bold text-zinc-950">¥{pack.price}</span>
+                  <span className="inline-flex items-center gap-1 text-sm font-bold text-emerald-700">
+                    查看详情 <ArrowRight className="h-4 w-4" />
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
@@ -372,8 +365,8 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
       <section className="bg-zinc-950 py-12 text-white" id="pricing">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold text-emerald-300">Freemium 商业闭环</p>
-            <h2 className="mt-2 text-3xl font-bold">先免费运行，再解锁高级 Packs</h2>
+            <p className="text-sm font-semibold text-emerald-300">商业化验证</p>
+            <h2 className="mt-2 text-3xl font-bold">先验证付费意向，再接真实支付</h2>
           </div>
           <div className="mt-7 grid gap-4 md:grid-cols-3">
             {pricingTiers.map((tier) => (
@@ -384,7 +377,7 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
                 <ul className="mt-5 space-y-2 text-sm text-zinc-200">
                   {tier.features.map((feature) => (
                     <li className="flex gap-2" key={feature}>
-                      <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />
                       <span>{feature}</span>
                     </li>
                   ))}
