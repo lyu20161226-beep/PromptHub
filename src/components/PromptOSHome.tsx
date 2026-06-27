@@ -1,51 +1,68 @@
 import Link from "next/link";
-import { ArrowRight, Clock3, Layers3, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  Check,
+  Clock3,
+  Code2,
+  GraduationCap,
+  Megaphone,
+  Search,
+  Sparkles,
+  Store,
+} from "lucide-react";
 import { EmailCapture } from "@/components/EmailCapture";
-import { packs } from "@/data/packs";
 
-const featuredPacks = packs.filter((pack) => pack.status === "featured");
-const comingSoonPacks = packs.filter((pack) => pack.status === "coming-soon");
-
-const categories = [
-  {
-    title: "内容营销",
-    description: "小红书、短视频、SEO 和落地页内容。",
-    query: "内容营销"
-  },
-  {
-    title: "商业分析",
-    description: "产品验证、竞品分析、定价和商业计划。",
-    query: "商业"
-  },
-  {
-    title: "个人效率",
-    description: "周报、会议纪要、简历和学习计划。",
-    query: "办公"
-  }
+const stats = [
+  { value: "20", label: "可运行免费 Prompt" },
+  { value: "6", label: "垂直 Workflow Packs" },
+  { value: "8", label: "高频任务分类" },
+  { value: "4", label: "主流模型兼容" },
 ];
 
-const beforeAfter = [
-  {
-    title: "小红书产品笔记",
-    before: "这款咖啡机很好用，适合上班族。",
-    after: "打工人早八续命神器，我把咖啡店搬进了工位。"
-  },
-  {
-    title: "产品验证",
-    before: "这个 AI 合同审查工具想法不错。",
-    after: "输出痛点假设、竞品矩阵、访谈问题、Landing Page 和 30 天验证计划。"
-  },
-  {
-    title: "跨境 Listing",
-    before: "Wireless headphones with good sound.",
-    after: "按通勤、会议和运动场景组织标题、Bullet、A+ Content 与广告文案。"
-  }
+const audiences = [
+  { title: "内容创作者", description: "选题、标题、正文与发布复盘", query: "写作", icon: Megaphone },
+  { title: "独立开发者", description: "产品验证、竞品分析与冷启动", query: "商业", icon: Code2 },
+  { title: "跨境卖家", description: "Listing、广告文案与 Review 回复", query: "赚钱", icon: Store },
+  { title: "职场人士", description: "简历、周报、会议纪要与汇报", query: "办公", icon: BriefcaseBusiness },
+  { title: "学生与教师", description: "学习计划、论文润色与教案设计", query: "学习", icon: GraduationCap },
 ];
 
-const pricing = [
-  { name: "单个 Pack", price: "¥9–29", description: "解决一个明确高频任务" },
-  { name: "核心合集", price: "¥49–99", description: "包含多个相关 Workflow Packs" },
-  { name: "终身访问", price: "¥199以内", description: "完整资产与后续更新" }
+const featuredPacks = [
+  {
+    slug: "xiaohongshu-growth",
+    category: "内容营销",
+    title: "小红书爆款内容工作流包",
+    promise: "30 分钟完成一篇可发布的小红书笔记",
+    before: "只说产品好用，内容平淡、没有场景，也没有转化动作。",
+    after: "从用户痛点到标题钩子、正文结构、标签和评论区引导，一次生成完整内容。",
+    price: "¥9",
+  },
+  {
+    slug: "cross-border-commerce",
+    category: "跨境电商",
+    title: "跨境电商商品文案工作流包",
+    promise: "用一套信息生成完整 Listing 资产",
+    before: "标题、五点描述和广告文案分别编写，关键词与卖点不一致。",
+    after: "统一生成关键词簇、标题、Bullet Points、A+ Content 和广告文案。",
+    price: "¥29",
+  },
+  {
+    slug: "indie-product-research",
+    category: "产品增长",
+    title: "独立开发者产品调研工作流包",
+    promise: "把产品想法变成 30 天验证计划",
+    before: "凭直觉开发，缺少用户证据、竞品判断和明确的成功指标。",
+    after: "输出痛点假设、竞品矩阵、访谈问题、定价实验和冷启动计划。",
+    price: "¥29",
+  },
+];
+
+const proofPoints = [
+  "不是一句模糊指令，而是拆解好的执行步骤",
+  "包含真实输入、输出示例和 Before / After",
+  "通过变量适配你的产品、用户与业务场景",
+  "附带输出模板、检查清单和常见错误",
 ];
 
 export function PromptOSHome() {
@@ -56,43 +73,94 @@ export function PromptOSHome() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700">
               <Sparkles className="h-4 w-4" aria-hidden="true" />
-              Curated AI Workflow Packs
+              AI Workflow Asset Library
             </div>
             <h1 className="mt-5 text-4xl font-bold leading-tight text-zinc-950 sm:text-6xl">
-              精选 AI 工作流提示词包
+              一个好工作流，省下数小时 AI 试错
             </h1>
             <p className="mt-5 max-w-3xl text-xl font-semibold leading-8 text-zinc-700">
-              不只是提示词，而是一套可直接使用的 AI 工作流包。
+              精选经过结构化打磨的 AI 工作流提示词包，直接用于内容、营销、产品和商业任务。
             </p>
             <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-600">
-              每个 Pack 包含 Prompt、步骤、Before / After 案例、输出模板和检查清单，帮助你更快完成内容、营销、产品和商业分析任务。
+              不只给你一段 Prompt。每个 Pack 都包含角色、目标、背景、约束、执行步骤、输出格式、案例和自检标准。
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-zinc-950 px-6 text-sm font-bold text-white hover:bg-emerald-700" href="/packs">
-                浏览 Packs <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link className="inline-flex min-h-12 items-center justify-center rounded-md border border-zinc-300 px-6 text-sm font-bold text-zinc-700 hover:border-emerald-500 hover:text-emerald-700" href="/prompts">
-                查看免费 Prompt
-              </Link>
+
+            <form action="/prompts" className="mt-8 flex max-w-2xl flex-col gap-3 sm:flex-row">
+              <label className="relative flex-1">
+                <span className="sr-only">搜索你想完成的任务</span>
+                <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400" aria-hidden="true" />
+                <input
+                  className="min-h-12 w-full rounded-md border border-zinc-300 bg-white pl-12 pr-4 text-base outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"
+                  name="q"
+                  placeholder="搜索任务，例如：写小红书、分析竞品、优化简历"
+                  type="search"
+                />
+              </label>
+              <button className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-zinc-950 px-6 text-sm font-bold text-white hover:bg-emerald-700" type="submit">
+                免费开始 <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </button>
+            </form>
+
+            <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-zinc-500">
+              <span>无需登录</span>
+              <span>支持变量填写</span>
+              <span>可直接运行与复制</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-b border-zinc-200 bg-zinc-50 py-10">
+      <section className="border-b border-zinc-200 bg-zinc-950 py-8 text-white">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px overflow-hidden rounded-lg border border-zinc-800 bg-zinc-800 sm:grid-cols-4">
+          {stats.map((stat) => (
+            <div className="bg-zinc-950 px-5 py-5" key={stat.label}>
+              <p className="text-3xl font-bold text-emerald-300">{stat.value}</p>
+              <p className="mt-1 text-sm text-zinc-400">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-200 bg-white py-14">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+          <div>
+            <p className="text-sm font-bold text-emerald-700">为什么 PromptHub 存在？</p>
+            <h2 className="mt-2 text-3xl font-bold text-zinc-950">AI 最大的成本，是反复试错却无法稳定复现</h2>
+            <p className="mt-4 leading-7 text-zinc-600">
+              直接问模型往往只能得到一次性的答案。PromptHub 把专业经验整理成可复用流程，让同一类任务每次都有清晰输入、固定步骤和可检查的输出。
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-lg border border-red-100 bg-red-50 p-5">
+              <p className="text-sm font-bold text-red-700">以前</p>
+              <p className="mt-3 font-bold text-zinc-950">随便提问 → 反复修改 → 输出不可用</p>
+              <p className="mt-2 text-sm leading-6 text-zinc-600">每次从零开始，把时间花在提示、补充和纠错上。</p>
+            </div>
+            <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-5">
+              <p className="text-sm font-bold text-emerald-800">使用 Workflow Pack</p>
+              <p className="mt-3 font-bold text-zinc-950">填写变量 → 按步骤执行 → 获得结构化结果</p>
+              <p className="mt-2 text-sm leading-6 text-zinc-600">流程可以保存、复用和持续优化，不再依赖临场发挥。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-200 bg-zinc-50 py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold text-emerald-700">高频问题分类</p>
-          <div className="mt-5 grid gap-4 md:grid-cols-3">
-            {categories.map((category) => (
+          <p className="text-sm font-bold text-emerald-700">按你的工作开始</p>
+          <h2 className="mt-2 text-3xl font-bold text-zinc-950">不是找 Prompt，而是完成任务</h2>
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {audiences.map(({ title, description, query, icon: Icon }) => (
               <Link
-                className="rounded-lg border border-zinc-200 bg-white p-5 transition hover:border-emerald-400 hover:shadow-sm"
-                href={`/prompts?q=${encodeURIComponent(category.query)}`}
-                key={category.title}
+                className="group rounded-lg border border-zinc-200 bg-white p-5 transition hover:border-emerald-400 hover:shadow-sm"
+                href={`/prompts?q=${encodeURIComponent(query)}`}
+                key={title}
               >
-                <h2 className="text-xl font-bold text-zinc-950">{category.title}</h2>
-                <p className="mt-2 text-sm leading-6 text-zinc-600">{category.description}</p>
+                <Icon className="h-5 w-5 text-emerald-700" aria-hidden="true" />
+                <h3 className="mt-4 font-bold text-zinc-950">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-600">{description}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-emerald-700">
-                  查看免费 Prompt <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  查看方案 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
                 </span>
               </Link>
             ))}
@@ -100,129 +168,90 @@ export function PromptOSHome() {
         </div>
       </section>
 
-      <section className="border-b border-zinc-200 bg-white py-12">
+      <section className="border-b border-zinc-200 bg-white py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-semibold text-emerald-700">精选 Packs</p>
-              <h2 className="mt-2 text-3xl font-bold text-zinc-950">先用 3 个完整产品解决具体问题</h2>
+              <p className="text-sm font-bold text-emerald-700">精选 Workflow Packs</p>
+              <h2 className="mt-2 text-3xl font-bold text-zinc-950">先看结果，再决定是否获取</h2>
             </div>
             <Link className="inline-flex items-center gap-1 text-sm font-bold text-emerald-700" href="/packs">
-              查看全部 Packs <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              浏览全部 Packs <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
 
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {featuredPacks.map((pack) => (
               <article className="flex h-full flex-col rounded-lg border border-zinc-200 bg-zinc-50 p-5" key={pack.slug}>
-                <div className="flex items-center justify-between gap-3">
-                  <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-800">{pack.category}</span>
-                  <span className="text-xs font-semibold text-zinc-500">{pack.promptIds.length} 个 Prompt</span>
-                </div>
+                <span className="w-fit rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800">{pack.category}</span>
                 <h3 className="mt-5 text-xl font-bold text-zinc-950">{pack.title}</h3>
                 <p className="mt-3 font-bold leading-6 text-emerald-700">{pack.promise}</p>
-                <p className="mt-3 text-sm leading-6 text-zinc-600">适合：{pack.audience}</p>
-                <div className="mt-5 rounded-md border border-zinc-200 bg-white p-3">
-                  <p className="text-xs font-bold text-zinc-500">解决问题</p>
-                  <p className="mt-2 text-sm leading-6 text-zinc-700">{pack.problem}</p>
+                <div className="mt-5 space-y-3">
+                  <div className="rounded-md border border-red-100 bg-white p-3">
+                    <p className="text-xs font-bold text-red-600">Before</p>
+                    <p className="mt-1 text-sm leading-6 text-zinc-600">{pack.before}</p>
+                  </div>
+                  <div className="rounded-md border border-emerald-100 bg-white p-3">
+                    <p className="text-xs font-bold text-emerald-700">After</p>
+                    <p className="mt-1 text-sm leading-6 text-zinc-600">{pack.after}</p>
+                  </div>
                 </div>
                 <div className="mt-auto flex items-end justify-between gap-4 pt-6">
                   <div>
-                    <p className="text-xs text-zinc-400">验证价</p>
-                    <p className="text-2xl font-bold text-zinc-950">¥{pack.price}</p>
+                    <p className="text-xs text-zinc-500">体验价格</p>
+                    <p className="text-2xl font-bold text-zinc-950">{pack.price}</p>
                   </div>
                   <Link className="inline-flex min-h-10 items-center justify-center rounded-md bg-zinc-950 px-4 text-sm font-bold text-white hover:bg-emerald-700" href={`/packs/${pack.slug}`}>
-                    查看详情
+                    免费预览
                   </Link>
                 </div>
               </article>
             ))}
           </div>
-
-          <div className="mt-6 grid gap-3 md:grid-cols-3">
-            {comingSoonPacks.map((pack) => (
-              <div className="flex items-center justify-between gap-4 rounded-md border border-zinc-200 bg-white p-4" key={pack.slug}>
-                <div>
-                  <p className="text-xs font-bold text-amber-700">COMING SOON</p>
-                  <p className="mt-1 font-bold text-zinc-950">{pack.shortTitle}</p>
-                </div>
-                <Clock3 className="h-5 w-5 shrink-0 text-zinc-400" aria-hidden="true" />
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="border-b border-zinc-200 bg-zinc-950 py-12 text-white">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
+      <section className="border-b border-zinc-200 bg-zinc-950 py-14 text-white">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
           <div>
-            <p className="text-sm font-semibold text-emerald-300">为什么不是普通 Prompt？</p>
-            <h2 className="mt-2 text-3xl font-bold">用户买的是更快完成任务</h2>
-            <p className="mt-4 text-sm leading-7 text-zinc-400">
-              一句话 Prompt 很容易被复制。真正有价值的是经过验证的流程、案例、模板、检查清单和执行经验。
+            <p className="text-sm font-bold text-emerald-300">为什么不是普通 Prompt？</p>
+            <h2 className="mt-2 text-3xl font-bold">Prompt 是文字，Workflow 是可复用资产</h2>
+            <p className="mt-4 leading-7 text-zinc-400">
+              一次设计，重复使用。真正有价值的不是“问什么”，而是如何稳定地从输入走到结果。
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-lg border border-zinc-800 bg-zinc-900 p-5">
-              <p className="text-sm font-bold text-zinc-400">普通 Prompt</p>
-              <p className="mt-3 text-xl font-bold">一句话指令</p>
-              <p className="mt-2 text-sm text-zinc-400">输出不稳定，需要用户自己反复试错。</p>
-            </div>
-            <div className="rounded-lg border border-emerald-800 bg-zinc-900 p-5">
-              <p className="text-sm font-bold text-emerald-300">Workflow Pack</p>
-              <p className="mt-3 text-xl font-bold">Prompt + 流程 + 案例 + 模板</p>
-              <p className="mt-2 text-sm text-zinc-400">输入清晰，输出可复用，并附带 Checklist。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-zinc-200 bg-white py-12">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold text-emerald-700">Before / After</p>
-          <h2 className="mt-2 text-3xl font-bold text-zinc-950">先看结果，再决定是否获取</h2>
-          <div className="mt-7 grid gap-4 md:grid-cols-3">
-            {beforeAfter.map((item) => (
-              <article className="rounded-lg border border-zinc-200 bg-zinc-50 p-5" key={item.title}>
-                <h3 className="font-bold text-zinc-950">{item.title}</h3>
-                <div className="mt-4 rounded-md border border-red-100 bg-white p-3">
-                  <p className="text-xs font-bold text-red-600">Before</p>
-                  <p className="mt-2 text-sm leading-6 text-zinc-600">{item.before}</p>
-                </div>
-                <div className="mt-3 rounded-md border border-emerald-100 bg-white p-3">
-                  <p className="text-xs font-bold text-emerald-700">After</p>
-                  <p className="mt-2 text-sm leading-6 text-zinc-600">{item.after}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-zinc-200 bg-zinc-50 py-12">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <Layers3 className="h-5 w-5 text-emerald-600" aria-hidden="true" />
-            <h2 className="text-3xl font-bold text-zinc-950">简单定价</h2>
-          </div>
-          <div className="mt-7 grid gap-4 md:grid-cols-3">
-            {pricing.map((tier) => (
-              <div className="rounded-lg border border-zinc-200 bg-white p-5" key={tier.name}>
-                <h3 className="font-bold text-zinc-950">{tier.name}</h3>
-                <p className="mt-2 text-3xl font-bold text-emerald-700">{tier.price}</p>
-                <p className="mt-2 text-sm text-zinc-600">{tier.description}</p>
+          <div className="grid gap-3">
+            {proofPoints.map((point) => (
+              <div className="flex gap-3 rounded-md border border-zinc-800 bg-zinc-900 p-4" key={point}>
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" aria-hidden="true" />
+                <p className="text-sm font-semibold text-zinc-200">{point}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-12">
+      <section className="border-b border-zinc-200 bg-white py-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <Clock3 className="mx-auto h-6 w-6 text-emerald-700" aria-hidden="true" />
+            <p className="mt-4 text-sm font-bold text-emerald-700">PromptHub 品牌主张</p>
+            <h2 className="mt-2 text-3xl font-bold text-zinc-950">Don&apos;t just chat. Build repeatable systems.</h2>
+            <p className="mt-4 leading-7 text-zinc-600">
+              我们相信，未来最大的生产力不是“会不会使用 AI”，而是能否把经验沉淀成可复用、可验证、可持续改进的工作流。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-zinc-50 py-14">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-8">
           <div>
-            <p className="text-sm font-semibold text-emerald-700">PromptHub Weekly</p>
-            <h2 className="mt-2 text-3xl font-bold text-zinc-950">每周领取一个免费 Workflow</h2>
-            <p className="mt-3 text-sm leading-6 text-zinc-600">每封邮件只讲一个具体问题、完整步骤和可复制 Prompt。</p>
+            <p className="text-sm font-bold text-emerald-700">PromptHub Weekly</p>
+            <h2 className="mt-2 text-3xl font-bold text-zinc-950">每周领取一个免费 AI 工作流</h2>
+            <p className="mt-3 text-sm leading-6 text-zinc-600">
+              每封邮件只解决一个具体问题，包含完整步骤、可复制 Prompt 和使用建议。
+            </p>
           </div>
           <EmailCapture source="homepage-weekly" />
         </div>
