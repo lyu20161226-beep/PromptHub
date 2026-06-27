@@ -1,10 +1,22 @@
 "use client";
 
-import { Check, Copy, Heart } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Check, Copy, Heart, LockKeyhole } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import type { PromptFramework } from "@/data/packs";
 import { recordValidationEvent } from "@/lib/validation-events";
 
 const FAVORITES_KEY = "prompthub:pack-preview-favorites";
+
+const frameworkLabels: Array<[keyof PromptFramework, string]> = [
+  ["role", "Role（角色）"],
+  ["goal", "Goal（目标）"],
+  ["context", "Context（背景）"],
+  ["constraints", "Constraints（约束）"],
+  ["workflow", "Workflow（流程）"],
+  ["outputFormat", "Output Format（输出）"],
+  ["examples", "Examples（示例）"],
+  ["evaluation", "Evaluation（自检）"]
+];
 
 function readFavorites() {
   if (typeof window === "undefined") return [] as string[];
@@ -15,16 +27,28 @@ function readFavorites() {
   }
 }
 
-export function PackPromptPreview({ packSlug, text }: { packSlug: string; text: string }) {
+export function PackPromptPreview({
+  framework,
+  packSlug
+}: {
+  framework: PromptFramework;
+  packSlug: string;
+}) {
   const [copied, setCopied] = useState(false);
   const [favorite, setFavorite] = useState(false);
+
+  const visibleSections = useMemo(() => frameworkLabels.slice(0, 4), []);
+  const lockedSections = frameworkLabels.slice(4);
+  const visibleText = visibleSections
+    .map(([key, label]) => `# ${label}\n${framework[key] ?? ""}`)
+    .join("\n\n");
 
   useEffect(() => {
     setFavorite(readFavorites().includes(packSlug));
   }, [packSlug]);
 
   async function copyPreview() {
-    await navigator.clipboard.writeText(text);
+    await navigator.clipboard.writeText(visibleText);
     setCopied(true);
     void recordValidationEvent("prompt_preview_copy", { packSlug, source: "pack-preview" });
     window.setTimeout(() => setCopied(false), 1400);
@@ -38,9 +62,12 @@ export function PackPromptPreview({ packSlug, text }: { packSlug: string; text: 
   }
 
   return (
-    <div className="rounded-lg border border-zinc-200 bg-zinc-950 p-5 text-white">
-      <div className="flex items-center justify-between gap-3">
-        <p className="text-xs font-bold uppercase tracking-wide text-emerald-300">Prompt Preview</p>
+    <div className="overflow-hidden rounded-lg border border-zinc-200 bg-zinc-950 text-white">
+      <div className="flex items-center justify-between gap-3 border-b border-zinc-800 px-5 py-4">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-wide text-emerald-300">Structured Prompt Preview</p>
+          <p className="mt-1 text-xs text-zinc-500">免费展示前 4 个结构模块</p>
+        </div>
         <div className="flex gap-2">
           <button
             aria-label={favorite ? "取消收藏" : "收藏预览"}
@@ -63,8 +90,24 @@ export function PackPromptPreview({ packSlug, text }: { packSlug: string; text: 
           </button>
         </div>
       </div>
-      <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-zinc-300">{text}</p>
-      <p className="mt-4 border-t border-zinc-800 pt-4 text-xs text-zinc-500">当前展示约 30% 内容，完整版本包含全部变量、步骤和输出约束。</p>
+
+      <div className="divide-y divide-zinc-800">
+        {visibleSections.map(([key, label]) => (
+          <div className="p-5" key={key}>
+            <p className="text-xs font-bold text-emerald-300">{label}</p>
+            <p className="mt-2 text-sm leading-7 text-zinc-300">{framework[key]}</p>
+          </div>
+        ))}
+        {lockedSections.map(([key, label]) => (
+          <div className="flex items-center justify-between gap-4 bg-zinc-900/70 px-5 py-4" key={key}>
+            <p className="text-xs font-bold text-zinc-500">{label}</p>
+            <span className="inline-flex items-center gap-1 text-xs text-zinc-600">
+              <LockKeyhole className="h-3.5 w-3.5" aria-hidden="true" />
+              完整 Pack 解锁
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

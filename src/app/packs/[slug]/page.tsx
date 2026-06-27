@@ -252,7 +252,7 @@ export default async function PackDetailPage({ params }: PackPageProps) {
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">免费预览 Prompt</h2>
             <p className="mt-3 text-sm leading-6 text-zinc-600">先查看前两个 Prompt，确认内容质量和适用场景。</p>
             <div className="mt-5">
-              <PackPromptPreview packSlug={pack.slug} text={pack.promptPreview} />
+              <PackPromptPreview framework={pack.promptFramework} packSlug={pack.slug} />
             </div>
             <div className="mt-5 space-y-3">
               {prompts.slice(0, 2).map(
