@@ -7,8 +7,8 @@ import { promptCategories } from "../../data/prompts";
 import { RunnablePromptCard } from "@/components/RunnablePromptCard";
 import { recordValidationEvent } from "@/lib/validation-events";
 
-export function FreePromptLibrary({ prompts }: { prompts: RunnablePrompt[] }) {
-  const [query, setQuery] = useState("");
+export function FreePromptLibrary({ prompts, initialQuery = "" }: { prompts: RunnablePrompt[]; initialQuery?: string }) {
+  const [query, setQuery] = useState(initialQuery);
   const [category, setCategory] = useState<"全部" | PromptCategory>("全部");
 
   const filteredPrompts = useMemo(() => {

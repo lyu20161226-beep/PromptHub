@@ -10,7 +10,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/prompts" }
 };
 
-export default function PromptsPage() {
+export default async function PromptsPage({
+  searchParams
+}: {
+  searchParams: Promise<{ q?: string }>;
+}) {
+  const { q = "" } = await searchParams;
+
   return (
     <main className="min-h-screen bg-zinc-50">
       <section className="border-b border-zinc-200 bg-white">
@@ -36,7 +42,7 @@ export default function PromptsPage() {
 
       <section className="py-10 sm:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <FreePromptLibrary prompts={prompts} />
+          <FreePromptLibrary initialQuery={q} prompts={prompts} />
         </div>
       </section>
     </main>
