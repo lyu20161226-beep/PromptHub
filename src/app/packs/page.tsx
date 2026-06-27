@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock3, LockKeyhole, Sparkles } from "lucide-react";
 import { PackInterestButton } from "@/components/PackInterestButton";
-import { packDeepDives } from "@/data/pack-deep-dives";
-import { workflowPacks, type WorkflowPack } from "@/data/workflow-packs";
+import { packs, type PackProduct } from "@/data/packs";
 
 export const metadata: Metadata = {
   title: "PromptHub Workflow Packs - 精选 AI 工作流提示词包",
@@ -11,8 +10,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/packs" }
 };
 
-const featuredPacks = workflowPacks.filter((pack) => pack.status === "featured");
-const comingSoonPacks = workflowPacks.filter((pack) => pack.status === "coming-soon");
+const featuredPacks = packs.filter((pack) => pack.status === "featured");
+const comingSoonPacks = packs.filter((pack) => pack.status === "coming-soon");
 
 export default function PacksPage() {
   return (
@@ -119,8 +118,8 @@ export default function PacksPage() {
   );
 }
 
-function FeaturedPackCard({ pack }: { pack: WorkflowPack }) {
-  const deepDive = packDeepDives[pack.slug];
+function FeaturedPackCard({ pack }: { pack: PackProduct }) {
+  const deepDive = pack.deepDive;
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm">

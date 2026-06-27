@@ -6,6 +6,7 @@ import type { PromptCategory, RunnablePrompt } from "../../data/prompts";
 import { promptCategories } from "../../data/prompts";
 import { solutions } from "@/data/solutions";
 import { workflowPacks } from "@/data/workflow-packs";
+import { EmailCapture } from "@/components/EmailCapture";
 import { RunnablePromptCard } from "@/components/RunnablePromptCard";
 import { recordValidationEvent } from "@/lib/validation-events";
 
@@ -140,11 +141,11 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
               用标准化工作流解决真实任务：30 分钟完成小红书笔记、半天完成产品验证、快速定位程序报错、生成可复制的 SEO 内容方案。
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-emerald-600 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="#explore">
-                立即运行 Prompt
+              <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-emerald-600 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="/packs">
+                浏览 Packs
               </a>
-              <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-zinc-950 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="#packs">
-                查看 Workflow Packs
+              <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-zinc-950 px-5 text-sm font-bold text-white hover:bg-emerald-700" href="/prompts">
+                免费复制 Prompt
               </a>
               <a className="inline-flex min-h-11 items-center justify-center rounded-md border border-zinc-300 px-5 text-sm font-bold text-zinc-700 hover:border-emerald-500 hover:text-emerald-700" href="/solutions">
                 按问题找方案
@@ -385,6 +386,19 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-zinc-200 bg-white py-12">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-8">
+          <div>
+            <p className="text-sm font-semibold text-emerald-700">PromptHub Weekly</p>
+            <h2 className="mt-2 text-3xl font-bold text-zinc-950">每周领取一个免费 Workflow</h2>
+            <p className="mt-3 text-sm leading-6 text-zinc-600">
+              每封邮件只讲一个具体问题、完整步骤和可复制 Prompt，不发送无关内容。
+            </p>
+          </div>
+          <EmailCapture source="homepage-weekly" />
         </div>
       </section>
     </>

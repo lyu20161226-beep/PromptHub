@@ -7,6 +7,8 @@ const allowedEvents = new Set([
   "workflow_copy",
   "pack_click",
   "pack_email_submit",
+  "newsletter_subscribe",
+  "prompt_preview_copy",
   "search",
   "feedback",
   "survey"

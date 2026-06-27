@@ -16,8 +16,8 @@ import {
   Users
 } from "lucide-react";
 import { PackInterestButton } from "@/components/PackInterestButton";
-import { packDeepDives } from "@/data/pack-deep-dives";
-import { workflowPacks } from "@/data/workflow-packs";
+import { PackPromptPreview } from "@/components/PackPromptPreview";
+import { getPackProduct, packs } from "@/data/packs";
 import { getPromptById } from "@/lib/mock-prompts";
 
 const enabledPackSlugs = ["xiaohongshu-growth", "indie-product-research", "cross-border-commerce"] as const;
@@ -28,14 +28,13 @@ type PackPageProps = {
 
 function getPack(slug: string) {
   if (!enabledPackSlugs.includes(slug as (typeof enabledPackSlugs)[number])) return undefined;
-  const pack = workflowPacks.find((item) => item.slug === slug);
-  const deepDive = packDeepDives[slug];
-  if (!pack || !deepDive) return undefined;
-  return { pack, deepDive };
+  const pack = getPackProduct(slug);
+  if (!pack?.deepDive) return undefined;
+  return { pack, deepDive: pack.deepDive };
 }
 
 export function generateStaticParams() {
-  return enabledPackSlugs.map((slug) => ({ slug }));
+  return packs.filter((pack) => pack.status === "featured").map((pack) => ({ slug: pack.slug }));
 }
 
 export async function generateMetadata({ params }: PackPageProps): Promise<Metadata> {
@@ -121,6 +120,26 @@ export default async function PackDetailPage({ params }: PackPageProps) {
       </section>
 
       <section className="border-y border-zinc-200 bg-white py-12">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+          <div>
+            <p className="text-sm font-semibold text-emerald-700">This Pack Solves</p>
+            <h2 className="mt-2 text-2xl font-bold text-zinc-950">它解决什么问题？</h2>
+            <p className="mt-4 text-lg leading-8 text-zinc-700">{pack.problem}</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-5">
+              <p className="font-bold text-zinc-950">适合谁</p>
+              <p className="mt-2 text-sm leading-6 text-zinc-700">{pack.audience}，希望用标准流程快速获得可执行结果。</p>
+            </div>
+            <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-5">
+              <p className="font-bold text-zinc-950">不适合谁</p>
+              <p className="mt-2 text-sm leading-6 text-zinc-600">只想收藏 Prompt、不愿填写真实业务信息，也不准备根据结果继续迭代的人。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-200 bg-white py-12">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-bold uppercase tracking-wide text-emerald-700">Before / After</p>
           <h2 className="mt-2 text-2xl font-bold text-zinc-950">先看结果，再决定是否获取完整 Pack</h2>
@@ -232,6 +251,9 @@ export default async function PackDetailPage({ params }: PackPageProps) {
             <p className="text-sm font-semibold text-emerald-700">约 30% 免费内容</p>
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">免费预览 Prompt</h2>
             <p className="mt-3 text-sm leading-6 text-zinc-600">先查看前两个 Prompt，确认内容质量和适用场景。</p>
+            <div className="mt-5">
+              <PackPromptPreview packSlug={pack.slug} text={pack.promptPreview} />
+            </div>
             <div className="mt-5 space-y-3">
               {prompts.slice(0, 2).map(
                 (prompt) =>
@@ -269,15 +291,10 @@ export default async function PackDetailPage({ params }: PackPageProps) {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-zinc-950">FAQ</h2>
           <div className="mt-6 divide-y divide-zinc-200 rounded-lg border border-zinc-200 bg-white px-5">
-            {[
-              ["这个 Pack 是一条 Prompt 吗？", "不是。它包含多步 Workflow、Prompt 模块、案例、输出模板和检查清单。"],
-              ["支持哪些模型？", "核心内容按通用工作流设计，可用于 DeepSeek、ChatGPT、Claude 和 Gemini。"],
-              ["现在会扣款吗？", "不会。当前按钮只收集购买意向和首发通知邮箱。"],
-              ["免费预览包含什么？", "免费开放约 30% 的内容，包括案例、Workflow 结构和前两个 Prompt 页面。"]
-            ].map(([question, answer]) => (
-              <div className="py-5" key={question}>
-                <h3 className="font-bold text-zinc-950">{question}</h3>
-                <p className="mt-2 text-sm leading-6 text-zinc-600">{answer}</p>
+            {pack.faq.map((item) => (
+              <div className="py-5" key={item.q}>
+                <h3 className="font-bold text-zinc-950">{item.q}</h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-600">{item.a}</p>
               </div>
             ))}
           </div>
