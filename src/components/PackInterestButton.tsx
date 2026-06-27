@@ -8,16 +8,25 @@ import { recordValidationEvent } from "@/lib/validation-events";
 type PackInterestButtonProps = {
   packSlug: string;
   packTitle: string;
+  label?: string;
+  source?: string;
+  variant?: "primary" | "secondary";
 };
 
-export function PackInterestButton({ packSlug, packTitle }: PackInterestButtonProps) {
+export function PackInterestButton({
+  packSlug,
+  packTitle,
+  label = "获取完整 Pack",
+  source = "pack-detail",
+  variant = "primary"
+}: PackInterestButtonProps) {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   function openModal() {
     setOpen(true);
-    void recordValidationEvent("pack_click", { packSlug, source: "pack-detail" });
+    void recordValidationEvent("pack_click", { packSlug, source });
   }
 
   async function submitEmail(event: FormEvent<HTMLFormElement>) {
@@ -28,7 +37,7 @@ export function PackInterestButton({ packSlug, packTitle }: PackInterestButtonPr
     await recordValidationEvent("pack_email_submit", {
       packSlug,
       email: cleanEmail,
-      source: "pack-detail"
+      source
     });
 
     setSubmitted(true);
@@ -37,12 +46,16 @@ export function PackInterestButton({ packSlug, packTitle }: PackInterestButtonPr
   return (
     <>
       <button
-        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-zinc-950 px-5 text-sm font-bold text-white hover:bg-emerald-700"
+        className={
+          variant === "primary"
+            ? "inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-zinc-950 px-5 text-sm font-bold text-white hover:bg-emerald-700"
+            : "inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-zinc-300 bg-white px-5 text-sm font-bold text-zinc-700 hover:border-emerald-500 hover:text-emerald-700"
+        }
         onClick={openModal}
         type="button"
       >
         <Mail className="h-4 w-4" aria-hidden="true" />
-        获取该 Pack
+        {label}
       </button>
 
       {open && (
@@ -60,8 +73,8 @@ export function PackInterestButton({ packSlug, packTitle }: PackInterestButtonPr
 
             {submitted ? (
               <div className="mt-5 rounded-md border border-emerald-200 bg-emerald-50 p-4">
-                <p className="font-bold text-emerald-900">即将上线，首发通知已记录。</p>
-                <p className="mt-2 text-sm leading-6 text-emerald-800">上线后会优先通知你。现在这条提交已经用于验证 Pack 购买意向。</p>
+                <p className="font-bold text-emerald-900">已记录，Pack 上线后会优先通知你。</p>
+                <p className="mt-2 text-sm leading-6 text-emerald-800">这次提交会用于判断哪个 Pack 值得优先完善和开放购买。</p>
               </div>
             ) : (
               <form className="mt-5" onSubmit={submitEmail}>
@@ -77,9 +90,9 @@ export function PackInterestButton({ packSlug, packTitle }: PackInterestButtonPr
                   />
                 </label>
                 <button className="mt-4 min-h-11 w-full rounded-md bg-zinc-950 px-4 text-sm font-bold text-white hover:bg-emerald-700" type="submit">
-                  即将上线，首发通知
+                  提交并接收首发通知
                 </button>
-                <p className="mt-3 text-xs leading-5 text-zinc-500">当前不接支付，只记录购买意向，用于判断哪个 Pack 值得优先上线。</p>
+                <p className="mt-3 text-xs leading-5 text-zinc-500">当前不收取费用，只记录购买意向，不会向你发送无关邮件。</p>
               </form>
             )}
           </div>
