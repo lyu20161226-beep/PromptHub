@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart, Search, Sparkles } from "lucide-react";
+import { Heart, Sparkles } from "lucide-react";
 
 export function Header() {
   return (
@@ -12,24 +12,13 @@ export function Header() {
           <span className="text-xl">PromptHub</span>
         </Link>
 
-        <nav className="flex items-center gap-1 text-sm font-medium text-zinc-600" aria-label="主导航">
-          <Link className="hidden rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950 sm:inline-flex" href="/workflows">
-            工作流库
-          </Link>
-          <Link className="hidden rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950 sm:inline-flex" href="/packs">
-            提示词包
-          </Link>
+        <nav className="flex items-center gap-1 text-sm font-semibold text-zinc-600" aria-label="主导航">
+          <Link className="hidden rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950 sm:inline-flex" href="/">首页</Link>
+          <Link className="rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/packs">Packs</Link>
+          <Link className="hidden rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950 sm:inline-flex" href="/prompts">免费 Prompts</Link>
           <Link className="inline-flex items-center gap-1.5 rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/favorites">
             <Heart className="h-4 w-4" aria-hidden="true" />
             收藏
-          </Link>
-          <Link
-            aria-label="搜索提示词"
-            className="ml-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-zinc-950 text-white transition hover:bg-emerald-700"
-            href="/search"
-            title="搜索提示词"
-          >
-            <Search className="h-4 w-4" aria-hidden="true" />
           </Link>
         </nav>
       </div>

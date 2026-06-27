@@ -1,42 +1,34 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ValidationSurvey } from "@/components/ValidationSurvey";
+import { Header } from "@/components/Header";
 import { siteDescription, siteName, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "PromptHub - AI工作流库",
+    default: "PromptHub - 精选 AI Workflow Packs",
     template: "%s | PromptHub"
   },
   description: siteDescription,
   keywords: [
     "PromptHub",
-    "AI工作流库",
-    "AI工作流",
+    "AI 工作流",
+    "AI Workflow Pack",
     "Prompt Pack",
     "提示词包",
-    "AI提示词库",
-    "AI提示词",
-    "Prompt提示词",
-    "Midjourney提示词",
-    "即梦提示词",
-    "ChatGPT提示词",
+    "免费 Prompt",
     "中文提示词",
-    "写作提示词",
-    "编程提示词",
-    "营销提示词",
-    "AI绘画提示词",
-    "AI视频提示词"
+    "小红书 Prompt",
+    "跨境电商 Prompt",
+    "产品调研工作流"
   ],
   authors: [{ name: siteName }],
   creator: siteName,
   publisher: siteName,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "PromptHub - AI工作流库",
+    title: "PromptHub - 精选 AI Workflow Packs",
     description: siteDescription,
     url: siteUrl,
     siteName,
@@ -45,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PromptHub - AI工作流库",
+    title: "PromptHub - 精选 AI Workflow Packs",
     description: siteDescription
   },
   robots: {
@@ -68,7 +60,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         {children}
         <Footer />
-        <ValidationSurvey />
       </body>
     </html>
   );

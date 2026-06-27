@@ -108,25 +108,6 @@ export function PromptOSHome({ prompts }: PromptOSHomeProps) {
   return (
     <>
       <section className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 font-bold text-zinc-950">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-zinc-950 text-white">PH</span>
-            <span>PromptHub</span>
-          </div>
-          <nav className="hidden items-center gap-6 text-sm font-semibold text-zinc-600 md:flex">
-            <a className="hover:text-zinc-950" href="/solutions">解决方案</a>
-            <a className="hover:text-zinc-950" href="#explore">免费运行</a>
-            <a className="hover:text-zinc-950" href="#packs">Workflow Packs</a>
-            <a className="hover:text-zinc-950" href="#proof">案例</a>
-            <a className="hover:text-zinc-950" href="#pricing">定价</a>
-          </nav>
-          <a className="rounded-md bg-zinc-950 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700" href="#explore">
-            免费体验
-          </a>
-        </div>
-      </section>
-
-      <section className="border-b border-zinc-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-800">

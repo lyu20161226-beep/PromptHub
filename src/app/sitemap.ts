@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-import { caseStudies } from "@/data/case-studies";
-import { solutions } from "@/data/solutions";
+import { packs } from "@/data/packs";
 import { topWorkflowPrompts } from "@/lib/mock-prompts";
 import { siteUrl } from "@/lib/site";
 
@@ -14,8 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1
     },
-    ...["prompts", "workflows", "weekly", "cases", "packs", "solutions", "about", "midjourney", "jimeng", "chatgpt"].map((platform) => ({
-      url: `${siteUrl}/${platform}`,
+    ...["packs", "prompts", "favorites"].map((path) => ({
+      url: `${siteUrl}/${path}`,
       lastModified,
       changeFrequency: "weekly" as const,
       priority: 0.9
@@ -29,19 +28,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8
   }));
 
-  const casePages: MetadataRoute.Sitemap = caseStudies.map((study) => ({
-    url: `${siteUrl}/cases/${study.slug}`,
+  const packPages: MetadataRoute.Sitemap = packs
+    .filter((pack) => pack.status === "featured")
+    .map((pack) => ({
+    url: `${siteUrl}/packs/${pack.slug}`,
     lastModified,
     changeFrequency: "monthly",
-    priority: 0.8
+    priority: 0.9
   }));
 
-  const solutionPages: MetadataRoute.Sitemap = solutions.map((solution) => ({
-    url: `${siteUrl}/solutions/${solution.slug}`,
-    lastModified,
-    changeFrequency: "monthly",
-    priority: 0.85
-  }));
-
-  return [...corePages, ...promptPages, ...casePages, ...solutionPages];
+  return [...corePages, ...packPages, ...promptPages];
 }
