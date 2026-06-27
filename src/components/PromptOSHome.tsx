@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  BookOpenCheck,
   BriefcaseBusiness,
   Check,
   Clock3,
@@ -233,6 +234,40 @@ export function PromptOSHome() {
       </section>
 
       <HomepageValueSections />
+
+      <section className="border-b border-zinc-200 bg-emerald-50 py-14">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:px-8">
+          <div>
+            <BookOpenCheck className="h-6 w-6 text-emerald-700" aria-hidden="true" />
+            <p className="mt-4 text-sm font-bold text-emerald-700">AI 实战学院</p>
+            <h2 className="mt-2 text-3xl font-bold text-zinc-950">不只学会提问，更要学会做判断</h2>
+            <p className="mt-4 leading-7 text-zinc-600">
+              把商业方法与 AI 工作流结合。每一课讲清为什么、什么时候用、如何执行，以及最后能带走什么成果。
+            </p>
+            <Link
+              className="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-zinc-950 px-5 text-sm font-bold text-white hover:bg-emerald-700"
+              href="/academy"
+            >
+              进入 AI 实战学院 <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              ["价值定价", "从用户收益而不是成本出发设计价格"],
+              ["增长飞轮", "让一次用户行为推动下一轮增长"],
+              ["机会成本", "用统一标准决定优先做什么、不做什么"],
+            ].map(([title, description], index) => (
+              <div className="rounded-lg border border-emerald-200 bg-white p-5" key={title}>
+                <span className="font-mono text-xs font-bold text-emerald-700">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-4 font-bold text-zinc-950">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-600">{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="border-b border-zinc-200 bg-white py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

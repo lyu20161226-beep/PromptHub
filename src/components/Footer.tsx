@@ -17,6 +17,7 @@ export function Footer() {
         <nav aria-label="页脚导航" className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium text-zinc-600">
           <Link className="hover:text-emerald-700" href="/">首页</Link>
           <Link className="hover:text-emerald-700" href="/packs">精选 Packs</Link>
+          <Link className="hover:text-emerald-700" href="/academy">AI 实战学院</Link>
           <Link className="hover:text-emerald-700" href="/prompts">免费 Prompts</Link>
           <Link className="hover:text-emerald-700" href="/favorites">我的收藏</Link>
         </nav>
