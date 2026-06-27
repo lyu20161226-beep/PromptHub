@@ -1,6 +1,7 @@
 import {
   ArrowDown,
   Bot,
+  BookOpenCheck,
   Braces,
   CheckCircle2,
   FileOutput,
@@ -8,6 +9,7 @@ import {
   Layers3,
   MessageSquareText,
   PackageCheck,
+  PencilLine,
   Workflow,
 } from "lucide-react";
 
@@ -37,6 +39,33 @@ const stack = [
   { label: "Agent", status: "未来", icon: Bot },
   { label: "Automation", status: "未来", icon: GitBranch },
   { label: "Digital Asset", status: "长期", icon: PackageCheck },
+];
+
+const learningPath = [
+  {
+    step: "01",
+    title: "理解 Prompt",
+    description: "看懂角色、目标、背景、约束和输出格式为什么这样设计。",
+    icon: BookOpenCheck,
+  },
+  {
+    step: "02",
+    title: "修改 Prompt",
+    description: "替换变量、行业背景和质量标准，适配自己的真实任务。",
+    icon: PencilLine,
+  },
+  {
+    step: "03",
+    title: "组合 Workflow",
+    description: "把研究、生成、审核和交付连接成稳定的执行流程。",
+    icon: Workflow,
+  },
+  {
+    step: "04",
+    title: "沉淀 AI 系统",
+    description: "保存可复用的方法、模板和检查标准，持续迭代升级。",
+    icon: Bot,
+  },
 ];
 
 export function HomepageValueSections() {
@@ -106,13 +135,38 @@ export function HomepageValueSections() {
         </div>
       </section>
 
+      <section className="border-b border-zinc-200 bg-zinc-950 py-14 text-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold text-emerald-300">从复制到掌握</p>
+            <h2 className="mt-2 text-3xl font-bold">我们不是 Prompt 博物馆，而是一条 AI 能力成长路径</h2>
+            <p className="mt-4 leading-7 text-zinc-400">
+              复制只是开始。PromptHub 帮助你理解方法、完成任务，并把一次成功经验变成以后还能继续使用的系统。
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {learningPath.map(({ step, title, description, icon: Icon }) => (
+              <article className="rounded-lg border border-zinc-800 bg-zinc-900 p-5" key={step}>
+                <div className="flex items-center justify-between gap-3">
+                  <Icon className="h-5 w-5 text-emerald-300" aria-hidden="true" />
+                  <span className="font-mono text-xs font-bold text-zinc-500">{step}</span>
+                </div>
+                <h3 className="mt-5 text-lg font-bold">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-400">{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="border-b border-zinc-200 bg-white py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-bold text-emerald-700">产品演进路线</p>
+            <p className="text-sm font-bold text-emerald-700">四阶段产品演进</p>
             <h2 className="mt-2 text-3xl font-bold text-zinc-950">Prompt 是入口，数字工作资产才是终点</h2>
             <p className="mt-4 leading-7 text-zinc-600">
-              PromptHub 当前专注 Prompt 与 Workflow。知识库、Agent 和自动化是后续方向，不把尚未完成的能力包装成现有产品。
+              现在先做好 Prompt 学习、Workflow、原理和案例；再逐步开放 Fork、版本、评分和分享；最后才进入 Agent、自动化与创作者市场。
             </p>
           </div>
 

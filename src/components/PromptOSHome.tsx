@@ -74,16 +74,16 @@ export function PromptOSHome() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700">
               <Sparkles className="h-4 w-4" aria-hidden="true" />
-              AI Workflow Asset Library
+              AI Systems Learning Platform
             </div>
             <h1 className="mt-5 text-4xl font-bold leading-tight text-zinc-950 sm:text-6xl">
-              一个好工作流，省下数小时 AI 试错
+              从一句 Prompt，到一个可复用的 AI 系统
             </h1>
             <p className="mt-5 max-w-3xl text-xl font-semibold leading-8 text-zinc-700">
-              精选经过结构化打磨的 AI 工作流提示词包，直接用于内容、营销、产品和商业任务。
+              学会理解、修改和组合高质量 Prompt，把 AI 从聊天工具变成真正的生产力系统。
             </p>
             <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-600">
-              不只给你一段 Prompt。每个 Pack 都包含角色、目标、背景、约束、执行步骤、输出格式、案例和自检标准。
+              不只给你一段可复制的文字。每个 Pack 都包含原理解析、变量、Workflow、案例、输出模板和自检标准。
             </p>
 
             <form action="/prompts" className="mt-8 flex max-w-2xl flex-col gap-3 sm:flex-row">
@@ -239,9 +239,9 @@ export function PromptOSHome() {
           <div className="mx-auto max-w-3xl text-center">
             <Clock3 className="mx-auto h-6 w-6 text-emerald-700" aria-hidden="true" />
             <p className="mt-4 text-sm font-bold text-emerald-700">PromptHub 品牌主张</p>
-            <h2 className="mt-2 text-3xl font-bold text-zinc-950">Don&apos;t just chat. Build repeatable systems.</h2>
+            <h2 className="mt-2 text-3xl font-bold text-zinc-950">Build AI Systems, Not Just Prompts.</h2>
             <p className="mt-4 leading-7 text-zinc-600">
-              我们相信，未来最大的生产力不是“会不会使用 AI”，而是能否把经验沉淀成可复用、可验证、可持续改进的工作流。
+              我们不以 Prompt 数量作为成功标准。真正重要的是：用户完成了多少真实工作、节省了多少时间，以及沉淀了多少可以持续复用的 AI 能力。
             </p>
           </div>
         </div>

@@ -10,4 +10,4 @@ export const siteUrl = (
 
 export const siteName = "PromptHub";
 export const siteDescription =
-  "把 AI 对话变成可复用的工作流资产。提供结构化 Prompt、执行步骤、真实案例、输出模板与质量检查，帮助你稳定完成内容、营销、产品和商业任务。";
+  "全球实用的 AI 提示词、工作流与系统学习平台。通过原理解析、结构化 Prompt、真实案例和执行步骤，帮助你把 AI 从聊天工具变成可复用的生产力系统。";

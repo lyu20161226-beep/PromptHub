@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { siteDescription, siteName, siteUrl } from "@/lib/site";
 
-const metadataTitle = "PromptHub - AI 工作流资产库";
+const metadataTitle = "PromptHub - AI 提示词、工作流与系统学习平台";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     "中文提示词",
     "结构化 Prompt",
     "AI 生产力",
+    "AI 系统学习",
+    "Prompt 教程",
+    "Prompt Anatomy",
     "小红书工作流",
     "跨境电商工作流",
     "产品调研工作流",
