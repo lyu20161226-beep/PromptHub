@@ -4,41 +4,44 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { siteDescription, siteName, siteUrl } from "@/lib/site";
 
+const metadataTitle = "PromptHub - AI 工作流资产库";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "PromptHub - 精选 AI Workflow Packs",
-    template: "%s | PromptHub"
+    default: metadataTitle,
+    template: "%s | PromptHub",
   },
   description: siteDescription,
   keywords: [
     "PromptHub",
     "AI 工作流",
-    "AI Workflow Pack",
+    "AI Workflow",
+    "Workflow Pack",
     "Prompt Pack",
-    "提示词包",
-    "免费 Prompt",
     "中文提示词",
-    "小红书 Prompt",
-    "跨境电商 Prompt",
-    "产品调研工作流"
+    "结构化 Prompt",
+    "AI 生产力",
+    "小红书工作流",
+    "跨境电商工作流",
+    "产品调研工作流",
   ],
   authors: [{ name: siteName }],
   creator: siteName,
   publisher: siteName,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "PromptHub - 精选 AI Workflow Packs",
+    title: metadataTitle,
     description: siteDescription,
     url: siteUrl,
     siteName,
     locale: "zh_CN",
-    type: "website"
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PromptHub - 精选 AI Workflow Packs",
-    description: siteDescription
+    title: metadataTitle,
+    description: siteDescription,
   },
   robots: {
     index: true,
@@ -48,12 +51,14 @@ export const metadata: Metadata = {
       follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,
-      "max-video-preview": -1
-    }
-  }
+      "max-video-preview": -1,
+    },
+  },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
       <body>

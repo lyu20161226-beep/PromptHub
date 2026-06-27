@@ -12,6 +12,7 @@ import {
   Store,
 } from "lucide-react";
 import { EmailCapture } from "@/components/EmailCapture";
+import { HomepageValueSections } from "@/components/HomepageValueSections";
 
 const stats = [
   { value: "20", label: "可运行免费 Prompt" },
@@ -230,6 +231,8 @@ export function PromptOSHome() {
           </div>
         </div>
       </section>
+
+      <HomepageValueSections />
 
       <section className="border-b border-zinc-200 bg-white py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
