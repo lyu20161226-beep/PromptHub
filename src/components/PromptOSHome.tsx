@@ -250,6 +250,12 @@ export function PromptOSHome() {
             >
               进入 AI 实战学院 <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
+            <Link
+              className="ml-3 mt-3 inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-emerald-700 px-5 text-sm font-bold text-emerald-800 hover:bg-white sm:mt-6"
+              href="/lab"
+            >
+              查看 Prompt Lab
+            </Link>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             {[
