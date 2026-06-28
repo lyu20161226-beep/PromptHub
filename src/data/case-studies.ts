@@ -1,5 +1,6 @@
 export type CaseVerificationStatus = "verified" | "source-linked" | "unverified";
 export type ModelTestStatus = "tested" | "not-tested";
+export type WorkflowRecommendation = "recommended" | "limited" | "pending" | "retired";
 
 export type CuratedCase = {
   id: string;
@@ -32,6 +33,14 @@ export type CuratedCase = {
     testedAt: string | null;
     testedModels: readonly string[];
     reproducibility: "high" | "medium" | "low" | "not-tested";
+  };
+  validation: {
+    lastReviewedAt: string;
+    nextReviewAt: string | null;
+    applicableModels: readonly string[];
+    recommendation: WorkflowRecommendation;
+    editorialScore: number | null;
+    reason: string;
   };
   whyItWorks: readonly {
     principle: string;
@@ -77,6 +86,15 @@ const unverifiedEvidence = {
   reproducibility: "not-tested",
 } as const;
 
+const pendingValidation = {
+  lastReviewedAt: "2026-06-28",
+  nextReviewAt: null,
+  applicableModels: [],
+  recommendation: "pending",
+  editorialScore: null,
+  reason: "结构已完成编辑审查，但尚无真实来源、重复运行或跨模型测试，不能给出推荐结论。",
+} as const;
+
 const untestedModelComparison = ["GPT", "Claude", "Gemini", "DeepSeek"].map((model) => ({
   model,
   status: "not-tested" as const,
@@ -93,7 +111,7 @@ const demoEvolution = [
   },
 ];
 
-export const caseStudies: readonly CuratedCase[] = [
+const rawCaseStudies: readonly Omit<CuratedCase, "validation">[] = [
   {
     id: "case-demo-001",
     slug: "nextjs-hydration-debugging",
@@ -335,6 +353,11 @@ export const caseStudies: readonly CuratedCase[] = [
     relatedPackSlugs: ["cross-border-commerce"],
   },
 ];
+
+export const caseStudies: readonly CuratedCase[] = rawCaseStudies.map((caseItem) => ({
+  ...caseItem,
+  validation: pendingValidation,
+}));
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((study) => study.slug === slug);

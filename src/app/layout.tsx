@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { siteDescription, siteName, siteUrl } from "@/lib/site";
 
-const metadataTitle = "PromptHub - 精选可复用的 AI 工作流";
+const metadataTitle = "PromptHub - AI Workflow 的可信参考指南";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

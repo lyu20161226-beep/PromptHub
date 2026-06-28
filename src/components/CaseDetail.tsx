@@ -33,6 +33,13 @@ const reproducibilityLabels = {
   "not-tested": "未测试",
 } as const;
 
+const recommendationLabels = {
+  recommended: "仍然推荐",
+  limited: "有限推荐",
+  pending: "待验证，暂不推荐",
+  retired: "已停止推荐",
+} as const;
+
 export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
   return (
     <main className="min-h-screen bg-zinc-50">
@@ -74,7 +81,15 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
               <Fact label="作者" value={caseItem.sourceAuthor ?? "未提供"} />
               <Fact label="来源日期" value={caseItem.sourceDate ?? "未提供"} />
               <Fact label="测试日期" value={caseItem.evidence.testedAt ?? "尚未测试"} />
+              <Fact label="最后审查" value={caseItem.validation.lastReviewedAt} />
+              <Fact label="下次复查" value={caseItem.validation.nextReviewAt ?? "验证完成后安排"} />
               <Fact label="复现程度" value={reproducibilityLabels[caseItem.evidence.reproducibility]} />
+              <Fact
+                label="适用模型"
+                value={caseItem.validation.applicableModels.length > 0 ? caseItem.validation.applicableModels.join("、") : "尚未确认"}
+              />
+              <Fact label="当前推荐" value={recommendationLabels[caseItem.validation.recommendation]} />
+              <Fact label="编辑评分" value={caseItem.validation.editorialScore === null ? "待定" : `${caseItem.validation.editorialScore} / 10`} />
               <div>
                 <dt className="text-xs font-bold text-zinc-400">原始来源</dt>
                 <dd className="mt-1 font-semibold text-zinc-800">
@@ -88,6 +103,9 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
             </dl>
             <p className="mt-4 rounded-md border border-zinc-200 bg-white p-4 text-sm leading-7 text-zinc-700">
               {caseItem.evidence.summary}
+            </p>
+            <p className="mt-3 rounded-md border border-blue-200 bg-blue-50 p-4 text-sm leading-7 text-blue-950">
+              <strong>当前判断：</strong>{caseItem.validation.reason}
             </p>
             <p className="mt-4 flex gap-2 text-xs leading-6 text-zinc-500">
               <Info className="mt-1 h-4 w-4 shrink-0" aria-hidden="true" />

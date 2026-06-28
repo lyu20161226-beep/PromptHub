@@ -10,4 +10,4 @@ export const siteUrl = (
 
 export const siteName = "PromptHub";
 export const siteDescription =
-  "精选可复用的 AI 工作流。每个案例都展示来源、问题、步骤、Prompt、输出与证据边界，帮助你少走弯路并稳定完成真实任务。";
+  "AI Workflow 的可信参考指南。记录来源、验证日期、适用模型、失败边界、替代方案和版本更新，帮助你更快找到当前靠谱的 AI 工作方法。";
