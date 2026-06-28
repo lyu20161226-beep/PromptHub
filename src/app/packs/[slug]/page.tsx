@@ -15,8 +15,10 @@ import {
   Star,
   Users
 } from "lucide-react";
+import { CaseCard } from "@/components/CaseCard";
 import { PackInterestButton } from "@/components/PackInterestButton";
 import { PackPromptPreview } from "@/components/PackPromptPreview";
+import { caseStudies } from "@/data/case-studies";
 import { getPackProduct, packs } from "@/data/packs";
 import { getPromptById } from "@/lib/mock-prompts";
 
@@ -58,6 +60,9 @@ export default async function PackDetailPage({ params }: PackPageProps) {
 
   const { pack, deepDive } = data;
   const prompts = pack.promptIds.map(getPromptById).filter(Boolean);
+  const relatedCases = caseStudies
+    .filter((caseItem) => caseItem.relatedPackSlugs.includes(pack.slug))
+    .slice(0, 2);
 
   return (
     <main className="min-h-screen bg-zinc-50">
@@ -163,6 +168,30 @@ export default async function PackDetailPage({ params }: PackPageProps) {
           </div>
         </div>
       </section>
+
+      {relatedCases.length > 0 ? (
+        <section className="border-b border-zinc-200 bg-zinc-50 py-12">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-sm font-bold text-emerald-700">Related Cases</p>
+                <h2 className="mt-2 text-2xl font-bold text-zinc-950">相关 Workflow 案例</h2>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-zinc-600">
+                  先看案例如何拆解问题，再决定是否使用完整 Pack。当前案例为未验证的结构演示。
+                </p>
+              </div>
+              <Link className="text-sm font-bold text-emerald-700 hover:text-emerald-900" href="/cases">
+                查看案例库
+              </Link>
+            </div>
+            <div className="mt-6 grid gap-5 md:grid-cols-2">
+              {relatedCases.map((caseItem) => (
+                <CaseCard caseItem={caseItem} key={caseItem.id} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="py-12">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

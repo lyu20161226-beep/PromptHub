@@ -13,6 +13,7 @@ import {
   Store,
 } from "lucide-react";
 import { EmailCapture } from "@/components/EmailCapture";
+import { HomeCuratedCases } from "@/components/HomeCuratedCases";
 import { HomepageValueSections } from "@/components/HomepageValueSections";
 
 const stats = [
@@ -237,6 +238,8 @@ export function PromptOSHome() {
       </section>
 
       <HomepageValueSections />
+
+      <HomeCuratedCases />
 
       <section className="border-b border-zinc-200 bg-emerald-50 py-14">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:px-8">
