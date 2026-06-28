@@ -1,0 +1,43 @@
+{
+  "id": "deepseek-support-ticket-triage-v1",
+  "title": "客服工单结构化分流工作流",
+  "source": {
+    "platform": "OpenAI API Documentation",
+    "url": "https://platform.openai.com/docs/guides/prompt-engineering",
+    "principles": [
+      "Use explicit instructions",
+      "Provide examples of the expected output",
+      "Separate instructions from task input",
+      "Evaluate repeated outputs because model responses are non-deterministic"
+    ]
+  },
+  "test": {
+    "endpoint": "https://prompt-hub-theta-tawny.vercel.app/api/chat",
+    "runs": 3,
+    "date": "2026-06-28",
+    "fixedInput": "工单 CS-1042：我昨晚升级专业版时银行卡已扣款 299 元，但账号仍显示免费版。发票页面也找不到记录。明早团队要用批量导出，请尽快处理。",
+    "prompt": "你是 SaaS 客服工单分流员。请将 <ticket> 中的工单转换为一个 JSON 对象。只输出 JSON，不要 Markdown，不要解释。\\n\\n规则：\\n1. 只允许字段：ticket_id、category、priority、summary、next_action、needs_human。\\n2. category 只能是 billing、technical、account、other。\\n3. priority 只能是 low、medium、high、urgent。仅在安全风险、服务完全中断或无法挽回的即时损失时使用 urgent；有明确短期截止时间但仍可处理时使用 high。\\n4. summary 使用中文，不超过 60 个汉字。\\n5. 不得宣称退款、升级或调查已经完成。\\n6. 涉及扣款与账户状态不一致时，needs_human 必须为 true。\\n\\n示例输入：\\n<ticket>工单 CS-1000：忘记密码，重置邮件十分钟后仍未收到。</ticket>\\n\\n示例 JSON 输出：\\n{\"ticket_id\":\"CS-1000\",\"category\":\"account\",\"priority\":\"medium\",\"summary\":\"密码重置邮件未收到\",\"next_action\":\"核对邮箱地址与邮件发送记录，并重新发送重置邮件\",\"needs_human\":false}\\n\\n现在处理：\\n<ticket>工单 CS-1042：我昨晚升级专业版时银行卡已扣款 299 元，但账号仍显示免费版。发票页面也找不到记录。明早团队要用批量导出，请尽快处理。</ticket>"
+  },
+  "successCriteria": {
+    "validJson": true,
+    "exactKeys": [
+      "ticket_id",
+      "category",
+      "priority",
+      "summary",
+      "next_action",
+      "needs_human"
+    ],
+    "ticketId": "CS-1042",
+    "category": "billing",
+    "allowedPriorities": [
+      "high"
+    ],
+    "needsHuman": true,
+    "forbiddenClaims": [
+      "退款已完成",
+      "升级已完成",
+      "调查已完成"
+    ]
+  }
+}

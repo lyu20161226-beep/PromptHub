@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
-import { formatDeepSeekError, resolveDeepSeekConfig, validateDeepSeekApiKey, validateDeepSeekModel } from "@/lib/deepseek";
+import {
+  formatDeepSeekError,
+  resolveDeepSeekConfig,
+  validateDeepSeekApiKey,
+  validateDeepSeekModel,
+} from "@/lib/deepseek";
 
 type ChatRequest = {
   message?: unknown;
@@ -33,13 +38,19 @@ export async function POST(request: Request) {
   try {
     body = await parseChatRequest(request);
   } catch (error) {
-    return NextResponse.json({ error: error instanceof Error ? error.message : "请求解析失败" }, { status: 400 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "请求解析失败" },
+      { status: 400 },
+    );
   }
 
   const message = typeof body.message === "string" ? body.message.trim() : "";
 
   if (!message) {
-    return NextResponse.json({ error: "缺少 message，请输入要发送给 DeepSeek 的内容。" }, { status: 400 });
+    return NextResponse.json(
+      { error: "缺少 message，请输入要发送给 DeepSeek 的内容。" },
+      { status: 400 },
+    );
   }
 
   const { apiKey, model, warning } = resolveDeepSeekConfig(process.env);
@@ -61,29 +72,35 @@ export async function POST(request: Request) {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${apiKey}`
+        authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         model,
         messages: [
           {
             role: "system",
-            content: "你是 PromptHub 的中文 AI 助手。请用清晰、可执行的中文回答用户。"
+            content: "你是 PromptHub 的中文 AI 助手。请用清晰、可执行的中文回答用户。",
           },
           {
             role: "user",
-            content: message
-          }
+            content: message,
+          },
         ],
-        temperature: 0.7
-      })
+        temperature: 0.7,
+      }),
     });
   } catch {
-    return NextResponse.json({ error: "无法连接 DeepSeek API，请检查网络或稍后重试。" }, { status: 502 });
+    return NextResponse.json(
+      { error: "无法连接 DeepSeek API，请检查网络或稍后重试。" },
+      { status: 502 },
+    );
   }
 
   if (!response.ok) {
-    return NextResponse.json({ error: await formatDeepSeekError(response) }, { status: response.status === 401 ? 401 : 502 });
+    return NextResponse.json(
+      { error: await formatDeepSeekError(response) },
+      { status: response.status === 401 ? 401 : 502 },
+    );
   }
 
   try {
@@ -91,11 +108,17 @@ export async function POST(request: Request) {
     const reply = data.choices?.[0]?.message?.content?.trim();
 
     if (!reply) {
-      return NextResponse.json({ error: "DeepSeek 未返回有效内容，请稍后重试。" }, { status: 502 });
+      return NextResponse.json(
+        { error: "DeepSeek 未返回有效内容，请稍后重试。" },
+        { status: 502 },
+      );
     }
 
     return NextResponse.json({ reply, provider: "deepseek", model, warning });
   } catch {
-    return NextResponse.json({ error: "DeepSeek 返回内容解析失败，请稍后重试。" }, { status: 502 });
+    return NextResponse.json(
+      { error: "DeepSeek 返回内容解析失败，请稍后重试。" },
+      { status: 502 },
+    );
   }
 }

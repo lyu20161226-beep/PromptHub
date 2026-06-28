@@ -1,0 +1,73 @@
+{
+  "protocolId": "deepseek-support-ticket-triage-v1",
+  "generatedAt": "2026-06-28T14:22:14.266Z",
+  "sourceUrl": "https://platform.openai.com/docs/guides/prompt-engineering",
+  "endpoint": "https://prompt-hub-theta-tawny.vercel.app/api/chat",
+  "passedRuns": 3,
+  "totalRuns": 3,
+  "runs": [
+    {
+      "run": 1,
+      "startedAt": "2026-06-28T14:22:03.288Z",
+      "completedAt": "2026-06-28T14:22:09.608Z",
+      "httpStatus": 200,
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "rawReply": "{\"ticket_id\":\"CS-1042\",\"category\":\"billing\",\"priority\":\"high\",\"summary\":\"升级专业版扣款后账号未更新，急需恢复以使用批量导出\",\"next_action\":\"核实支付状态并与财务部门确认扣款记录，手动升级账户\",\"needs_human\":true}",
+      "evaluation": {
+        "passed": true,
+        "failures": [],
+        "parsed": {
+          "ticket_id": "CS-1042",
+          "category": "billing",
+          "priority": "high",
+          "summary": "升级专业版扣款后账号未更新，急需恢复以使用批量导出",
+          "next_action": "核实支付状态并与财务部门确认扣款记录，手动升级账户",
+          "needs_human": true
+        }
+      }
+    },
+    {
+      "run": 2,
+      "startedAt": "2026-06-28T14:22:09.608Z",
+      "completedAt": "2026-06-28T14:22:11.807Z",
+      "httpStatus": 200,
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "rawReply": "{\"ticket_id\":\"CS-1042\",\"category\":\"billing\",\"priority\":\"high\",\"summary\":\"升级扣款后账号仍显示免费版，团队明早需使用批量导出\",\"next_action\":\"核实支付状态与账户升级记录，确认扣款与账户权限不一致原因\",\"needs_human\":true}",
+      "evaluation": {
+        "passed": true,
+        "failures": [],
+        "parsed": {
+          "ticket_id": "CS-1042",
+          "category": "billing",
+          "priority": "high",
+          "summary": "升级扣款后账号仍显示免费版，团队明早需使用批量导出",
+          "next_action": "核实支付状态与账户升级记录，确认扣款与账户权限不一致原因",
+          "needs_human": true
+        }
+      }
+    },
+    {
+      "run": 3,
+      "startedAt": "2026-06-28T14:22:11.807Z",
+      "completedAt": "2026-06-28T14:22:14.266Z",
+      "httpStatus": 200,
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "rawReply": "{\"ticket_id\":\"CS-1042\",\"category\":\"billing\",\"priority\":\"high\",\"summary\":\"升级专业版扣款后账号未更新，发票丢失，团队明日需用批量导出\",\"next_action\":\"核实支付记录，确认扣款状态并手动升级账户\",\"needs_human\":true}",
+      "evaluation": {
+        "passed": true,
+        "failures": [],
+        "parsed": {
+          "ticket_id": "CS-1042",
+          "category": "billing",
+          "priority": "high",
+          "summary": "升级专业版扣款后账号未更新，发票丢失，团队明日需用批量导出",
+          "next_action": "核实支付记录，确认扣款状态并手动升级账户",
+          "needs_human": true
+        }
+      }
+    }
+  ]
+}
