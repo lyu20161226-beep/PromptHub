@@ -22,7 +22,7 @@ export function Header() {
             <CalendarDays className="h-4 w-4" aria-hidden="true" />
             <span className="hidden sm:inline">今日精选</span>
           </Link>
-          <Link className="hidden rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950 sm:inline-flex" href="/prompts">免费 Prompts</Link>
+          <Link className="hidden rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950 sm:inline-flex" href="/prompts">免费资料库</Link>
           <Link className="inline-flex items-center gap-1.5 rounded-md px-3 py-2 hover:bg-zinc-100 hover:text-zinc-950" href="/favorites">
             <Heart className="h-4 w-4" aria-hidden="true" />
             <span className="hidden sm:inline">收藏</span>

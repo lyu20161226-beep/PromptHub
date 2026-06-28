@@ -40,14 +40,14 @@ export function PromptOSHome() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700">
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-              The Trusted Reference for AI Workflows
+              The AI Workflow Editorial
             </div>
             <h1 className="mt-5 text-4xl font-bold leading-tight text-zinc-950 sm:text-6xl">
-              AI Workflow 的可信参考指南
+              Verified AI Workflows
             </h1>
             <p className="mt-5 max-w-3xl text-xl leading-8 text-zinc-600">
-              帮你用最少时间找到当前更靠谱的 AI 工作方法。每个 Workflow 都记录来源、验证状态、
-              适用模型、失败边界、替代方案与版本更新。
+              Learn workflows that actually work. 帮你找到当前更可信、可复现的 AI 工作方法，而不是继续收集
+              Prompt。每个 Workflow 都记录来源、验证状态、适用模型、失败边界与替代方案。
             </p>
 
             <form action="/prompts" className="mt-8 flex max-w-2xl flex-col gap-3 sm:flex-row">
@@ -80,7 +80,7 @@ export function PromptOSHome() {
               <Link className="text-zinc-600 hover:text-zinc-950" href="/packs">
                 查看 Workflow Packs
               </Link>
-              <span className="text-zinc-400">Learn AI workflows that actually work.</span>
+              <span className="text-zinc-400">We verify workflows, not just collect prompts.</span>
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@ export function PromptOSHome() {
             title="按长期问题学习"
             description="不追热点，优先整理几年后仍然有价值的工作任务。"
             href="/prompts"
-            linkLabel="浏览免费 Library"
+            linkLabel="浏览免费参考资料"
           />
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {collections.map((collection) => (

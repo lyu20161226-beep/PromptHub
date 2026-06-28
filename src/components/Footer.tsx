@@ -12,7 +12,7 @@ export function Footer() {
             </span>
             PromptHub
           </Link>
-          <p className="mt-2 text-sm text-zinc-500">少量、精选、可验证、能立刻使用的 AI Workflow Packs。</p>
+          <p className="mt-2 text-sm text-zinc-500">筛选、验证并持续维护真正可复现的 AI Workflows。</p>
         </div>
         <nav aria-label="页脚导航" className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium text-zinc-600">
           <Link className="hover:text-emerald-700" href="/">首页</Link>
@@ -21,7 +21,7 @@ export function Footer() {
           <Link className="hover:text-emerald-700" href="/lab">Prompt Lab</Link>
           <Link className="hover:text-emerald-700" href="/cases">精选案例</Link>
           <Link className="hover:text-emerald-700" href="/daily">今日精选</Link>
-          <Link className="hover:text-emerald-700" href="/prompts">免费 Prompts</Link>
+          <Link className="hover:text-emerald-700" href="/prompts">免费资料库</Link>
           <Link className="hover:text-emerald-700" href="/favorites">我的收藏</Link>
         </nav>
       </div>
