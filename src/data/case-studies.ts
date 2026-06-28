@@ -1,4 +1,5 @@
 export type CaseVerificationStatus = "verified" | "source-linked" | "unverified";
+export type ModelTestStatus = "tested" | "not-tested";
 
 export type CuratedCase = {
   id: string;
@@ -26,6 +27,27 @@ export type CuratedCase = {
   tags: readonly string[];
   verificationStatus: CaseVerificationStatus;
   curatorNote: string;
+  evidence: {
+    summary: string;
+    testedAt: string | null;
+    testedModels: readonly string[];
+    reproducibility: "high" | "medium" | "low" | "not-tested";
+  };
+  whyItWorks: readonly {
+    principle: string;
+    explanation: string;
+  }[];
+  failureCases: readonly {
+    symptom: string;
+    cause: string;
+    fix: string;
+  }[];
+  modelComparison: readonly {
+    model: string;
+    status: ModelTestStatus;
+    score: number | null;
+    note: string;
+  }[];
   promptSlug: string;
   relatedPackSlugs: readonly string[];
 };
@@ -36,6 +58,20 @@ const emptyMetrics = {
   views: null,
   bookmarks: null,
 } as const;
+
+const unverifiedEvidence = {
+  summary: "当前只有 PromptHub 编辑演示，没有外部来源、完整运行记录或可复核结果。",
+  testedAt: null,
+  testedModels: [],
+  reproducibility: "not-tested",
+} as const;
+
+const untestedModelComparison = ["GPT", "Claude", "Gemini", "DeepSeek"].map((model) => ({
+  model,
+  status: "not-tested" as const,
+  score: null,
+  note: "待使用同一输入、输出标准和测试轮次进行人工验证。",
+}));
 
 export const caseStudies: readonly CuratedCase[] = [
   {
@@ -59,6 +95,16 @@ export const caseStudies: readonly CuratedCase[] = [
     tags: ["Next.js", "Debug", "根因分析"],
     verificationStatus: "unverified",
     curatorNote: "该案例用于演示统一案例结构。接入真实案例时需补充公开来源或可核验记录。",
+    evidence: unverifiedEvidence,
+    whyItWorks: [
+      { principle: "假设驱动调试", explanation: "先列出可证伪假设，再用最小实验缩小问题范围。" },
+      { principle: "事实与推测分离", explanation: "明确区分日志、复现结果和仍待验证的判断。" },
+    ],
+    failureCases: [
+      { symptom: "修改多处后错误暂时消失", cause: "没有建立最小复现，无法确认真正根因。", fix: "回退到最小改动，并逐项记录验证结果。" },
+      { symptom: "模型给出通用修复清单", cause: "缺少环境、堆栈和最近改动。", fix: "补充版本、完整错误和稳定复现步骤。" },
+    ],
+    modelComparison: untestedModelComparison,
     promptSlug: "debug-root-cause",
     relatedPackSlugs: ["indie-product-research"],
   },
@@ -83,6 +129,16 @@ export const caseStudies: readonly CuratedCase[] = [
     tags: ["SEO", "内容集群", "搜索意图"],
     verificationStatus: "unverified",
     curatorNote: "真实发布前必须使用搜索工具补充关键词数据，并人工核验搜索结果页。",
+    evidence: unverifiedEvidence,
+    whyItWorks: [
+      { principle: "搜索意图优先", explanation: "先判断用户要学习、比较还是购买，再决定页面类型。" },
+      { principle: "主题集群", explanation: "通过支柱页与子主题减少重复内容，并建立清晰内链。" },
+    ],
+    failureCases: [
+      { symptom: "生成大量相似标题", cause: "只要求数量，没有约束搜索意图和内容边界。", fix: "按意图、漏斗阶段和证据需求去重。" },
+      { symptom: "选题看起来合理但没有流量", cause: "没有接入真实关键词与 SERP 数据。", fix: "发布前人工验证搜索量、竞争度和结果类型。" },
+    ],
+    modelComparison: untestedModelComparison,
     promptSlug: "seo-content-brief",
     relatedPackSlugs: ["xiaohongshu-growth", "indie-product-research"],
   },
@@ -107,6 +163,16 @@ export const caseStudies: readonly CuratedCase[] = [
     tags: ["简历", "求职", "成果量化"],
     verificationStatus: "unverified",
     curatorNote: "案例强调可核验表达，不把文案优化等同于招聘结果。",
+    evidence: unverifiedEvidence,
+    whyItWorks: [
+      { principle: "可核验表达", explanation: "只强化真实动作、范围和影响，不编造结果数字。" },
+      { principle: "岗位对齐", explanation: "将经历与目标岗位能力对应，降低招聘者理解成本。" },
+    ],
+    failureCases: [
+      { symptom: "简历数字很亮眼但无法解释", cause: "模型为了增强说服力虚构指标。", fix: "未知数字标记待补，面试前准备证据。" },
+      { symptom: "每条经历都像同一个模板", cause: "没有保留任务差异和个人贡献。", fix: "补充角色、约束、协作对象和决策过程。" },
+    ],
+    modelComparison: untestedModelComparison,
     promptSlug: "resume-impact-rewrite",
     relatedPackSlugs: [],
   },
@@ -131,6 +197,16 @@ export const caseStudies: readonly CuratedCase[] = [
     tags: ["小红书", "种草", "产品内容"],
     verificationStatus: "unverified",
     curatorNote: "真实案例需要补充原帖链接、发布时间和平台公开数据。",
+    evidence: unverifiedEvidence,
+    whyItWorks: [
+      { principle: "场景先于卖点", explanation: "先让目标用户看见自己的问题，再解释产品如何介入。" },
+      { principle: "完整发布闭环", explanation: "标题、正文、标签、互动和复盘使用同一用户假设。" },
+    ],
+    failureCases: [
+      { symptom: "内容像硬广告", cause: "只有产品功能，没有真实场景和使用证据。", fix: "补充痛点时刻、使用过程与可核验体验。" },
+      { symptom: "标题吸引但正文无法承接", cause: "标题和正文由不同角度独立生成。", fix: "先固定单一内容承诺，再统一生成各模块。" },
+    ],
+    modelComparison: untestedModelComparison,
     promptSlug: "xiaohongshu-product-note",
     relatedPackSlugs: ["xiaohongshu-growth"],
   },
@@ -155,6 +231,16 @@ export const caseStudies: readonly CuratedCase[] = [
     tags: ["SaaS", "落地页", "转化"],
     verificationStatus: "unverified",
     curatorNote: "上线后应记录访问、CTA 点击和注册数据，再判断页面效果。",
+    evidence: unverifiedEvidence,
+    whyItWorks: [
+      { principle: "单一用户与行动", explanation: "围绕一个目标用户和一个 CTA，避免页面信息互相竞争。" },
+      { principle: "证据缺口显式化", explanation: "没有客户数据时列出待补材料，而不是生成虚假社会证明。" },
+    ],
+    failureCases: [
+      { symptom: "页面功能很多但价值不清楚", cause: "从产品功能而不是用户任务组织内容。", fix: "用问题、结果和使用场景重排信息。" },
+      { symptom: "文案承诺过度", cause: "缺少真实证据却要求模型写高转化文案。", fix: "降低承诺，并建立证据采集清单。" },
+    ],
+    modelComparison: untestedModelComparison,
     promptSlug: "landing-page-copy",
     relatedPackSlugs: ["indie-product-research"],
   },
@@ -179,6 +265,16 @@ export const caseStudies: readonly CuratedCase[] = [
     tags: ["Amazon", "Listing", "跨境电商"],
     verificationStatus: "unverified",
     curatorNote: "真实发布前需由卖家核验产品事实、关键词工具数据和平台规则。",
+    evidence: unverifiedEvidence,
+    whyItWorks: [
+      { principle: "商品事实优先", explanation: "先锁定参数、受众、场景和禁用表达，再生成销售内容。" },
+      { principle: "跨模块一致", explanation: "关键词、标题、卖点和广告共享同一定位与证据。" },
+    ],
+    failureCases: [
+      { symptom: "Listing 出现错误参数", cause: "模型根据品类常识补全了未提供的信息。", fix: "要求未知字段留空，并由卖家逐项确认。" },
+      { symptom: "关键词堆砌影响可读性", cause: "只要求覆盖关键词，没有设定优先级。", fix: "划分核心词、场景词和补充词，并限制密度。" },
+    ],
+    modelComparison: untestedModelComparison,
     promptSlug: "landing-page-copy",
     relatedPackSlugs: ["cross-border-commerce"],
   },

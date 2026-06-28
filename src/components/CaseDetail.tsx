@@ -1,16 +1,34 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import {
+  AlertTriangle,
   ArrowLeft,
   ArrowRight,
+  BrainCircuit,
+  CheckCircle2,
   ExternalLink,
   FileInput,
   FileOutput,
+  FlaskConical,
   Info,
   Route,
   ShieldAlert,
 } from "lucide-react";
 import { CopyButton } from "@/components/CopyButton";
 import type { CuratedCase } from "@/data/case-studies";
+
+const statusLabels = {
+  verified: "Verified",
+  "source-linked": "Source-linked",
+  unverified: "Demo · Unverified",
+} as const;
+
+const reproducibilityLabels = {
+  high: "高",
+  medium: "中",
+  low: "低",
+  "not-tested": "未测试",
+} as const;
 
 export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
   return (
@@ -24,34 +42,36 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
             </Link>
             <div className="mt-7 flex flex-wrap items-center gap-2">
               <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-800">
-                Demo · Unverified
+                {statusLabels[caseItem.verificationStatus]}
               </span>
-              <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-bold text-zinc-600">
-                {caseItem.category}
-              </span>
+              <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-bold text-zinc-600">{caseItem.category}</span>
             </div>
             <h1 className="mt-4 text-4xl font-bold leading-tight text-zinc-950 sm:text-5xl">{caseItem.title}</h1>
             <p className="mt-5 text-lg leading-8 text-zinc-600">{caseItem.useCase}</p>
-            <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4">
-              <div className="flex gap-3">
-                <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" aria-hidden="true" />
-                <div>
-                  <p className="font-bold text-amber-950">当前是未验证的结构示例</p>
-                  <p className="mt-1 text-sm leading-6 text-amber-900">{caseItem.curatorNote}</p>
+            {caseItem.verificationStatus === "unverified" ? (
+              <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4">
+                <div className="flex gap-3">
+                  <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" aria-hidden="true" />
+                  <div>
+                    <p className="font-bold text-amber-950">当前是未验证的结构演示</p>
+                    <p className="mt-1 text-sm leading-6 text-amber-900">{caseItem.curatorNote}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : null}
           </div>
         </header>
 
         <div className="mx-auto max-w-4xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
           <section>
-            <p className="text-sm font-bold text-emerald-700">01 · 来源与证据</p>
-            <h2 className="mt-2 text-2xl font-bold text-zinc-950">来源信息</h2>
+            <SectionLabel index="01" label="Evidence" />
+            <h2 className="mt-2 text-2xl font-bold text-zinc-950">来源与证据</h2>
             <dl className="mt-5 grid gap-4 rounded-lg border border-zinc-200 bg-white p-5 sm:grid-cols-2">
-              <div><dt className="text-xs font-bold text-zinc-400">平台</dt><dd className="mt-1 font-semibold text-zinc-800">{caseItem.sourcePlatform}</dd></div>
-              <div><dt className="text-xs font-bold text-zinc-400">作者</dt><dd className="mt-1 font-semibold text-zinc-800">{caseItem.sourceAuthor ?? "未提供"}</dd></div>
-              <div><dt className="text-xs font-bold text-zinc-400">日期</dt><dd className="mt-1 font-semibold text-zinc-800">{caseItem.sourceDate ?? "未提供"}</dd></div>
+              <Fact label="来源平台" value={caseItem.sourcePlatform} />
+              <Fact label="作者" value={caseItem.sourceAuthor ?? "未提供"} />
+              <Fact label="来源日期" value={caseItem.sourceDate ?? "未提供"} />
+              <Fact label="测试日期" value={caseItem.evidence.testedAt ?? "尚未测试"} />
+              <Fact label="复现程度" value={reproducibilityLabels[caseItem.evidence.reproducibility]} />
               <div>
                 <dt className="text-xs font-bold text-zinc-400">原始来源</dt>
                 <dd className="mt-1 font-semibold text-zinc-800">
@@ -63,15 +83,18 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
                 </dd>
               </div>
             </dl>
+            <p className="mt-4 rounded-md border border-zinc-200 bg-white p-4 text-sm leading-7 text-zinc-700">
+              {caseItem.evidence.summary}
+            </p>
             <p className="mt-4 flex gap-2 text-xs leading-6 text-zinc-500">
               <Info className="mt-1 h-4 w-4 shrink-0" aria-hidden="true" />
-              案例页仅展示摘要、结构化分析和可复用模板。接入外部真实案例后，不全文搬运原始内容。
+              仅展示必要摘要、结构化分析和来源链接，不全文搬运外部内容。
             </p>
           </section>
 
           <section className="border-t border-zinc-200 pt-9">
-            <p className="text-sm font-bold text-rose-700">02 · 真实场景</p>
-            <h2 className="mt-2 text-2xl font-bold text-zinc-950">问题背景</h2>
+            <SectionLabel index="02" label="Problem" />
+            <h2 className="mt-2 text-2xl font-bold text-zinc-950">问题与原始提问</h2>
             <p className="mt-4 text-base leading-8 text-zinc-700">{caseItem.problem}</p>
             <div className="mt-5 rounded-lg border border-red-100 bg-red-50 p-5">
               <p className="text-xs font-bold text-red-700">原始 Prompt</p>
@@ -81,8 +104,24 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
 
           <section className="border-t border-zinc-200 pt-9">
             <div className="flex items-center gap-2 text-emerald-700">
+              <BrainCircuit className="h-5 w-5" aria-hidden="true" />
+              <SectionLabel index="03" label="Why It Works" />
+            </div>
+            <h2 className="mt-2 text-2xl font-bold text-zinc-950">为什么这样设计</h2>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              {caseItem.whyItWorks.map((item) => (
+                <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-5" key={item.principle}>
+                  <h3 className="font-bold text-zinc-950">{item.principle}</h3>
+                  <p className="mt-2 text-sm leading-7 text-zinc-700">{item.explanation}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="border-t border-zinc-200 pt-9">
+            <div className="flex items-center gap-2 text-emerald-700">
               <Route className="h-5 w-5" aria-hidden="true" />
-              <p className="text-sm font-bold">03 · Workflow</p>
+              <SectionLabel index="04" label="Workflow" />
             </div>
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">关键执行步骤</h2>
             <ol className="mt-5 space-y-3">
@@ -96,20 +135,51 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
           </section>
 
           <section className="grid gap-5 border-t border-zinc-200 pt-9 md:grid-cols-2">
-            <div className="rounded-lg border border-zinc-200 bg-white p-5">
-              <FileInput className="h-5 w-5 text-emerald-700" aria-hidden="true" />
-              <h2 className="mt-3 font-bold text-zinc-950">输入摘要</h2>
-              <p className="mt-2 text-sm leading-7 text-zinc-600">{caseItem.inputSummary}</p>
+            <SummaryCard icon={<FileInput className="h-5 w-5" />} title="输入摘要" text={caseItem.inputSummary} />
+            <SummaryCard icon={<FileOutput className="h-5 w-5" />} title="输出摘要" text={caseItem.outputSummary} accent />
+          </section>
+
+          <section className="border-t border-zinc-200 pt-9">
+            <div className="flex items-center gap-2 text-rose-700">
+              <AlertTriangle className="h-5 w-5" aria-hidden="true" />
+              <SectionLabel index="05" label="Failure Cases" />
             </div>
-            <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-5">
-              <FileOutput className="h-5 w-5 text-emerald-700" aria-hidden="true" />
-              <h2 className="mt-3 font-bold text-zinc-950">输出摘要</h2>
-              <p className="mt-2 text-sm leading-7 text-zinc-700">{caseItem.outputSummary}</p>
+            <h2 className="mt-2 text-2xl font-bold text-zinc-950">什么时候会失败</h2>
+            <div className="mt-5 space-y-4">
+              {caseItem.failureCases.map((failure) => (
+                <div className="rounded-lg border border-rose-200 bg-white p-5" key={failure.symptom}>
+                  <h3 className="font-bold text-zinc-950">{failure.symptom}</h3>
+                  <dl className="mt-3 grid gap-3 text-sm leading-6 sm:grid-cols-2">
+                    <div><dt className="font-bold text-rose-700">原因</dt><dd className="mt-1 text-zinc-600">{failure.cause}</dd></div>
+                    <div><dt className="font-bold text-emerald-700">修正</dt><dd className="mt-1 text-zinc-600">{failure.fix}</dd></div>
+                  </dl>
+                </div>
+              ))}
             </div>
           </section>
 
           <section className="border-t border-zinc-200 pt-9">
-            <p className="text-sm font-bold text-emerald-700">04 · 可复用模板</p>
+            <div className="flex items-center gap-2 text-emerald-700">
+              <FlaskConical className="h-5 w-5" aria-hidden="true" />
+              <SectionLabel index="06" label="Model Comparison" />
+            </div>
+            <h2 className="mt-2 text-2xl font-bold text-zinc-950">模型测试状态</h2>
+            <div className="mt-5 overflow-hidden rounded-lg border border-zinc-200 bg-white">
+              <div className="grid grid-cols-[0.8fr_0.8fr_1.4fr] gap-3 border-b border-zinc-200 bg-zinc-100 px-4 py-3 text-xs font-bold text-zinc-500">
+                <span>模型</span><span>状态 / 评分</span><span>结论</span>
+              </div>
+              {caseItem.modelComparison.map((item) => (
+                <div className="grid grid-cols-[0.8fr_0.8fr_1.4fr] gap-3 border-b border-zinc-100 px-4 py-4 text-sm last:border-0" key={item.model}>
+                  <span className="font-bold text-zinc-950">{item.model}</span>
+                  <span className="text-zinc-600">{item.status === "tested" ? `${item.score ?? "-"} / 5` : "未测试"}</span>
+                  <span className="leading-6 text-zinc-600">{item.note}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="border-t border-zinc-200 pt-9">
+            <SectionLabel index="07" label="Reusable Template" />
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">带走并适配自己的任务</h2>
             <pre className="mt-5 whitespace-pre-wrap break-words rounded-lg bg-zinc-950 p-5 font-mono text-sm leading-7 text-zinc-100">
               {caseItem.reusableTemplate}
@@ -120,7 +190,7 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
           </section>
 
           <section className="border-t border-zinc-200 pt-9">
-            <p className="text-sm font-bold text-amber-700">05 · 结果边界</p>
+            <SectionLabel index="08" label="Result Boundary" />
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">我们能确认什么？</h2>
             <p className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-950">
               {caseItem.resultClaim}
@@ -132,5 +202,23 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
         </div>
       </article>
     </main>
+  );
+}
+
+function SectionLabel({ index, label }: { index: string; label: string }) {
+  return <p className="text-sm font-bold text-emerald-700">{index} · {label}</p>;
+}
+
+function Fact({ label, value }: { label: string; value: string }) {
+  return <div><dt className="text-xs font-bold text-zinc-400">{label}</dt><dd className="mt-1 font-semibold text-zinc-800">{value}</dd></div>;
+}
+
+function SummaryCard({ icon, title, text, accent = false }: { icon: ReactNode; title: string; text: string; accent?: boolean }) {
+  return (
+    <div className={`rounded-lg border p-5 ${accent ? "border-emerald-200 bg-emerald-50" : "border-zinc-200 bg-white"}`}>
+      <div className="text-emerald-700">{icon}</div>
+      <h2 className="mt-3 font-bold text-zinc-950">{title}</h2>
+      <p className="mt-2 text-sm leading-7 text-zinc-600">{text}</p>
+    </div>
   );
 }
