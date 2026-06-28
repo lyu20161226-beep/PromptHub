@@ -48,6 +48,17 @@ export type CuratedCase = {
     score: number | null;
     note: string;
   }[];
+  decision: {
+    recommendedWhen: readonly string[];
+    avoidWhen: readonly string[];
+    alternatives: readonly string[];
+  };
+  evolution: readonly {
+    version: string;
+    date: string;
+    changes: string;
+    status: "current" | "deprecated";
+  }[];
   promptSlug: string;
   relatedPackSlugs: readonly string[];
 };
@@ -72,6 +83,15 @@ const untestedModelComparison = ["GPT", "Claude", "Gemini", "DeepSeek"].map((mod
   score: null,
   note: "待使用同一输入、输出标准和测试轮次进行人工验证。",
 }));
+
+const demoEvolution = [
+  {
+    version: "v0.1",
+    date: "2026-06",
+    changes: "建立结构演示，尚未完成真实来源、跨模型和重复运行验证。",
+    status: "current" as const,
+  },
+];
 
 export const caseStudies: readonly CuratedCase[] = [
   {
@@ -105,6 +125,12 @@ export const caseStudies: readonly CuratedCase[] = [
       { symptom: "模型给出通用修复清单", cause: "缺少环境、堆栈和最近改动。", fix: "补充版本、完整错误和稳定复现步骤。" },
     ],
     modelComparison: untestedModelComparison,
+    decision: {
+      recommendedWhen: ["错误可以稳定复现", "能够提供完整堆栈、版本和最近改动"],
+      avoidWhen: ["生产事故仍在扩大且需要先止损", "缺少日志与复现条件"],
+      alternatives: ["先执行回滚或隔离故障", "使用框架官方调试指南建立最小复现"],
+    },
+    evolution: demoEvolution,
     promptSlug: "debug-root-cause",
     relatedPackSlugs: ["indie-product-research"],
   },
@@ -139,6 +165,12 @@ export const caseStudies: readonly CuratedCase[] = [
       { symptom: "选题看起来合理但没有流量", cause: "没有接入真实关键词与 SERP 数据。", fix: "发布前人工验证搜索量、竞争度和结果类型。" },
     ],
     modelComparison: untestedModelComparison,
+    decision: {
+      recommendedWhen: ["已有明确主题与目标读者", "愿意使用真实关键词工具复核"],
+      avoidWhen: ["需要即时热点稿件", "没有搜索需求或业务目标"],
+      alternatives: ["先做用户访谈确定问题", "用 Search Console 数据更新已有内容"],
+    },
+    evolution: demoEvolution,
     promptSlug: "seo-content-brief",
     relatedPackSlugs: ["xiaohongshu-growth", "indie-product-research"],
   },
@@ -173,6 +205,12 @@ export const caseStudies: readonly CuratedCase[] = [
       { symptom: "每条经历都像同一个模板", cause: "没有保留任务差异和个人贡献。", fix: "补充角色、约束、协作对象和决策过程。" },
     ],
     modelComparison: untestedModelComparison,
+    decision: {
+      recommendedWhen: ["已有真实经历但表达模糊", "目标岗位和 JD 已明确"],
+      avoidWhen: ["希望凭空补齐项目或业绩", "经历真实性无法核验"],
+      alternatives: ["先整理项目证据与工作记录", "请行业导师进行人工简历审阅"],
+    },
+    evolution: demoEvolution,
     promptSlug: "resume-impact-rewrite",
     relatedPackSlugs: [],
   },
@@ -207,6 +245,12 @@ export const caseStudies: readonly CuratedCase[] = [
       { symptom: "标题吸引但正文无法承接", cause: "标题和正文由不同角度独立生成。", fix: "先固定单一内容承诺，再统一生成各模块。" },
     ],
     modelComparison: untestedModelComparison,
+    decision: {
+      recommendedWhen: ["产品体验和卖点真实", "目标用户与发布场景明确"],
+      avoidWhen: ["没有亲自体验产品", "需要伪造口碑或夸张功效"],
+      alternatives: ["先采集真实用户访谈", "从 FAQ 或评论问题制作教育型内容"],
+    },
+    evolution: demoEvolution,
     promptSlug: "xiaohongshu-product-note",
     relatedPackSlugs: ["xiaohongshu-growth"],
   },
@@ -241,6 +285,12 @@ export const caseStudies: readonly CuratedCase[] = [
       { symptom: "文案承诺过度", cause: "缺少真实证据却要求模型写高转化文案。", fix: "降低承诺，并建立证据采集清单。" },
     ],
     modelComparison: untestedModelComparison,
+    decision: {
+      recommendedWhen: ["已经定义单一用户和单一 CTA", "能够提供真实产品证据"],
+      avoidWhen: ["产品定位尚未确认", "同时服务多个完全不同的用户群"],
+      alternatives: ["先运行产品验证工作流", "用用户访谈重写问题陈述"],
+    },
+    evolution: demoEvolution,
     promptSlug: "landing-page-copy",
     relatedPackSlugs: ["indie-product-research"],
   },
@@ -275,6 +325,12 @@ export const caseStudies: readonly CuratedCase[] = [
       { symptom: "关键词堆砌影响可读性", cause: "只要求覆盖关键词，没有设定优先级。", fix: "划分核心词、场景词和补充词，并限制密度。" },
     ],
     modelComparison: untestedModelComparison,
+    decision: {
+      recommendedWhen: ["商品参数与目标市场完整", "卖家能够执行合规复核"],
+      avoidWhen: ["产品事实不完整", "需要模型自行猜测认证或功效"],
+      alternatives: ["先完成商品信息表", "使用平台官方 Listing 指南人工撰写"],
+    },
+    evolution: demoEvolution,
     promptSlug: "landing-page-copy",
     relatedPackSlugs: ["cross-border-commerce"],
   },

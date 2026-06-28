@@ -57,6 +57,21 @@
   "tags": [],
   "verificationStatus": "source-linked",
   "curatorNote": "",
+  "evidence": {
+    "summary": "",
+    "testedAt": null,
+    "testedModels": [],
+    "reproducibility": "not-tested"
+  },
+  "whyItWorks": [],
+  "failureCases": [],
+  "modelComparison": [],
+  "decision": {
+    "recommendedWhen": [],
+    "avoidWhen": [],
+    "alternatives": []
+  },
+  "evolution": [],
   "promptSlug": "",
   "relatedPackSlugs": []
 }
@@ -65,3 +80,11 @@
 ## 内容边界
 
 PromptHub 只展示必要摘要、结构化分析、可复用方法和来源链接。不要复制付费内容、完整文章、完整帖子或其他平台的商品内容。
+
+## 决策与版本规则
+
+- `recommendedWhen` 说明满足哪些前提时值得使用。
+- `avoidWhen` 明确哪些场景下不应使用，不能只写优点。
+- `alternatives` 提供人工方法、官方文档或其他工作流作为替代。
+- 每次重新测试模型、修改 Prompt 或调整步骤，都新增一条 `evolution` 记录。
+- 旧版本失效时标记 `deprecated`，不要删除历史，避免用户继续使用过时方法。

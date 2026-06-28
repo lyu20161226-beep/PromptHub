@@ -10,7 +10,10 @@ import {
   FileInput,
   FileOutput,
   FlaskConical,
+  GitCommitHorizontal,
   Info,
+  Lightbulb,
+  OctagonX,
   Route,
   ShieldAlert,
 } from "lucide-react";
@@ -93,7 +96,35 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
           </section>
 
           <section className="border-t border-zinc-200 pt-9">
-            <SectionLabel index="02" label="Problem" />
+            <div className="flex items-center gap-2 text-emerald-700">
+              <Lightbulb className="h-5 w-5" aria-hidden="true" />
+              <SectionLabel index="02" label="Decision Brief" />
+            </div>
+            <h2 className="mt-2 text-2xl font-bold text-zinc-950">先判断该不该用</h2>
+            <div className="mt-5 grid gap-5 lg:grid-cols-3">
+              <DecisionList
+                className="border-emerald-200 bg-emerald-50"
+                items={caseItem.decision.recommendedWhen}
+                title="推荐使用"
+                titleClassName="text-emerald-800"
+              />
+              <DecisionList
+                className="border-rose-200 bg-rose-50"
+                items={caseItem.decision.avoidWhen}
+                title="不建议使用"
+                titleClassName="text-rose-800"
+              />
+              <DecisionList
+                className="border-zinc-200 bg-white"
+                items={caseItem.decision.alternatives}
+                title="替代方案"
+                titleClassName="text-zinc-800"
+              />
+            </div>
+          </section>
+
+          <section className="border-t border-zinc-200 pt-9">
+            <SectionLabel index="03" label="Problem" />
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">问题与原始提问</h2>
             <p className="mt-4 text-base leading-8 text-zinc-700">{caseItem.problem}</p>
             <div className="mt-5 rounded-lg border border-red-100 bg-red-50 p-5">
@@ -105,7 +136,7 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
           <section className="border-t border-zinc-200 pt-9">
             <div className="flex items-center gap-2 text-emerald-700">
               <BrainCircuit className="h-5 w-5" aria-hidden="true" />
-              <SectionLabel index="03" label="Why It Works" />
+              <SectionLabel index="04" label="Why It Works" />
             </div>
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">为什么这样设计</h2>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -121,7 +152,7 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
           <section className="border-t border-zinc-200 pt-9">
             <div className="flex items-center gap-2 text-emerald-700">
               <Route className="h-5 w-5" aria-hidden="true" />
-              <SectionLabel index="04" label="Workflow" />
+              <SectionLabel index="05" label="Workflow" />
             </div>
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">关键执行步骤</h2>
             <ol className="mt-5 space-y-3">
@@ -142,7 +173,7 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
           <section className="border-t border-zinc-200 pt-9">
             <div className="flex items-center gap-2 text-rose-700">
               <AlertTriangle className="h-5 w-5" aria-hidden="true" />
-              <SectionLabel index="05" label="Failure Cases" />
+              <SectionLabel index="06" label="Failure Cases" />
             </div>
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">什么时候会失败</h2>
             <div className="mt-5 space-y-4">
@@ -161,7 +192,7 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
           <section className="border-t border-zinc-200 pt-9">
             <div className="flex items-center gap-2 text-emerald-700">
               <FlaskConical className="h-5 w-5" aria-hidden="true" />
-              <SectionLabel index="06" label="Model Comparison" />
+              <SectionLabel index="07" label="Model Comparison" />
             </div>
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">模型测试状态</h2>
             <div className="mt-5 overflow-hidden rounded-lg border border-zinc-200 bg-white">
@@ -179,7 +210,7 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
           </section>
 
           <section className="border-t border-zinc-200 pt-9">
-            <SectionLabel index="07" label="Reusable Template" />
+            <SectionLabel index="08" label="Reusable Template" />
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">带走并适配自己的任务</h2>
             <pre className="mt-5 whitespace-pre-wrap break-words rounded-lg bg-zinc-950 p-5 font-mono text-sm leading-7 text-zinc-100">
               {caseItem.reusableTemplate}
@@ -190,7 +221,29 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
           </section>
 
           <section className="border-t border-zinc-200 pt-9">
-            <SectionLabel index="08" label="Result Boundary" />
+            <div className="flex items-center gap-2 text-emerald-700">
+              <GitCommitHorizontal className="h-5 w-5" aria-hidden="true" />
+              <SectionLabel index="09" label="Evolution" />
+            </div>
+            <h2 className="mt-2 text-2xl font-bold text-zinc-950">版本如何演化</h2>
+            <div className="mt-5 space-y-3">
+              {caseItem.evolution.map((version) => (
+                <div className="grid gap-3 rounded-lg border border-zinc-200 bg-white p-5 sm:grid-cols-[7rem_7rem_1fr]" key={version.version}>
+                  <div>
+                    <p className="font-mono text-sm font-bold text-zinc-950">{version.version}</p>
+                    <span className={`mt-2 inline-flex rounded-full px-2 py-0.5 text-xs font-bold ${version.status === "current" ? "bg-emerald-100 text-emerald-800" : "bg-zinc-200 text-zinc-600"}`}>
+                      {version.status === "current" ? "当前版本" : "已弃用"}
+                    </span>
+                  </div>
+                  <p className="text-sm font-semibold text-zinc-500">{version.date}</p>
+                  <p className="text-sm leading-7 text-zinc-700">{version.changes}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="border-t border-zinc-200 pt-9">
+            <SectionLabel index="10" label="Result Boundary" />
             <h2 className="mt-2 text-2xl font-bold text-zinc-950">我们能确认什么？</h2>
             <p className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-950">
               {caseItem.resultClaim}
@@ -211,6 +264,34 @@ function SectionLabel({ index, label }: { index: string; label: string }) {
 
 function Fact({ label, value }: { label: string; value: string }) {
   return <div><dt className="text-xs font-bold text-zinc-400">{label}</dt><dd className="mt-1 font-semibold text-zinc-800">{value}</dd></div>;
+}
+
+function DecisionList({
+  title,
+  items,
+  className,
+  titleClassName,
+}: {
+  title: string;
+  items: readonly string[];
+  className: string;
+  titleClassName: string;
+}) {
+  const Icon = title === "不建议使用" ? OctagonX : CheckCircle2;
+
+  return (
+    <div className={`rounded-lg border p-5 ${className}`}>
+      <h3 className={`font-bold ${titleClassName}`}>{title}</h3>
+      <ul className="mt-4 space-y-3">
+        {items.map((item) => (
+          <li className="flex gap-2 text-sm leading-6 text-zinc-700" key={item}>
+            <Icon className="mt-1 h-4 w-4 shrink-0" aria-hidden="true" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 function SummaryCard({ icon, title, text, accent = false }: { icon: ReactNode; title: string; text: string; accent?: boolean }) {
