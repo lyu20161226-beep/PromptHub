@@ -6,6 +6,14 @@ PromptHub is an editorial reference for AI workflows that actually work.
 
 We do not compete on volume. We curate, verify, structure, explain, and maintain reusable AI working methods. Our value comes from judgment and evidence, not automated generation.
 
+Brand position:
+
+> The AI Workflow Editorial
+
+Editorial promise:
+
+> We verify AI workflows, not just collect prompts.
+
 ## Non-Negotiable Rules
 
 1. Never invent workflows, prompts, sources, metrics, test results, authors, or success claims.
@@ -31,6 +39,24 @@ We do not compete on volume. We curate, verify, structure, explain, and maintain
 
 The default publication threshold is a source score of 8. Exceptions require an explicit editorial reason. Reputation alone never proves that a workflow works.
 
+## Editorial Portfolio
+
+Use this as a quarterly portfolio target, not a quota that overrides quality:
+
+| Supply line | Target share | Purpose |
+| --- | ---: | --- |
+| Official documentation and cookbooks | 40% | Establish trusted, durable best practices |
+| GitHub and open-source workflows | 30% | Capture reproducible implementation methods |
+| Public real-world cases | 20% | Document practical use, limitations, and outcomes |
+| Original PromptHub research | 10% | Build distinctive tests, comparisons, and editorial judgment |
+
+Rules:
+
+- Never publish filler to reach a percentage.
+- Measure the mix by published, maintained workflows, not raw candidates.
+- Original research must follow the same verification standard as external material.
+- Community popularity is a discovery signal, not evidence.
+
 ## Content Score
 
 Score candidates out of 100:
@@ -52,6 +78,44 @@ Editorial decisions:
 - Below 60: reject.
 
 Do not display this score publicly until its method and supporting evidence are documented.
+
+## Workflow Evaluation
+
+Keep workflow evaluation separate from source quality. A reputable source can still contain a weak workflow.
+
+Evaluate:
+
+| Dimension | Meaning |
+| --- | --- |
+| Trust | Strength and traceability of supporting evidence |
+| Practical value | Ability to solve a specific real task |
+| Evergreen value | Likelihood of remaining useful over time |
+| Difficulty | Effort and expertise required to reproduce it |
+| Reusability | Ability to adapt it across similar situations |
+
+Public ratings require a documented rubric, test evidence, and human approval. Until then, show factual verification states rather than precise scores.
+
+## Workflow Editorial Standard
+
+Every publishable workflow must answer:
+
+- What problem does it solve?
+- Who is it for?
+- What inputs and context are required?
+- Which models were tested?
+- Which model is recommended, if evidence supports a recommendation?
+- What are the workflow steps?
+- What prompt or prompt pattern is used?
+- What example input was tested?
+- What example output was observed?
+- Why does it work?
+- What are the failure cases and limitations?
+- What alternatives should users consider?
+- What is the original source?
+- When was it last reviewed or verified?
+- What changed in its update history?
+
+If a required answer is missing, keep the item in `candidate`, `source-linked`, or `in-testing`. Do not publish it as verified.
 
 ## Content Pipeline
 
@@ -141,6 +205,8 @@ Never declare a "best model" from one subjective run.
 - [ ] Rights and reuse have been reviewed.
 - [ ] Workflow is reproducible.
 - [ ] Prompt content is quoted or summarized within permitted limits.
+- [ ] Tested input is documented.
+- [ ] Observed output or structured evaluation is documented.
 - [ ] Why It Works is evidence-based.
 - [ ] Failure Cases are documented.
 - [ ] Alternatives are useful and honest.

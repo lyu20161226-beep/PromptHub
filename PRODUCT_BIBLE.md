@@ -18,6 +18,14 @@ Its value is not the number of prompts it stores. Its value is the quality of it
 
 Users should visit PromptHub because they trust its recommendations.
 
+Our editorial position is:
+
+> The AI Workflow Editorial
+
+Our promise is:
+
+> We verify AI workflows, not just collect prompts.
+
 ## Product Philosophy
 
 - Small
@@ -53,6 +61,8 @@ Every Workflow must explain:
 - Best model
 - Alternative models
 - Prompt
+- Example input
+- Example output
 - Expected result
 - Why it works
 - Failure cases
