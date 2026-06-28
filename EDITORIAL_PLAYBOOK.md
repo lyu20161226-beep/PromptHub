@@ -247,6 +247,19 @@ Publish up to five meaningful improvements per week:
 
 Publishing fewer items is correct when evidence is weak.
 
+## Editorial Flywheel
+
+Source discovery
+-> structured extraction
+-> editorial verification
+-> publication
+-> user application
+-> feedback and failure evidence
+-> correction or improvement
+-> stronger recommendation
+
+The loop is complete only when new evidence improves an existing Workflow or a user decision. Page views and candidate volume alone are not editorial progress.
+
 ## Editorial Responsibilities
 
 Codex may:

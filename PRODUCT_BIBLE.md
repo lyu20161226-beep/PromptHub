@@ -285,6 +285,43 @@ Each must include:
 - A verification date
 - An update record
 
+## Product Flywheel
+
+The durable growth loop is:
+
+Trusted source
+
+→ Structured Workflow candidate
+
+→ Editorial verification
+
+→ Useful reference page
+
+→ Search discovery and direct sharing
+
+→ Real usage and feedback
+
+→ Better evidence, failure cases, and recommendations
+
+→ A more trusted Workflow
+
+Growth must improve the knowledge asset. Traffic without evidence, feedback, or maintenance does not strengthen the product.
+
+## Annual Direction
+
+The long-term ambition is a compact reference of up to 300 exceptional, maintained Workflows.
+
+This is not a publishing quota. A Workflow counts toward this goal only when it:
+
+- Passes the editorial standard
+- Has traceable attribution
+- Has an honest verification state
+- Is reproducible or clearly labeled otherwise
+- Adds a distinct task, decision, or body of evidence
+- Has an owner and review cadence
+
+Publishing ten genuinely verified Workflows is more valuable than publishing 300 weak entries. Quality gates must never be relaxed to meet a numeric target.
+
 ## Workflow Schema Standard
 
 Every canonical Workflow should support:
