@@ -107,6 +107,9 @@ export function PromptOSHome() {
               <span>无需登录</span>
               <span>支持变量填写</span>
               <span>可直接运行与复制</span>
+              <Link className="font-bold text-emerald-700 hover:text-emerald-900" href="/daily">
+                查看今日精选
+              </Link>
             </div>
           </div>
         </div>
