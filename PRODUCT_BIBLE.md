@@ -338,8 +338,11 @@ type Workflow = {
   difficulty: "beginner" | "intermediate" | "advanced";
   bestModel: string | null;
   alternativeModels: string[];
+  toolIds: string[];
   workflowSteps: WorkflowStep[];
   promptIds: string[];
+  exampleInput: string;
+  exampleOutput: string;
   expectedOutput: string;
   whyItWorks: Principle[];
   failureCases: FailureCase[];
@@ -348,6 +351,7 @@ type Workflow = {
   caseIds: string[];
   sources: Source[];
   verification: Verification;
+  updateHistory: WorkflowUpdate[];
   tags: string[];
 };
 ```
@@ -457,6 +461,25 @@ Every indexable page must have:
 Workflow pages should add FAQ, comparisons, cases, and related Workflows only when the content is substantive and non-duplicative.
 
 Do not create thin pages solely to increase page count.
+
+### Topic Cluster Standard
+
+SEO grows through complete, maintained subject coverage rather than isolated pages.
+
+Each approved model, task, or industry cluster should connect:
+
+- A canonical overview
+- Best-practice Workflows
+- Practical cases
+- Meaningful model or method comparisons
+- Questions users genuinely ask
+- Update history
+- Related Workflows
+- Stable tags
+
+Every child page must serve a distinct search intent and link back to its canonical cluster. Do not create a cluster until enough substantive material exists to support it.
+
+Topic clusters are editorial structures, not page-count generators.
 
 ## Engineering Standards
 

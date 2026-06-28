@@ -247,6 +247,23 @@ Publish up to five meaningful improvements per week:
 
 Publishing fewer items is correct when evidence is weak.
 
+## Weekly Editorial Board Review
+
+Run this review before planning new content:
+
+1. Identify broken, redirected, removed, or materially changed sources.
+2. Check official model and tool updates that may invalidate existing guidance.
+3. Move stale verification records to `needs-review`.
+4. Reassess best-model claims only when comparable evidence exists.
+5. Find explanations that are unclear, unsupported, or too close to source wording.
+6. Add useful failure evidence and limitations.
+7. Suggest related Workflows only when the relationship improves a user decision.
+8. Merge duplicates and overlapping entries.
+9. Deprecate low-value or obsolete Workflows instead of silently deleting history.
+10. Produce an ROI-ranked improvement queue before proposing new publication.
+
+The board reviews the full maintained collection over a rolling schedule. It must not automatically rewrite, publish, delete, or change verification states.
+
 ## Editorial Flywheel
 
 Source discovery
