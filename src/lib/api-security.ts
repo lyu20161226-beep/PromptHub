@@ -22,6 +22,17 @@ type GuardResult =
 const memoryWindows = new Map<string, WindowEntry>();
 let activeRequests = 0;
 
+function hasDurableRateLimit() {
+  return Boolean(
+    process.env.UPSTASH_REDIS_REST_URL?.trim() &&
+      process.env.UPSTASH_REDIS_REST_TOKEN?.trim(),
+  );
+}
+
+function requiresDurableRateLimit() {
+  return process.env.NODE_ENV === "production";
+}
+
 function getClientIp(request: Request) {
   const forwardedFor = request.headers.get("x-forwarded-for");
   return forwardedFor?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown";
@@ -108,7 +119,8 @@ async function checkWindow(key: string, limit: number, windowSeconds: number) {
       (await useDistributedWindow(key, limit, windowSeconds)) ??
       useMemoryWindow(key, limit, windowSeconds)
     );
-  } catch {
+  } catch (error) {
+    if (requiresDurableRateLimit()) throw error;
     return useMemoryWindow(key, limit, windowSeconds);
   }
 }
@@ -123,6 +135,16 @@ function rateLimitHeaders(result: LimitResult) {
 }
 
 export async function guardAiRequest(request: Request): Promise<GuardResult> {
+  if (requiresDurableRateLimit() && !hasDurableRateLimit()) {
+    return {
+      ok: false,
+      response: NextResponse.json(
+        { error: "AI 服务保护配置尚未完成，请稍后再试。" },
+        { status: 503, headers: { "retry-after": "300" } },
+      ),
+    };
+  }
+
   if (!isSameOrigin(request)) {
     return {
       ok: false,

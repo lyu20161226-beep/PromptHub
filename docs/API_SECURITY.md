@@ -27,7 +27,9 @@ UPSTASH_REDIS_REST_TOKEN
 
 With these variables, rate-limit counters are shared across Serverless instances.
 
-Without them, the application uses an in-memory emergency fallback. That fallback is useful for local development and accidental bursts, but it is not a durable production quota because Serverless instances do not share memory.
+Production is fail-closed: without both variables, `/api/chat` and `/api/run` return `503` and do not call DeepSeek. If the configured rate-limit store is unavailable, production also returns `503`.
+
+Local development uses an in-memory fallback. That fallback is useful for development and tests, but it is not a production quota because Serverless instances do not share memory.
 
 ## Current Boundaries
 
