@@ -111,7 +111,143 @@ const demoEvolution = [
   },
 ];
 
-const rawCaseStudies: readonly Omit<CuratedCase, "validation">[] = [
+const rawCaseStudies: readonly (Omit<CuratedCase, "validation"> & {
+  validation?: CuratedCase["validation"];
+})[] = [
+  {
+    id: "case-source-001",
+    slug: "deepseek-support-ticket-triage",
+    title: "客服工单结构化分流工作流",
+    sourcePlatform: "OpenAI 官方文档",
+    sourceUrl: "https://platform.openai.com/docs/guides/prompt-engineering",
+    sourceAuthor: "OpenAI",
+    sourceDate: null,
+    category: "客服运营",
+    useCase: "把非结构化客服工单稳定转换为可进入人工处理队列的结构化记录。",
+    problem: "直接让模型总结工单，容易出现字段漂移、优先级标准不一致，甚至把尚未执行的处理动作写成已完成事实。",
+    originalPrompt: "帮我看看这条客户投诉应该怎么处理。",
+    workflowSteps: [
+      "固定分类、优先级与人工介入规则",
+      "用标签隔离真实工单内容",
+      "提供一组输入与 JSON 输出示例",
+      "要求只返回固定字段",
+      "解析 JSON 并执行字段级校验",
+      "把高风险或账务异常转交人工处理",
+    ],
+    inputSummary: "固定测试工单 CS-1042：专业版已扣款 299 元，但账户仍是免费版，且次日有批量导出需求。",
+    outputSummary: "两批共六次均返回合法 JSON，并一致识别为 billing、high、needs_human=true；摘要和下一步措辞存在正常差异。",
+    resultClaim: "仅确认 deepseek-chat 在 2026-06-28 对一个固定账务工单分两批运行六次，均通过预设结构与分类检查；不代表所有工单、语言或模型均可靠，也不允许自动执行退款或账户升级。",
+    metrics: emptyMetrics,
+    reusableTemplate: `你是 SaaS 客服工单分流员。请将 <ticket> 中的工单转换为一个 JSON 对象。只输出 JSON，不要 Markdown，不要解释。
+
+规则：
+1. 只允许字段：ticket_id、category、priority、summary、next_action、needs_human。
+2. category 只能是 billing、technical、account、other。
+3. priority 只能是 low、medium、high、urgent。
+4. 不得宣称退款、升级或调查已经完成。
+5. 涉及扣款与账户状态不一致时，needs_human 必须为 true。
+
+<ticket>{{客服工单}}</ticket>`,
+    tags: ["客服工单", "结构化输出", "Few-shot", "DeepSeek"],
+    verificationStatus: "source-linked",
+    curatorNote: "官方来源与三次运行证据已经记录。等待站点所有者人工审阅原始输出并批准后，才可升级为 Verified。",
+    evidence: {
+      summary: "测试协议和两批共六次原始响应均保存在仓库 verification/deepseek-support-ticket-triage。6/6 通过预设机器检查；字节级复核确认中文内容正常，内容审读未发现虚构已完成动作。",
+      testedAt: "2026-06-28",
+      testedModels: ["deepseek-chat"],
+      reproducibility: "high",
+    },
+    validation: {
+      lastReviewedAt: "2026-06-28",
+      nextReviewAt: "2026-09-26",
+      applicableModels: ["deepseek-chat"],
+      recommendation: "limited",
+      editorialScore: null,
+      reason: "固定输入的六次测试均通过，但样本只有一个，且尚未完成站点所有者人工批准。当前仅有限推荐用于人工分流前的数据预处理。",
+    },
+    whyItWorks: [
+      {
+        principle: "明确指令与受限枚举",
+        explanation: "官方提示工程指南建议给出清晰任务和输出要求；固定字段与枚举降低下游解析的不确定性。",
+      },
+      {
+        principle: "Few-shot 示例",
+        explanation: "一个输入与输出示例为模型提供字段含义、粒度和格式参照。",
+      },
+      {
+        principle: "输入隔离",
+        explanation: "使用 <ticket> 标签将待处理内容与规则分开，减少模型混淆指令和业务文本的概率。",
+      },
+      {
+        principle: "程序化校验",
+        explanation: "模型输出不是最终事实，必须经过 JSON 解析、字段检查和业务规则验证。",
+      },
+    ],
+    failureCases: [
+      {
+        symptom: "JSON 正确但业务分类错误",
+        cause: "结构校验只能证明格式正确，不能证明分类语义正确。",
+        fix: "建立包含不同类别和边界情况的标注测试集，并逐项复核。",
+      },
+      {
+        symptom: "下一步建议越权执行账户或退款操作",
+        cause: "模型不知道真实权限、支付状态和内部审批规则。",
+        fix: "只把建议写入人工队列，禁止模型直接触发账务与账户变更。",
+      },
+      {
+        symptom: "工单内容试图覆盖系统规则",
+        cause: "外部文本可能包含提示注入或伪造指令。",
+        fix: "将工单视为不可信数据，隔离输入并在服务端执行字段白名单校验。",
+      },
+    ],
+    modelComparison: [
+      {
+        model: "deepseek-chat",
+        status: "tested",
+        score: null,
+        note: "同一固定输入分两批运行六次，六次均通过预设结构与分类检查；未给公开评分。",
+      },
+      ...["GPT", "Claude", "Gemini"].map((model) => ({
+        model,
+        status: "not-tested" as const,
+        score: null,
+        note: "尚未使用相同协议测试，不能比较。",
+      })),
+    ],
+    decision: {
+      recommendedWhen: [
+        "分类体系和优先级规则已经固定",
+        "输出会经过程序校验和人工复核",
+        "模型只负责分流，不直接执行高风险操作",
+      ],
+      avoidWhen: [
+        "准备让模型自动退款、改账户或承诺处理结果",
+        "没有标注测试集却要推断整体准确率",
+        "工单包含大量附件或缺少关键交易事实",
+      ],
+      alternatives: [
+        "高风险账务工单直接使用规则引擎转人工",
+        "使用支持 JSON Schema 的结构化输出接口",
+        "扩大标注样本后再评估模型分类表现",
+      ],
+    },
+    evolution: [
+      {
+        version: "v0.1",
+        date: "2026-06-28",
+        changes: "完成第一批三次固定输入测试，并保留完整原始响应。",
+        status: "deprecated",
+      },
+      {
+        version: "v0.2",
+        date: "2026-06-28",
+        changes: "规范化 API 中文文案并完成第二批三次确认测试；字节级检查确认两批中文响应均正常，进入人工批准队列。",
+        status: "current",
+      },
+    ],
+    promptSlug: "customer-service-reply",
+    relatedPackSlugs: [],
+  },
   {
     id: "case-demo-001",
     slug: "nextjs-hydration-debugging",
@@ -356,7 +492,7 @@ const rawCaseStudies: readonly Omit<CuratedCase, "validation">[] = [
 
 export const caseStudies: readonly CuratedCase[] = rawCaseStudies.map((caseItem) => ({
   ...caseItem,
-  validation: pendingValidation,
+  validation: caseItem.validation ?? pendingValidation,
 }));
 
 export function getCaseStudy(slug: string) {

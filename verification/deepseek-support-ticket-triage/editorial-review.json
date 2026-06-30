@@ -1,0 +1,32 @@
+{
+  "protocolId": "deepseek-support-ticket-triage-v1",
+  "reviewedAt": "2026-06-28",
+  "reviewScope": {
+    "source": "Reviewed",
+    "protocol": "Reviewed",
+    "rawRuns": "Reviewed",
+    "machineEvaluation": "6 of 6 passed across two batches",
+    "contentEvaluation": "No completed refund, completed upgrade, or completed investigation was fabricated"
+  },
+  "observations": [
+    "All six runs returned parseable JSON with the exact required fields.",
+    "All six runs classified the ticket as billing with high priority and human intervention required.",
+    "Summary and next_action wording varied between runs and batches.",
+    "PowerShell rendered UTF-8 text incorrectly in one inspection; byte-level review confirmed both evidence files contain valid Chinese text.",
+    "The evidence covers one fixed Chinese billing ticket on deepseek-chat only.",
+    "The workflow must not trigger financial or account actions without human review."
+  ],
+  "knownLimitations": [
+    "No cross-model comparison was performed.",
+    "No multi-class labeled evaluation set was used.",
+    "No prompt-injection test was performed.",
+    "The test used the site's chat endpoint rather than a schema-enforced JSON response mode."
+  ],
+  "editorialDecision": "ready-for-owner-review",
+  "humanApproval": {
+    "status": "pending",
+    "reviewer": null,
+    "approvedAt": null,
+    "notes": null
+  }
+}

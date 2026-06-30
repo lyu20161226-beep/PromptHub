@@ -1,0 +1,73 @@
+{
+  "protocolId": "deepseek-support-ticket-triage-v1",
+  "generatedAt": "2026-06-28T14:27:17.386Z",
+  "sourceUrl": "https://platform.openai.com/docs/guides/prompt-engineering",
+  "endpoint": "https://prompt-hub-theta-tawny.vercel.app/api/chat",
+  "passedRuns": 3,
+  "totalRuns": 3,
+  "runs": [
+    {
+      "run": 1,
+      "startedAt": "2026-06-28T14:27:09.243Z",
+      "completedAt": "2026-06-28T14:27:12.432Z",
+      "httpStatus": 200,
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "rawReply": "{\"ticket_id\":\"CS-1042\",\"category\":\"billing\",\"priority\":\"high\",\"summary\":\"升级专业版扣款后账户仍为免费版，发票缺失，明早需使用批量导出\",\"next_action\":\"核对扣款记录与账户升级状态，联系支付渠道确认交易并手动升级\",\"needs_human\":true}",
+      "evaluation": {
+        "passed": true,
+        "failures": [],
+        "parsed": {
+          "ticket_id": "CS-1042",
+          "category": "billing",
+          "priority": "high",
+          "summary": "升级专业版扣款后账户仍为免费版，发票缺失，明早需使用批量导出",
+          "next_action": "核对扣款记录与账户升级状态，联系支付渠道确认交易并手动升级",
+          "needs_human": true
+        }
+      }
+    },
+    {
+      "run": 2,
+      "startedAt": "2026-06-28T14:27:12.432Z",
+      "completedAt": "2026-06-28T14:27:15.147Z",
+      "httpStatus": 200,
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "rawReply": "{\"ticket_id\":\"CS-1042\",\"category\":\"billing\",\"priority\":\"high\",\"summary\":\"升级扣款后账号仍显示免费版，发票缺失\",\"next_action\":\"核实支付记录与账户状态，同步更新账户权限并补开发票\",\"needs_human\":true}",
+      "evaluation": {
+        "passed": true,
+        "failures": [],
+        "parsed": {
+          "ticket_id": "CS-1042",
+          "category": "billing",
+          "priority": "high",
+          "summary": "升级扣款后账号仍显示免费版，发票缺失",
+          "next_action": "核实支付记录与账户状态，同步更新账户权限并补开发票",
+          "needs_human": true
+        }
+      }
+    },
+    {
+      "run": 3,
+      "startedAt": "2026-06-28T14:27:15.147Z",
+      "completedAt": "2026-06-28T14:27:17.386Z",
+      "httpStatus": 200,
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "rawReply": "{\"ticket_id\":\"CS-1042\",\"category\":\"billing\",\"priority\":\"high\",\"summary\":\"升级专业版扣款成功但账户仍为免费版，明早需用批量导出\",\"next_action\":\"核对支付记录与账户状态，联系财务确认扣款并手动升级\",\"needs_human\":true}",
+      "evaluation": {
+        "passed": true,
+        "failures": [],
+        "parsed": {
+          "ticket_id": "CS-1042",
+          "category": "billing",
+          "priority": "high",
+          "summary": "升级专业版扣款成功但账户仍为免费版，明早需用批量导出",
+          "next_action": "核对支付记录与账户状态，联系财务确认扣款并手动升级",
+          "needs_human": true
+        }
+      }
+    }
+  ]
+}

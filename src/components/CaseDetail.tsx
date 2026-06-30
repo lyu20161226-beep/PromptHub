@@ -69,6 +69,17 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
                 </div>
               </div>
             ) : null}
+            {caseItem.verificationStatus === "source-linked" ? (
+              <div className="mt-6 rounded-lg border border-blue-200 bg-blue-50 p-4">
+                <div className="flex gap-3">
+                  <Info className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" aria-hidden="true" />
+                  <div>
+                    <p className="font-bold text-blue-950">已有来源与测试记录，尚未获得人工批准</p>
+                    <p className="mt-1 text-sm leading-6 text-blue-900">{caseItem.curatorNote}</p>
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </div>
         </header>
 
@@ -220,7 +231,13 @@ export function CaseDetail({ caseItem }: { caseItem: CuratedCase }) {
               {caseItem.modelComparison.map((item) => (
                 <div className="grid grid-cols-[0.8fr_0.8fr_1.4fr] gap-3 border-b border-zinc-100 px-4 py-4 text-sm last:border-0" key={item.model}>
                   <span className="font-bold text-zinc-950">{item.model}</span>
-                  <span className="text-zinc-600">{item.status === "tested" ? `${item.score ?? "-"} / 5` : "未测试"}</span>
+                  <span className="text-zinc-600">
+                    {item.status === "tested"
+                      ? item.score === null
+                        ? "已测试，未评分"
+                        : `${item.score} / 5`
+                      : "未测试"}
+                  </span>
                   <span className="leading-6 text-zinc-600">{item.note}</span>
                 </div>
               ))}
