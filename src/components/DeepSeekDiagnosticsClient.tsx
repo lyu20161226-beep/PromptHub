@@ -7,7 +7,6 @@ type HealthResult = {
   ok: boolean;
   provider: string;
   model: string;
-  keyPreview: string;
   checks: {
     hasApiKey: boolean;
     keyLooksValid: boolean;
@@ -84,7 +83,7 @@ export function DeepSeekDiagnosticsClient() {
             <p className="text-sm font-semibold text-emerald-700">DeepSeek Diagnostics</p>
             <h1 className="mt-2 text-3xl font-bold text-zinc-950">线上环境变量与接口自检</h1>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-600">
-              这个页面只显示脱敏后的 Key 预览，不会暴露完整 API Key。用它判断问题是在 Vercel 环境变量，还是在 DeepSeek 真实调用。
+              这个页面只显示服务配置状态，不返回 API Key 的任何片段。用它判断问题是在 Vercel 环境变量，还是在 DeepSeek 真实调用。
             </p>
           </div>
           <button
@@ -115,10 +114,6 @@ export function DeepSeekDiagnosticsClient() {
                 <div className="flex justify-between gap-4">
                   <dt className="text-zinc-500">Model</dt>
                   <dd className="font-semibold text-zinc-950">{health.model}</dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-zinc-500">Key Preview</dt>
-                  <dd className="font-semibold text-zinc-950">{health.keyPreview || "未配置"}</dd>
                 </div>
               </dl>
               <pre className="mt-4 whitespace-pre-wrap rounded-md bg-white p-3 text-sm leading-6 text-zinc-700">{health.message}</pre>

@@ -1,4 +1,11 @@
 import { NextResponse } from "next/server";
+import {
+  acquireAiRequestSlot,
+  guardAiRequest,
+  readLimitedJson,
+  upstreamSignal,
+  withRateLimitHeaders,
+} from "@/lib/api-security";
 import { formatDeepSeekError, resolveDeepSeekConfig, validateDeepSeekApiKey, validateDeepSeekModel } from "@/lib/deepseek";
 
 type RunRequest = {
@@ -39,25 +46,14 @@ function fallbackResult(finalPrompt: string) {
   ].join("\n");
 }
 
-async function parseRunRequest(request: Request): Promise<RunRequest> {
-  const rawBody = await request.text();
-
-  if (!rawBody.trim()) {
-    throw new Error("请求体为空，请刷新页面后重试。");
-  }
-
-  try {
-    return JSON.parse(rawBody) as RunRequest;
-  } catch {
-    throw new Error("请求格式不是有效 JSON，请刷新页面后重试。");
-  }
-}
-
 export async function POST(request: Request) {
+  const guard = await guardAiRequest(request);
+  if (!guard.ok) return guard.response;
+
   let body: RunRequest;
 
   try {
-    body = await parseRunRequest(request);
+    body = await readLimitedJson<RunRequest>(request);
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : "请求解析失败" }, { status: 400 });
   }
@@ -68,12 +64,31 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "缺少 prompt 模板，请刷新页面后重试。" }, { status: 400 });
   }
 
+  if (template.length > 8_000) {
+    return NextResponse.json({ error: "Prompt 模板不能超过 8000 个字符。" }, { status: 413 });
+  }
+
+  const variableEntries = Object.entries(body.variables ?? {});
+  if (variableEntries.length > 30) {
+    return NextResponse.json({ error: "变量数量不能超过 30 个。" }, { status: 413 });
+  }
+
+  if (variableEntries.some(([key, value]) => key.length > 100 || String(value ?? "").length > 2_000)) {
+    return NextResponse.json({ error: "变量名称或内容过长。" }, { status: 413 });
+  }
+
   const variables = normalizeVariables(body.variables);
   const finalPrompt = fillTemplate(template, variables);
+  if (finalPrompt.length > 12_000) {
+    return NextResponse.json({ error: "合并后的 Prompt 不能超过 12000 个字符。" }, { status: 413 });
+  }
   const { apiKey, model, warning } = resolveDeepSeekConfig(process.env);
 
   if (!apiKey) {
-    return NextResponse.json({ result: fallbackResult(finalPrompt), finalPrompt, provider: "mock" });
+    return withRateLimitHeaders(
+      NextResponse.json({ result: fallbackResult(finalPrompt), finalPrompt, provider: "mock" }),
+      guard.rateLimit,
+    );
   }
 
   const apiKeyError = validateDeepSeekApiKey(apiKey);
@@ -88,6 +103,11 @@ export async function POST(request: Request) {
   }
 
   let response: Response;
+  const release = acquireAiRequestSlot();
+
+  if (!release) {
+    return NextResponse.json({ error: "当前请求较多，请稍后再试。" }, { status: 503 });
+  }
 
   try {
     response = await fetch("https://api.deepseek.com/chat/completions", {
@@ -109,10 +129,13 @@ export async function POST(request: Request) {
           }
         ],
         temperature: 0.7
-      })
+      }),
+      signal: upstreamSignal(),
     });
   } catch {
     return NextResponse.json({ error: "无法连接 DeepSeek API，请检查 Vercel 网络或稍后重试。" }, { status: 502 });
+  } finally {
+    release();
   }
 
   if (!response.ok) {
@@ -127,7 +150,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "DeepSeek 未返回有效内容，请稍后重试。" }, { status: 502 });
     }
 
-    return NextResponse.json({ result, finalPrompt, provider: "deepseek", model, warning });
+    return withRateLimitHeaders(
+      NextResponse.json({ result, finalPrompt, provider: "deepseek", model, warning }),
+      guard.rateLimit,
+    );
   } catch {
     return NextResponse.json({ error: "DeepSeek 返回内容解析失败，请稍后重试。" }, { status: 502 });
   }

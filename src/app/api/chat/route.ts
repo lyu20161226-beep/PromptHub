@@ -1,5 +1,12 @@
 import { NextResponse } from "next/server";
 import {
+  acquireAiRequestSlot,
+  guardAiRequest,
+  readLimitedJson,
+  upstreamSignal,
+  withRateLimitHeaders,
+} from "@/lib/api-security";
+import {
   formatDeepSeekError,
   resolveDeepSeekConfig,
   validateDeepSeekApiKey,
@@ -18,25 +25,14 @@ type DeepSeekResponse = {
   }>;
 };
 
-async function parseChatRequest(request: Request): Promise<ChatRequest> {
-  const rawBody = await request.text();
-
-  if (!rawBody.trim()) {
-    throw new Error("请求体为空，请输入 message 后重试。");
-  }
-
-  try {
-    return JSON.parse(rawBody) as ChatRequest;
-  } catch {
-    throw new Error("请求格式不是有效 JSON，请刷新页面后重试。");
-  }
-}
-
 export async function POST(request: Request) {
+  const guard = await guardAiRequest(request);
+  if (!guard.ok) return guard.response;
+
   let body: ChatRequest;
 
   try {
-    body = await parseChatRequest(request);
+    body = await readLimitedJson<ChatRequest>(request);
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "请求解析失败" },
@@ -53,6 +49,10 @@ export async function POST(request: Request) {
     );
   }
 
+  if (message.length > 8_000) {
+    return NextResponse.json({ error: "消息不能超过 8000 个字符。" }, { status: 413 });
+  }
+
   const { apiKey, model, warning } = resolveDeepSeekConfig(process.env);
   const apiKeyError = validateDeepSeekApiKey(apiKey);
   const modelError = validateDeepSeekModel(model);
@@ -66,6 +66,11 @@ export async function POST(request: Request) {
   }
 
   let response: Response;
+  const release = acquireAiRequestSlot();
+
+  if (!release) {
+    return NextResponse.json({ error: "当前请求较多，请稍后再试。" }, { status: 503 });
+  }
 
   try {
     response = await fetch("https://api.deepseek.com/chat/completions", {
@@ -88,12 +93,15 @@ export async function POST(request: Request) {
         ],
         temperature: 0.7,
       }),
+      signal: upstreamSignal(),
     });
   } catch {
     return NextResponse.json(
       { error: "无法连接 DeepSeek API，请检查网络或稍后重试。" },
       { status: 502 },
     );
+  } finally {
+    release();
   }
 
   if (!response.ok) {
@@ -114,7 +122,10 @@ export async function POST(request: Request) {
       );
     }
 
-    return NextResponse.json({ reply, provider: "deepseek", model, warning });
+    return withRateLimitHeaders(
+      NextResponse.json({ reply, provider: "deepseek", model, warning }),
+      guard.rateLimit,
+    );
   } catch {
     return NextResponse.json(
       { error: "DeepSeek 返回内容解析失败，请稍后重试。" },
