@@ -24,6 +24,7 @@ export function PackCard({ pack, compact = false }: { pack: WorkflowPack; compac
       </div>
       <p className="mt-5 text-xs font-semibold text-emerald-700">{pack.audience}</p>
       <h3 className="mt-2 text-xl font-bold text-zinc-950">{pack.title}</h3>
+      <p className="mt-3 text-sm font-bold leading-6 text-emerald-700">{pack.promise}</p>
       <p className="mt-3 text-sm leading-6 text-zinc-600">{pack.description}</p>
       {!compact && (
         <ul className="mt-5 space-y-2 border-t border-zinc-100 pt-5">

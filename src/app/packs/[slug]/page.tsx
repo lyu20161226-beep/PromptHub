@@ -5,15 +5,15 @@ import type { ReactNode } from "react";
 import {
   ArrowLeft,
   ArrowRight,
+  Bot,
   CheckCircle2,
-  Clock,
+  CircleAlert,
+  ClipboardList,
   FileOutput,
   GitBranch,
   Layers3,
   ShieldCheck,
   Sparkles,
-  Star,
-  Users
 } from "lucide-react";
 import { CaseCard } from "@/components/CaseCard";
 import { PackInterestButton } from "@/components/PackInterestButton";
@@ -117,10 +117,19 @@ export default async function PackDetailPage({ params }: PackPageProps) {
 
       <section className="py-10">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">
-          <MetricCard icon={<Clock className="h-5 w-5" />} label="传统方式" value={deepDive.roi.traditional} />
-          <MetricCard icon={<Sparkles className="h-5 w-5" />} label="使用 Pack 后" value={deepDive.roi.withPack} />
-          <MetricCard icon={<Star className="h-5 w-5" />} label="效率提升" value={deepDive.roi.saved} />
-          <MetricCard icon={<Users className="h-5 w-5" />} label="适合人群" value={pack.audience} />
+          <OverviewCard icon={<ClipboardList className="h-5 w-5" />} items={deepDive.requiredInputs} label="使用前准备" />
+          <OverviewCard icon={<Sparkles className="h-5 w-5" />} items={deepDive.expectedBenefits} label="预期收益" />
+          <OverviewCard
+            icon={<Bot className="h-5 w-5" />}
+            items={deepDive.recommendedModels.map(
+              (item) =>
+                `${item.model}：${item.fit}（${
+                  item.status === "recommended" ? "已测试推荐" : item.status === "compatible" ? "结构兼容" : "未测试"
+                }）`,
+            )}
+            label="模型建议"
+          />
+          <OverviewCard icon={<ShieldCheck className="h-5 w-5" />} items={[deepDive.evidenceNote]} label="证据边界" />
         </div>
       </section>
 
@@ -138,7 +147,7 @@ export default async function PackDetailPage({ params }: PackPageProps) {
             </div>
             <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-5">
               <p className="font-bold text-zinc-950">不适合谁</p>
-              <p className="mt-2 text-sm leading-6 text-zinc-600">只想收藏 Prompt、不愿填写真实业务信息，也不准备根据结果继续迭代的人。</p>
+              <p className="mt-2 text-sm leading-6 text-zinc-600">{deepDive.limitations.join(" ")}</p>
             </div>
           </div>
         </div>
@@ -245,14 +254,28 @@ export default async function PackDetailPage({ params }: PackPageProps) {
       </section>
 
       <section className="py-12">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
           <div className="rounded-lg border border-zinc-200 bg-white p-6">
             <div className="flex items-center gap-2">
-              <ShieldCheck className="h-5 w-5 text-emerald-600" aria-hidden="true" />
+              <CircleAlert className="h-5 w-5 text-emerald-600" aria-hidden="true" />
               <h2 className="text-2xl font-bold text-zinc-950">常见错误</h2>
             </div>
             <ul className="mt-5 space-y-3">
               {deepDive.mistakes.map((item) => (
+                <li className="text-sm leading-6 text-zinc-600" key={item}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-lg border border-zinc-200 bg-white p-6">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-5 w-5 text-emerald-600" aria-hidden="true" />
+              <h2 className="text-2xl font-bold text-zinc-950">使用边界</h2>
+            </div>
+            <ul className="mt-5 space-y-3">
+              {deepDive.limitations.map((item) => (
                 <li className="text-sm leading-6 text-zinc-600" key={item}>
                   {item}
                 </li>
@@ -333,12 +356,18 @@ export default async function PackDetailPage({ params }: PackPageProps) {
   );
 }
 
-function MetricCard({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
+function OverviewCard({ icon, items, label }: { icon: ReactNode; items: readonly string[]; label: string }) {
   return (
     <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
       <div className="text-emerald-600">{icon}</div>
       <h2 className="mt-3 font-bold text-zinc-950">{label}</h2>
-      <p className="mt-2 text-sm leading-6 text-zinc-600">{value}</p>
+      <ul className="mt-3 space-y-2">
+        {items.map((item) => (
+          <li className="text-sm leading-6 text-zinc-600" key={item}>
+            {item}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
