@@ -55,7 +55,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold text-emerald-700">商业路径</p><h2 className="mt-2 text-3xl font-bold text-zinc-950">先证明有用，再逐步收费</h2>
           <ol className="mt-8 grid gap-0 border-y border-zinc-200 md:grid-cols-3 md:divide-x md:divide-zinc-200">{[
-            ["01", "免费验证", "开放 Top10、实测案例和 SEO 页面，用真实浏览、复制与反馈决定保留内容。"],
+            ["01", "免费验证", "开放精选工作流、验证记录和 SEO 页面，用真实浏览、复制与反馈决定保留内容。"],
             ["02", "一次性工作流包", "以 9.9–49 元提供垂直合集，让用户为完整方法付费，而不是为一句 Prompt 付费。"],
             ["03", "验证后再考虑订阅", "只有持续更新和高级教程被证明有需求时，才评估会员订阅，不提前建设复杂系统。"]
           ].map(([number, title, description]) => <li className="py-6 md:px-7" key={number}><span className="text-sm font-bold text-emerald-700">{number}</span><h3 className="mt-2 text-xl font-bold text-zinc-950">{title}</h3><p className="mt-3 text-sm leading-7 text-zinc-600">{description}</p></li>)}</ol>

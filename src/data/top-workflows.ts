@@ -2,6 +2,26 @@ export const topWorkflowDefinitions = [
   {
     promptId: "coding-002",
     tier: "S",
+    editorial: {
+      status: "unverified",
+      reviewedAt: "2026-07-01",
+      evidenceNote: "当前 Next.js 案例用于展示诊断结构，尚未完成固定输入下的三次重复测试，不宣称节省具体时间。",
+      audience: ["前端开发", "后端开发", "全栈开发", "AI 应用开发"],
+      requiredInputs: ["完整错误日志", "框架与运行时版本", "稳定复现步骤", "最近一次相关改动"],
+      expectedOutputs: ["按证据排序的根因假设", "每个假设的最小验证方法", "最小修复方案", "风险与回归测试清单"],
+      limitations: ["日志或复现步骤不完整时只能形成假设。", "不能替代生产权限、监控数据和人工代码审查。", "高风险修复必须先在隔离环境验证。"],
+      modelAssessments: [
+        { model: "DeepSeek", fit: "中文日志梳理与假设生成", status: "not-tested" },
+        { model: "ChatGPT", fit: "复杂调用链分析", status: "not-tested" },
+        { model: "Claude", fit: "长代码与日志解释", status: "not-tested" }
+      ],
+      faq: [
+        { question: "日志太长怎么办？", answer: "先保留错误前后时间线、首个异常和相关调用链；不要只截取最后一行。" },
+        { question: "为什么不直接让 AI 重写代码？", answer: "大范围重写会同时改变多个变量，无法证明哪项修改真正解决了根因。" },
+        { question: "什么时候应该停止使用这个 Workflow？", answer: "涉及生产数据破坏、安全事件或无法回滚的变更时，应立即升级给有权限的人工负责人。" }
+      ],
+      relatedCaseSlug: "nextjs-hydration-debugging"
+    },
     problem: "遇到报错时只盯着最后一行日志，反复改代码却无法证明根因，容易制造新的问题。",
     solution: "先把现象、环境和复现步骤固定下来，再按概率建立假设，用最小实验逐个排除，最后只修改被证据支持的根因。",
     steps: ["固定环境与复现步骤", "提取关键日志和时间线", "按概率列出最多5个假设", "为每个假设设计最小验证", "实施最小修复", "补充回归与预防测试"],

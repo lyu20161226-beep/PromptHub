@@ -22,8 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   ];
 
-  const promptPages: MetadataRoute.Sitemap = topWorkflowPrompts.map((prompt) => ({
-    url: `${siteUrl}/prompts/${prompt.slug}`,
+  const workflowPages: MetadataRoute.Sitemap = topWorkflowPrompts.map((prompt) => ({
+    url: `${siteUrl}/workflows/${prompt.slug}`,
     lastModified,
     changeFrequency: "monthly",
     priority: 0.8
@@ -45,5 +45,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8
   }));
 
-  return [...corePages, ...packPages, ...casePages, ...promptPages];
+  return [...corePages, ...packPages, ...casePages, ...workflowPages];
 }

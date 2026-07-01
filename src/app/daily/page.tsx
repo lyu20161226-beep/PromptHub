@@ -142,7 +142,7 @@ export default function DailyPage() {
               <FavoriteButton slug={prompt.slug} />
               <Link
                 className="inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-md border border-zinc-300 px-4 text-sm font-bold text-zinc-700 hover:border-emerald-500 hover:text-emerald-700"
-                href={`/prompts/${prompt.slug}`}
+                href={prompt.workflow ? `/workflows/${prompt.slug}` : `/prompts/${prompt.slug}`}
               >
                 学习完整工作流 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>

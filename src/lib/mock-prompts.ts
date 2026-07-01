@@ -26,6 +26,25 @@ export type MockPrompt = {
 
 export type WorkflowDetails = {
   tier: "S" | "A";
+  editorial?: {
+    status: "verified" | "source-linked" | "unverified";
+    reviewedAt: string;
+    evidenceNote: string;
+    audience: readonly string[];
+    requiredInputs: readonly string[];
+    expectedOutputs: readonly string[];
+    limitations: readonly string[];
+    modelAssessments: readonly {
+      model: string;
+      fit: string;
+      status: "tested" | "compatible" | "not-tested";
+    }[];
+    faq: readonly {
+      question: string;
+      answer: string;
+    }[];
+    relatedCaseSlug?: string;
+  };
   problem: string;
   solution: string;
   steps: readonly string[];
