@@ -89,7 +89,7 @@ export default async function PackDetailPage({ params }: PackPageProps) {
                 </Link>
                 <div className="min-w-48">
                   <PackInterestButton
-                    label="获取完整 Pack"
+                    label="免费加入等待名单"
                     packSlug={pack.slug}
                     packTitle={pack.title}
                     source="pack-detail-hero"
@@ -101,7 +101,7 @@ export default async function PackDetailPage({ params }: PackPageProps) {
             <aside className="rounded-lg border border-zinc-200 bg-zinc-50 p-5 shadow-sm">
               <p className="text-sm font-semibold text-zinc-500">一次性验证价</p>
               <p className="mt-1 text-4xl font-bold text-zinc-950">¥{pack.price}</p>
-              <p className="mt-3 text-sm leading-6 text-zinc-600">当前先验证付费意向，不收取费用。留下邮箱后，上线时会优先通知。</p>
+              <p className="mt-3 text-sm leading-6 text-zinc-600">正在制作完整 AI Playbook。加入等待名单后，可优先获得内测邀请、内容反馈机会和早鸟通知。</p>
               <ul className="mt-5 space-y-2">
                 {pack.includes.slice(0, 4).map((item) => (
                   <li className="flex gap-2 text-sm leading-6 text-zinc-700" key={item}>
@@ -324,12 +324,17 @@ export default async function PackDetailPage({ params }: PackPageProps) {
           </div>
 
           <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-6">
-            <p className="text-sm font-bold uppercase tracking-wide text-emerald-700">完整 Pack</p>
-            <h2 className="mt-2 text-2xl font-bold text-zinc-950">解锁全部 Workflow、模板和检查清单</h2>
-            <p className="mt-3 text-sm leading-6 text-zinc-700">当前不接支付。留下邮箱，就能帮助我们判断这个 Pack 是否值得优先上线。</p>
+            <p className="text-sm font-bold uppercase tracking-wide text-emerald-700">完整 AI Playbook</p>
+            <h2 className="mt-2 text-2xl font-bold text-zinc-950">继续完成 Workflow、模板与检查清单</h2>
+            <p className="mt-3 text-sm leading-6 text-zinc-700">这是一个正在制作中的 AI Playbook。加入等待名单，开放时将优先邀请你体验。</p>
+            <ul className="mt-4 space-y-2 text-sm text-zinc-700">
+              <li>✓ 优先获得内测体验资格</li>
+              <li>✓ 参与内容反馈与共创</li>
+              <li>✓ 接收首发与早鸟通知</li>
+            </ul>
             <div className="mt-5">
               <PackInterestButton
-                label="获取完整 Pack"
+                label="免费加入等待名单"
                 packSlug={pack.slug}
                 packTitle={pack.title}
                 source="pack-detail-preview"

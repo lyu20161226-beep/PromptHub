@@ -6,15 +6,29 @@ Every Codex task must begin by reading this file. Product code must not be chang
 
 ## Mission
 
-Build the world's most trusted AI Workflow Reference.
+Build the most trusted AI Best Practices Platform.
 
-We are not building a Prompt Library. We are building a premium knowledge platform that helps people discover verified AI workflows that actually work.
+PromptHub combines a free curated Prompt Library, practical AI Workflows, paid AI Playbooks, and reusable Toolkits. Each layer helps the user move from discovering a useful Prompt to completing real work.
 
 ## Product Position
 
-PromptHub is an AI Workflow Reference.
+PromptHub is an AI Best Practices Platform.
 
-Its value is not the number of prompts it stores. Its value is the quality of its editorial judgment, evidence, structure, reproducibility, and maintenance.
+Its product ladder is:
+
+Free Prompt Library
+
+→ Curated Collections
+
+→ AI Workflows
+
+→ Premium AI Playbooks
+
+→ Reusable Toolkits
+
+The Prompt Library creates useful search entry points. Workflows teach complete methods. Playbooks package proven solutions. Toolkits help users execute them.
+
+Its value is not the number of prompts it stores. Its value is the quality of its editorial judgment, evidence, structure, reproducibility, and maintenance across the entire ladder.
 
 Users should visit PromptHub because they trust its recommendations.
 
@@ -24,7 +38,11 @@ Our editorial position is:
 
 Our promise is:
 
-> We verify AI workflows, not just collect prompts.
+> Discover verified prompts. Master complete workflows. Build with AI.
+
+Our Chinese promise is:
+
+> 发现经过验证的 Prompt，掌握完整工作流，用 AI 完成真实工作。
 
 ## Product Philosophy
 
@@ -51,7 +69,7 @@ Prefer removing unnecessary complexity over adding another surface. A smaller pr
 
 ### 2. Workflow First
 
-A Prompt is never the final product. Every Prompt must belong to a Workflow.
+A Prompt can be a free entry point, but it is not the end of the product journey. High-value Prompts should lead to a Workflow, and mature Workflows may become Playbooks with reusable assets.
 
 Every Workflow must explain:
 
@@ -67,6 +85,21 @@ Every Workflow must explain:
 - Why it works
 - Failure cases
 - Alternatives
+
+Every Playbook must include:
+
+- Introduction
+- When to use
+- Complete Workflow
+- Prompts
+- Examples
+- Assets
+- Checklist
+- Deliverables
+- FAQ
+- Changelog
+
+Every Toolkit asset must support a concrete Playbook step. Do not add decorative downloads merely to increase perceived value.
 
 ### 3. Trust Before Scale
 
@@ -183,12 +216,14 @@ Do not default to asking:
 ### Before Writing Code
 
 1. Read `PRODUCT_BIBLE.md`.
-2. Audit the current implementation.
-3. Explain the user and product problem.
-4. Identify weaknesses and technical constraints.
-5. Rank options by ROI.
-6. Propose one focused architecture.
-7. Wait for approval when the task is still exploratory or strategic.
+2. Read `PROMPTHUB_WORKFLOW_STANDARD.md` for Workflow content work.
+3. Read `PROMPTHUB_ITERATION_SYSTEM.md`.
+4. Audit the current implementation.
+5. Explain the user and product problem.
+6. Identify weaknesses and technical constraints.
+7. Rank options by ROI.
+8. Propose one focused architecture.
+9. Wait for approval when the task is still exploratory or strategic.
 
 Never skip the audit and architecture review for substantial changes.
 
@@ -268,6 +303,100 @@ Do not work from an unprioritized feature list.
 - Enterprise Workflow reference pages
 
 Only start the next phase when the previous phase has real content and evidence, not merely UI.
+
+## Long-Term Product Ladder
+
+### Free
+
+- Curated Prompt Library
+- Collections and best-practice guides
+- Selected Workflows
+- SEO reference pages
+- Newsletter when a sustainable editorial cadence exists
+
+### Paid
+
+- Complete AI Playbooks
+- Workflow Packs
+- Industry guides
+- Reusable Toolkits
+- Premium templates and checklists
+
+### Enterprise
+
+- Team Workflow knowledge base
+- Governance and review controls
+- API access to maintained best practices
+
+Commercialization must be built on trust. A Playbook cannot be sold as verified unless its underlying Workflow evidence supports that claim.
+
+## Commercial Architecture
+
+Knowledge products and metered AI services are separate businesses inside one product.
+
+### Knowledge Products
+
+- Prompts
+- Workflows
+- Playbooks
+- Toolkits
+
+These are static or pre-produced assets with low marginal delivery cost. Their price should reflect user value, evidence quality, completeness, maintenance, and support rather than API usage.
+
+### Metered AI Services
+
+- AI Assistant
+- Prompt execution
+- Generated outputs
+- Future model-powered transformations
+
+These consume provider capacity and must use finite Credits or explicit quotas. Do not offer unlimited AI usage.
+
+Every generation must have:
+
+- A defined Credit cost
+- A server-side usage record
+- Input and output limits
+- Rate limits
+- A monthly or purchase quota
+- A cost kill switch
+- Clear behavior when Credits are exhausted
+
+### Pricing Principles
+
+Candidate price bands may be tested, but must not be treated as permanent facts before real demand and cost data exist.
+
+Before launching a price:
+
+1. Measure average input tokens.
+2. Measure average output tokens.
+3. Calculate provider cost per successful generation.
+4. Include failed calls, retries, payment fees, refunds, taxes, support, and abuse.
+5. Apply a documented safety multiplier.
+6. Confirm positive contribution margin under heavy-user behavior.
+7. Run a small pricing experiment.
+
+The minimum pricing formula is:
+
+> Price ≥ API cost × safety multiplier + payment fees + refund allowance + operating cost
+
+Never use “unlimited” when the underlying service has variable cost.
+
+### Provider Disclosure
+
+The home page sells the user outcome, not the API vendor.
+
+Do not use “Powered by DeepSeek” as the primary value proposition. However, never imply that GPT, Claude, Gemini, or another model produced an answer when the service used DeepSeek.
+
+The active provider and model must remain transparent in:
+
+- AI feature details
+- Applicable privacy disclosures
+- Terms governing generated content
+- Usage or diagnostics information
+- API responses and internal usage records
+
+Marketing can describe the capability generically as “AI Assistant.” Model-specific claims require actual model support and testing.
 
 ## Current Quarter Goal
 
@@ -532,9 +661,9 @@ A Sprint is complete only when:
 
 ## Permanent Instruction For Codex
 
-Act as PromptHub's Lead Product Engineer, Staff Software Architect, UX Designer, SEO Specialist, and AI Workflow Curator.
+Act as PromptHub's Lead Product Engineer, Staff Software Architect, UX Designer, SEO Specialist, and AI Best Practices Editor.
 
-Build the world's most trusted AI Workflow Reference.
+Build the most trusted AI Best Practices Platform: a free curated Prompt Library, practical Workflows, premium Playbooks, and reusable Toolkits.
 
 Before implementing:
 

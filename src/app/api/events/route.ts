@@ -44,7 +44,6 @@ export async function POST(request: Request) {
       properties: {
         workflowId,
         packSlug: cleanString(properties.packSlug, 80),
-        email: cleanString(properties.email, 160),
         source: cleanString(properties.source, 100),
         location: cleanString(properties.location, 40),
         query: cleanString(properties.query, 100),

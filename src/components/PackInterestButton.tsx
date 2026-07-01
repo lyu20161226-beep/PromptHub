@@ -23,6 +23,8 @@ export function PackInterestButton({
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   function openModal() {
     setOpen(true);
@@ -34,13 +36,29 @@ export function PackInterestButton({
     const cleanEmail = email.trim();
     if (!cleanEmail) return;
 
-    await recordValidationEvent("pack_email_submit", {
-      packSlug,
-      email: cleanEmail,
-      source
-    });
+    setSubmitting(true);
+    setError("");
 
-    setSubmitted(true);
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email: cleanEmail, packSlug, source })
+      });
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        setError(result.error ?? "提交失败，请稍后再试。");
+        return;
+      }
+
+      await recordValidationEvent("pack_email_submit", { packSlug, source });
+      setSubmitted(true);
+    } catch {
+      setError("网络连接失败，请稍后再试。");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -60,11 +78,11 @@ export function PackInterestButton({
 
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/60 px-4">
-          <div className="w-full max-w-md rounded-lg bg-white p-5 shadow-xl">
+          <div aria-labelledby="waitlist-title" aria-modal="true" className="w-full max-w-md rounded-lg bg-white p-5 shadow-xl" role="dialog">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold text-emerald-700">首发通知</p>
-                <h2 className="mt-1 text-xl font-bold text-zinc-950">{packTitle}</h2>
+                <p className="text-sm font-semibold text-emerald-700">AI Playbook 内测计划</p>
+                <h2 className="mt-1 text-xl font-bold text-zinc-950" id="waitlist-title">{packTitle}</h2>
               </div>
               <button aria-label="关闭" className="rounded-md p-2 text-zinc-500 hover:bg-zinc-100" onClick={() => setOpen(false)} type="button">
                 <X className="h-4 w-4" aria-hidden="true" />
@@ -73,8 +91,8 @@ export function PackInterestButton({
 
             {submitted ? (
               <div className="mt-5 rounded-md border border-emerald-200 bg-emerald-50 p-4">
-                <p className="font-bold text-emerald-900">已记录，Pack 上线后会优先通知你。</p>
-                <p className="mt-2 text-sm leading-6 text-emerald-800">这次提交会用于判断哪个 Pack 值得优先完善和开放购买。</p>
+                <p className="font-bold text-emerald-900">已加入等待名单。</p>
+                <p className="mt-2 text-sm leading-6 text-emerald-800">Playbook 开放内测时，我们会优先发送体验邀请和首发通知。</p>
               </div>
             ) : (
               <form className="mt-5" onSubmit={submitEmail}>
@@ -89,10 +107,11 @@ export function PackInterestButton({
                     value={email}
                   />
                 </label>
-                <button className="mt-4 min-h-11 w-full rounded-md bg-zinc-950 px-4 text-sm font-bold text-white hover:bg-emerald-700" type="submit">
-                  提交并接收首发通知
+                {error && <p aria-live="polite" className="mt-3 text-sm font-medium text-rose-700">{error}</p>}
+                <button className="mt-4 min-h-11 w-full rounded-md bg-zinc-950 px-4 text-sm font-bold text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-zinc-400" disabled={submitting} type="submit">
+                  {submitting ? "正在提交..." : "免费加入等待名单"}
                 </button>
-                <p className="mt-3 text-xs leading-5 text-zinc-500">当前不收取费用，只记录购买意向，不会向你发送无关邮件。</p>
+                <p className="mt-3 text-xs leading-5 text-zinc-500">邮箱仅用于该 Playbook 的内测、首发和早鸟通知，记录最多保留 12 个月，不会用于无关推广。</p>
               </form>
             )}
           </div>
